@@ -1,0 +1,21 @@
+{
+  "id": "2026-06-pocztowy-konto-moneyback-960",
+  "url": "https://www.bankobranie.pl/2026/06/pocztowy-promocja-konta.html",
+  "plik": "promocje/2026-06-pocztowy-konto-moneyback-960.md",
+  "bank": "Bank Pocztowy",
+  "produkt": "Konto w Porządku / Konto w Porządku Start",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 960,
+  "data_publikacji": "2026-06-01",
+  "data_koniec_przystapienia": "2026-08-31",
+  "okres_warunkow_mies": 12,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:960|2026-08-31|12",
+  "tagi": [
+    "bank_pocztowy",
+    "pocztowy",
+    "konto_osobiste",
+    "moneyback"
+  ]
+}

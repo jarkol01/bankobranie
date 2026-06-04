@@ -1,0 +1,21 @@
+{
+  "id": "2026-06-alior-konto-oszcz-start-5proc",
+  "url": "https://www.bankobranie.pl/2026/06/alior-bank-konto-oszczednosciowe-na-start-9-edycja.html",
+  "plik": "promocje/2026-06-alior-konto-oszcz-start-5proc.md",
+  "bank": "Alior Bank",
+  "produkt": "Konto Oszczednosciowe na Start (9. edycja)",
+  "typ": "konto_oszczednosciowe",
+  "status": "aktywna",
+  "premia_total": null,
+  "data_publikacji": "2026-06-02",
+  "data_koniec_przystapienia": "2026-07-30",
+  "okres_warunkow_mies": 3,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:x|2026-07-30|3",
+  "tagi": [
+    "alior_bank",
+    "alior",
+    "konto_oszczednosciowe",
+    "oprocentowanie"
+  ]
+}

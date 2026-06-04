@@ -1,0 +1,20 @@
+{
+  "id": "2026-05-bnp-podroznik-700",
+  "url": "https://www.bankobranie.pl/2026/05/bnp-paribas-podroznik-edycja-1.html",
+  "plik": "promocje/2026-05-bnp-podroznik-700.md",
+  "bank": "BNP Paribas",
+  "produkt": "Konto Otwarte na Ciebie z Kartą Otwartą na Świat (promocja \"Podróżnik - edycja 1\")",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 700,
+  "data_publikacji": "2026-05-26",
+  "data_koniec_przystapienia": "2026-08-31",
+  "okres_warunkow_mies": 12,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:700|2026-08-31|12",
+  "tagi": [
+    "bnp_paribas",
+    "bnp-paribas",
+    "konto_osobiste"
+  ]
+}

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bankobranie — Tracker planu</title>
+<style>
+  :root{
+    --bg:#0f1419; --panel:#1a212b; --panel2:#222c38; --line:#2c3947;
+    --txt:#e6edf3; --mut:#8b9bb0; --acc:#3fb950; --acc2:#58a6ff;
+    --warn:#e3b341; --bad:#f85149; --chip:#2c3947;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    line-height:1.5;font-size:15px}
+  a{color:var(--acc2)}
+  .wrap{max-width:1100px;margin:0 auto;padding:16px}
+  header.top{display:flex;flex-wrap:wrap;align-items:center;gap:12px;
+    padding:18px 0 6px}
+  header.top h1{font-size:22px;margin:0;flex:1}
+  .muted{color:var(--mut)}
+  .summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:10px;margin:14px 0}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .stat .big{font-size:24px;font-weight:700}
+  .stat .lbl{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+  nav.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 18px;position:sticky;top:0;
+    background:var(--bg);padding:8px 0;z-index:5;border-bottom:1px solid var(--line)}
+  nav.tabs button{background:var(--panel);color:var(--txt);border:1px solid var(--line);
+    padding:8px 14px;border-radius:999px;cursor:pointer;font-size:14px}
+  nav.tabs button.active{background:var(--acc2);color:#08111f;border-color:var(--acc2);font-weight:600}
+  section{display:none}
+  section.active{display:block;animation:fade .2s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  h2{font-size:18px;margin:20px 0 10px;border-left:3px solid var(--acc);padding-left:10px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:16px;margin:12px 0}
+  .card.done{border-color:var(--acc)}
+  .card h3{margin:0 0 4px;font-size:17px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .pill{font-size:11px;padding:2px 9px;border-radius:999px;background:var(--chip);color:var(--mut);
+    font-weight:600;white-space:nowrap}
+  .pill.cash{background:#10331c;color:var(--acc)}
+  .pill.warn{background:#3a3010;color:var(--warn)}
+  .pill.bad{background:#3a1414;color:var(--bad)}
+  .pill.wait{background:#26313f;color:var(--mut)}
+  .pill.mile{background:#1c2740;color:var(--acc2)}
+  table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+  .bar{height:7px;background:var(--line);border-radius:999px;overflow:hidden;margin-top:8px}
+  .bar > span{display:block;height:100%;background:var(--acc);width:0;transition:width .3s}
+  .conds{list-style:none;padding:0;margin:10px 0 0}
+  .conds li{display:flex;gap:10px;align-items:flex-start;padding:6px 0}
+  .conds input{margin-top:3px;width:17px;height:17px;accent-color:var(--acc);flex:none}
+  .conds li.checked label{color:var(--mut);text-decoration:line-through}
+  .sub{color:var(--mut);font-size:13px;margin:6px 0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+  .kv{background:var(--panel2);border-radius:8px;padding:8px 10px;font-size:13px}
+  .kv b{display:block;color:var(--mut);font-size:11px;text-transform:uppercase;font-weight:600}
+  .month{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin:10px 0;overflow:hidden}
+  .month > summary{padding:14px 16px;cursor:pointer;font-weight:700;font-size:16px;
+    display:flex;justify-content:space-between;align-items:center;list-style:none}
+  .month > summary::-webkit-details-marker{display:none}
+  .month[open] > summary{border-bottom:1px solid var(--line)}
+  .month .body{padding:14px 16px}
+  .row{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14px}
+  .row:last-child{border:0}
+  .row .tag{flex:none;width:96px;font-weight:600;color:var(--acc2)}
+  .row.spend .tag{color:var(--warn)}
+  .row.collect .tag{color:var(--acc)}
+  .warnbox{background:#1f1a0b;border:1px solid #3a3010;border-radius:10px;padding:6px 12px;margin:6px 0;font-size:14px}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .btn{background:var(--panel2);color:var(--txt);border:1px solid var(--line);
+    padding:7px 12px;border-radius:8px;cursor:pointer;font-size:13px}
+  .btn:hover{border-color:var(--acc2)}
+  .foot{color:var(--mut);font-size:12px;text-align:center;margin:30px 0 10px}
+  code{background:var(--panel2);padding:1px 6px;border-radius:5px;font-size:13px}
+  @media(max-width:560px){.grid2{grid-template-columns:1fr}.row .tag{width:74px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>🏦 Bankobranie — Tracker planu</h1>
+    <span class="muted" id="today"></span>
+  </header>
+
+  <div class="summary">
+    <div class="stat"><div class="big" id="s-cash">—</div><div class="lbl">Pula gotówki</div></div>
+    <div class="stat"><div class="big" id="s-got">—</div><div class="lbl">Już odebrane</div></div>
+    <div class="stat"><div class="big" id="s-prog">0%</div><div class="lbl">Postęp warunków</div></div>
+    <div class="stat"><div class="big" id="s-next">—</div><div class="lbl">Najbliższy deadline</div></div>
+  </div>
+
+  <nav class="tabs">
+    <button data-tab="dash" class="active">Pulpit</button>
+    <button data-tab="harmonogram">Harmonogram</button>
+    <button data-tab="produkty">Produkty</button>
+    <button data-tab="spend">Spend plan</button>
+    <button data-tab="zasady">Zasady</button>
+  </nav>
+
+  <section id="dash" class="active">
+    <h2>Pulpit</h2>
+    <table>
+      <thead><tr><th>Produkt</th><th>Premia</th><th>Otwórz do</th><th>Status</th><th style="min-width:120px">Postęp</th></tr></thead>
+      <tbody id="dash-body"></tbody>
+    </table>
+    <p class="sub">Wartości premii i terminy pochodzą z analizy planu. Status/postęp liczone z odhaczonych warunków w zakładce „Produkty".</p>
+  </section>
+
+  <section id="harmonogram">
+    <h2>Harmonogram miesięczny</h2>
+    <p class="sub">Co otwierać, ile wydać (i gdzie), jak puszczać wpływy i co odebrać — miesiąc po miesiącu.</p>
+    <div id="months"></div>
+  </section>
+
+  <section id="produkty">
+    <h2>Produkty — checklisty</h2>
+    <p class="sub">Odhaczaj warunki na bieżąco. Stan zapisuje się w tej przeglądarce.</p>
+    <div id="prod-list"></div>
+    <div class="toolbar">
+      <button class="btn" onclick="exportState()">⬇️ Eksport stanu (JSON)</button>
+      <button class="btn" onclick="document.getElementById('imp').click()">⬆️ Import stanu</button>
+      <input id="imp" type="file" accept="application/json" style="display:none" onchange="importState(this)">
+      <button class="btn" onclick="resetState()">♻️ Reset</button>
+    </div>
+  </section>
+
+  <section id="spend">
+    <h2>Spend plan — ~3 080 zł/mc</h2>
+    <p class="sub">Nie dokładasz wydatków — <b>przepinasz</b> istniejące z ZEN na karty promocyjne na czas kampanii. ~połowa stacjonarnie, ~połowa online.</p>
+    <div id="spend-body"></div>
+  </section>
+
+  <section id="zasady">
+    <h2>Zasady przekrojowe (ściąga)</h2>
+    <div id="rules"></div>
+  </section>
+
+  <div class="foot">Tracker osobisty · dane: analiza bankobranie.pl (stan 2026-06-03) · stan checklist zapisany lokalnie w przeglądarce</div>
+</div>
+
+<script>
+const PLAN = {
+  products: [
+    { id:"ing", bank:"ING", name:"Konto „Mobilni zyskują”", cash:600, mile:0, open:"2026-06-10",
+      tag:"premia za otwarcie", note:"+100 zł z polecenia (wymaga linku polecającego, do 12.08)",
+      karencja:"brak konta ING od 1.01.2025",
+      conds:["Otwórz konto przez APKĘ do 10.06 (selfie / mObywatel)",
+             "Wpływ ≥1000 zł w miesiącu A","Wpływ ≥1000 zł w miesiącu B",
+             "5 płatności karta/BLIK w mies. A","5 płatności w mies. B",
+             "3× logowanie do aplikacji",
+             "600 zł na OKO przez 1 dzień w oknie 3–10.09 ⚠️"],
+      payout:"600 zł na OKO, do 30.09.2026",
+      oplaty:"konto 0 zł · karta 0 zł jeśli ≥300 zł/mc (inaczej 10 zł)",
+      spend:{stac:0, online:300}, pitfalls:["Nie zamieniaj na konto wspólne","Zgody marketingowe ON do wypłaty"] },
+
+    { id:"alior", bank:"Alior", name:"Alior Konto", cash:1000, mile:0, open:"2026-06-30",
+      tag:"200 zł + 800 moneyback", note:"kod ZYSKAJ2026 · + obrączka płatnicza (rzecz, 500 zł)",
+      karencja:"brak konta osobistego w Alior od 3 lat",
+      conds:["Otwórz z kodem ZYSKAJ2026 do 30.06",
+             "W 10 dni: 5 płatności karta/BLIK","W 10 dni: rejestracja w Bezcenne Chwile","W 10 dni: logowanie w apce  → 200 zł",
+             "Moneyback (8 mc): 1000 zł/mc STACJONARNIE","Moneyback: wpływ 2000 zł/mc z innego banku","Moneyback: logowanie w apce co mies.  → do 800 zł"],
+      payout:"200 zł do końca kolejnego mc · moneyback co mies. (do ~lutego 2027)",
+      oplaty:"konto 0 zł · karta 7 zł/mc (0 zł przy ≥5 płatności/mc)",
+      spend:{stac:1000, online:0}, pitfalls:["Moneyback TYLKO płatności stacjonarne (online i ZEN się nie liczą)","Brak kary — w słabszym mc dostajesz 10% od tego, co wydasz"] },
+
+    { id:"erste", bank:"Erste", name:"Konto Smart", cash:700, mile:0, open:"2026-07-31",
+      tag:"premia za otwarcie", note:"+100 zł z polecenia (osobny deadline 12.06!)",
+      karencja:"brak dostępu do e-bankowości Erste od 1.06.2024",
+      conds:["Otwórz przez link promocyjny do 31.07",
+             "Mies. 1: wpływ 1500 zł + 5 płatności karta/BLIK + cel w „Moje Cele”","Mies. 2: to samo","Mies. 3: to samo  → 3×200 + 100 zł"],
+      payout:"do 20. dnia mc po spełnieniu warunków danego miesiąca",
+      oplaty:"karta 0 zł (masz <26) · konto 0 zł przy ≥300 zł płatności/mc",
+      spend:{stac:0, online:300}, pitfalls:["„Moje Cele” musi być aktywne przez 3 mc","Wykluczone: Revolut/Curve/DiPocket, hazard, wymiana walut"] },
+
+    { id:"pekao-konto", bank:"Pekao", name:"Konto Przekorzystne", cash:300, mile:0, open:"2026-07-15",
+      tag:"premia za otwarcie", note:"1️⃣ OTWÓRZ PRZED kartą kredytową Pekao!",
+      karencja:"brak konta w Pekao 1.05.2024–31.05.2026 · brak produktów kredytowych na dzień startu",
+      conds:["Otwórz online (selfie) do 15.07 — PRZED kartą kredytową","Logowanie do bankowości/PeoPay w dniu otwarcia",
+             "Mies. 1: 5 płatności kartą","Mies. 2: 5 płatności kartą  → 3×100 zł"],
+      payout:"3×100 zł — kolejno do 15.08, 15.09, 15.10",
+      oplaty:"konto 0 zł · karta debetowa 0 zł (masz <26)",
+      spend:{stac:0, online:50}, pitfalls:["Otwórz w oddziale = brak promocji","Pomijamy moneyback podróżny 2400 (wymaga karty złotej + dużych wydatków)"] },
+
+    { id:"pekao-karta", bank:"Pekao", name:"Karta kredytowa Miles & More", cash:500, mile:6000, open:"2026-07-31",
+      tag:"karta kredytowa", note:"2️⃣ Dopiero PO koncie Przekorzystnym · wariant STANDARD = 0 zł bezwarunkowo",
+      karencja:"brak karty kredytowej Pekao przed 12.05.2026 (konto osobiste NIE przeszkadza)",
+      conds:["Złóż wniosek z kodem BONUS (po otwarciu konta)","Limit kredytowy min. 2000 zł (zdolność)","Dołącz kartę do Miles & More do końca mc po umowie","1000 zł płatności kartą kredytową w ciągu 2 mc  → 500 zł + 6000 mil"],
+      payout:"500 zł + mile do końca mc po spełnieniu warunków",
+      oplaty:"Standard 0 zł/mc BEZWARUNKOWO — idealna do wynajmu auta",
+      spend:{stac:0, online:500}, pitfalls:["Karta kredytowa → wpływa na BIK","1000 zł to push jednorazowy (2 mc), potem karta leży darmowa"] },
+
+    { id:"millennium", bank:"Millennium", name:"Konto 360", cash:700, mile:0, open:"2026-10-27",
+      tag:"FALA 2 — otwórz ~sierpień", note:"start ~sierpień (gdy push Pekao skończony)",
+      karencja:"brak konta w Millennium od 1.01.2022",
+      conds:["Otwórz (planowo sierpień, deadline 27.10)",
+             "Start (14 dni): wpływ 1500 zł (masz <26) + 5 płatności mobilnych STACJONARNIE + rejestracja BLIK  → 200 zł",
+             "Mies. 1–5: wpływ 1500 zł + 1000 zł kartą/mc  → 500 zł"],
+      payout:"200 zł po 1. mc · 500 zł po 6. mc",
+      oplaty:"konto 0 zł · karta 0 zł (masz <26 / ≥5 transakcji)",
+      spend:{stac:0, online:1000}, pitfalls:["Start: 5 płatności MOBILNYCH (Google/Apple/Samsung Pay) stacjonarnie","Zweryfikuj w regulaminie czy lojalnościowe 1000 zł liczy online"] },
+
+    { id:"nest", bank:"Nest", name:"Nest Konto (opcja pasywna)", cash:1250, mile:0, open:"2026-09-30",
+      tag:"❔ do decyzji", note:"24 mc po 50 zł · mały wysiłek (1 tx/mc) ale długi horyzont",
+      karencja:"brak konta w Nest od 1.01.2021",
+      conds:["DECYZJA: zweryfikuj czy „wpływ wynagrodzenia” = wymaga tytułu wynagrodzenia (blokuje przepuszczanie)",
+             "Jeśli OK: wpływ 1500 zł (masz <26) + 1 płatność karta/BLIK co mies. przez 24 mc","Wymiana euro w Nest  → +50 zł"],
+      payout:"50 zł/mc przez 24 mc + 50 zł za euro",
+      oplaty:"konto 0 zł · pierwsza karta 0 zł",
+      spend:{stac:0, online:0}, pitfalls:["24 miesiące zobowiązania","Zgody marketingowe przez cały okres"] }
+  ],
+
+  months: [
+    { m:"Czerwiec 2026", open:"ING (do 10.06!) · Alior (kod ZYSKAJ2026) · Erste · Pekao KONTO → potem KARTA",
+      spend:"Alior 1000 zł STACJONARNIE · Pekao karta push ~500 zł · drobne: 5 tx ING + 5 tx Erste + 5 tx Pekao-konto",
+      inflow:"przepuść rano: 1000→ING · 1500→Erste · 2000→Alior (różne dni, początek mc)",
+      collect:"—  (premie spływają od lipca)",
+      note:"Σ stacjonarnie ~1000 · Σ online ~1000 → mieści się w ~3080/mc ✅" },
+    { m:"Lipiec 2026", open:"(nic nowego — domykasz Falę 1)",
+      spend:"Alior 1000 STACJONARNIE · Pekao karta dokończ push (do 1000 łącznie) · min. Erste/ING/Pekao",
+      inflow:"jak wyżej: ING 1000 · Erste 1500 · Alior 2000",
+      collect:"Alior 200 zł · Pekao konto 100 zł (do 15.08)",
+      note:"Erste i Pekao-konto: 2. miesiąc warunków" },
+    { m:"Sierpień 2026", open:"Millennium 360 (Fala 2 — push Pekao już skończony, robi miejsce)",
+      spend:"Alior 1000 STACJ · Millennium start (5 płatności mobilnych stacj.) · min. Erste/ING",
+      inflow:"ING 1000 · Erste 1500 · Alior 2000 · Millennium 1500",
+      collect:"Erste 200 · Pekao karta 500 + mile · Pekao konto 100 (do 15.09)",
+      note:"Szczyt liczby kont — pilnuj kalendarza" },
+    { m:"Wrzesień 2026", open:"(nic)",
+      spend:"Alior 1000 STACJ · Millennium 1000 · min. pozostałe",
+      inflow:"Alior 2000 · Millennium 1500 (+ ew. ING domknięcie)",
+      collect:"⭐ ING 600 zł — pamiętaj 600 zł na OKO 3–10.09! · Erste 200 · Pekao konto 100 (do 15.10)",
+      note:"ING: najważniejsze okno salda OKO" },
+    { m:"Październik 2026 → luty 2027", open:"(nic)",
+      spend:"Alior moneyback do ~lutego · Millennium 1000/mc do ~stycznia",
+      inflow:"Alior 2000 · Millennium 1500",
+      collect:"Erste ostatnia transza · Millennium 500 (po 6. mc) · Alior moneyback co mies.",
+      note:"Ogon kampanii — niski wysiłek, dopilnuj zgód i nie zamykaj kont" }
+  ],
+
+  rules: [
+    ["✅","BLIK działa w każdym banku niezależnie — brak konfliktu między bankami"],
+    ["✅","Wpływy przepuszczasz (ten sam ~3000 zł): A→B→C, RANO i na początku miesiąca (sesje Elixir)"],
+    ["⚠️","Transakcje rób ZAKUPAMI, nie doładowaniem ZEN — doładowania e-portfeli bywają wykluczone (MCC)"],
+    ["⚠️","Pekao: ZAWSZE konto Przekorzystne PRZED kartą kredytową (inaczej tracisz premię za konto)"],
+    ["⚠️","Zgody marketingowe trzymaj ON aż do ostatniej wypłaty każdej promocji"],
+    ["⚠️","Nie zamykaj kont ~60–90 dni po wypłacie premii"],
+    ["💡","Alior moneyback i Millennium-lojalność karmisz przepinając zakupy z ZEN (ZEN daje ~1–2%, moneyback ~10%)"],
+    ["💡","Karta Pekao Standard: po jednorazowym pushu 1000 zł leży darmowa — gotowa na wynajem auta"]
+  ]
+};
+
+// ---------- stan (localStorage) ----------
+const LS_KEY = "bankobranie_v1";
+let state = JSON.parse(localStorage.getItem(LS_KEY) || "{}");
+function save(){ localStorage.setItem(LS_KEY, JSON.stringify(state)); }
+function key(pid,i){ return pid+":"+i; }
+function isDone(pid,i){ return !!state[key(pid,i)]; }
+function toggle(pid,i,val){ state[key(pid,i)]=val; save(); render(); }
+function prodProgress(p){ const t=p.conds.length; let d=0; p.conds.forEach((_,i)=>{if(isDone(p.id,i))d++}); return {d,t,pct:t?Math.round(d/t*100):0}; }
+
+// ---------- daty ----------
+function daysLeft(iso){ const now=new Date(); now.setHours(0,0,0,0); const d=new Date(iso+"T00:00:00");
+  return Math.round((d-now)/86400000); }
+function fmtCash(n){ return n.toLocaleString("pl-PL")+" zł"; }
+
+// ---------- render ----------
+function render(){
+  // summary
+  const active = PLAN.products.filter(p=>p.id!=="nest");
+  const totalCash = active.reduce((s,p)=>s+p.cash,0);
+  let got=0; active.forEach(p=>{const pr=prodProgress(p); if(pr.pct===100) got+=p.cash;});
+  let dC=0,tC=0; active.forEach(p=>{const pr=prodProgress(p); dC+=pr.d; tC+=pr.t;});
+  document.getElementById("s-cash").textContent = fmtCash(totalCash);
+  document.getElementById("s-got").textContent = fmtCash(got);
+  document.getElementById("s-prog").textContent = (tC?Math.round(dC/tC*100):0)+"%";
+
+  // next deadline among not-fully-done
+  let next=null;
+  active.forEach(p=>{ const pr=prodProgress(p); if(pr.pct===100) return;
+    const dl=daysLeft(p.open); if(next===null||dl<next.dl) next={dl,name:p.bank}; });
+  const nx=document.getElementById("s-next");
+  if(next){ nx.textContent = (next.dl<0? "minął":next.dl+" dni")+" · "+next.name;
+    nx.style.color = next.dl<=7? "var(--bad)": next.dl<=21? "var(--warn)":"var(--txt)"; }
+  else nx.textContent="—";
+
+  document.getElementById("today").textContent = "dziś: "+new Date().toLocaleDateString("pl-PL");
+
+  // dashboard
+  const db=document.getElementById("dash-body"); db.innerHTML="";
+  PLAN.products.forEach(p=>{
+    const pr=prodProgress(p); const dl=daysLeft(p.open);
+    const dlTxt = p.id==="nest" ? "—" : (dl<0?"minął":dl+" dni ("+p.open.slice(5)+")");
+    const dlCls = dl<=7&&dl>=0?"bad":dl<=21&&dl>=0?"warn":"";
+    db.innerHTML += `<tr>
+      <td><b>${p.bank}</b><br><span class="sub">${p.name}</span></td>
+      <td>${fmtCash(p.cash)}${p.mile?`<br><span class="pill mile">${p.mile} mil</span>`:""}</td>
+      <td><span class="${dlCls?'pill '+dlCls:''}">${dlTxt}</span></td>
+      <td>${statusPill(p,pr)}</td>
+      <td>${pr.d}/${pr.t}<div class="bar"><span style="width:${pr.pct}%"></span></div></td>
+    </tr>`;
+  });
+
+  // produkty
+  const pl=document.getElementById("prod-list"); pl.innerHTML="";
+  PLAN.products.forEach(p=>{
+    const pr=prodProgress(p);
+    let conds="";
+    p.conds.forEach((c,i)=>{ const ck=isDone(p.id,i);
+      conds += `<li class="${ck?'checked':''}"><input type="checkbox" ${ck?'checked':''}
+        onchange="toggle('${p.id}',${i},this.checked)"><label>${c}</label></li>`; });
+    pl.innerHTML += `<div class="card ${pr.pct===100?'done':''}">
+      <h3>${p.bank} — ${p.name} ${statusPill(p,pr)}</h3>
+      <div class="sub">${p.tag} · <b>${fmtCash(p.cash)}</b>${p.mile?" + "+p.mile+" mil":""} ${p.note?"· "+p.note:""}</div>
+      <div class="grid2">
+        <div class="kv"><b>Otwórz do</b>${p.id==="nest"?"30.09 (opcja)":p.open}</div>
+        <div class="kv"><b>Karencja</b>${p.karencja}</div>
+        <div class="kv"><b>Wypłata</b>${p.payout}</div>
+        <div class="kv"><b>Opłaty</b>${p.oplaty}</div>
+      </div>
+      <ul class="conds">${conds}</ul>
+      ${p.pitfalls.map(x=>`<div class="warnbox">⚠️ ${x}</div>`).join("")}
+      <div class="bar" style="margin-top:12px"><span style="width:${pr.pct}%"></span></div>
+    </div>`;
+  });
+
+  // months
+  const mo=document.getElementById("months"); mo.innerHTML="";
+  PLAN.months.forEach((m,idx)=>{
+    mo.innerHTML += `<details class="month" ${idx===0?'open':''}>
+      <summary><span>${m.m}</span><span class="pill">${idx+1}/${PLAN.months.length}</span></summary>
+      <div class="body">
+        <div class="row"><span class="tag">📂 Otwórz</span><span>${m.open}</span></div>
+        <div class="row spend"><span class="tag">💳 Wydatki</span><span>${m.spend}</span></div>
+        <div class="row"><span class="tag">💸 Wpływy</span><span>${m.inflow}</span></div>
+        <div class="row collect"><span class="tag">🎁 Odbierz</span><span>${m.collect}</span></div>
+        <div class="sub" style="margin-top:8px">${m.note}</div>
+      </div></details>`;
+  });
+
+  // spend plan
+  const sp=document.getElementById("spend-body"); sp.innerHTML="";
+  let ts=0,to=0; PLAN.products.filter(p=>p.id!=="nest").forEach(p=>{ts+=p.spend.stac;to+=p.spend.online;});
+  sp.innerHTML = `<table><thead><tr><th>Produkt</th><th>Stacjonarnie /mc</th><th>Online /mc</th><th>Po co</th></tr></thead><tbody>
+    ${PLAN.products.filter(p=>p.spend.stac||p.spend.online).map(p=>`<tr>
+      <td><b>${p.bank}</b> ${p.name}</td><td>${p.spend.stac?fmtCash(p.spend.stac):"—"}</td>
+      <td>${p.spend.online?fmtCash(p.spend.online):"—"}</td><td class="sub">${p.tag}</td></tr>`).join("")}
+    <tr style="font-weight:700"><td>RAZEM (szczyt)</td><td>${fmtCash(ts)}</td><td>${fmtCash(to)}</td><td class="sub">≈ ${fmtCash(ts+to)} / mc</td></tr>
+    </tbody></table>
+    <div class="warnbox">💡 Twój realny obrót ~3 080 zł/mc (≈8 600 €/rok) pokrywa to bez dokładania — przepinasz zakupy z ZEN na karty promocyjne na czas kampanii. Nie wszystkie kampanie peakują w tym samym miesiącu (push Pekao kończy się, zanim startuje Millennium).</div>
+    <div class="warnbox">⚠️ Alior wymaga 1000 zł/mc <b>stacjonarnie</b> — masz ~1500 zł/mc stacjonarnie (pół na pół), więc się mieści z zapasem.</div>`;
+
+  // rules
+  document.getElementById("rules").innerHTML =
+    PLAN.rules.map(r=>`<div class="card" style="padding:12px 16px;margin:8px 0"><b style="font-size:18px">${r[0]}</b> &nbsp;${r[1]}</div>`).join("");
+}
+
+function statusPill(p,pr){
+  if(p.id==="nest") return `<span class="pill wait">do decyzji</span>`;
+  if(pr.pct===100) return `<span class="pill cash">✓ odebrane</span>`;
+  if(p.id==="millennium" && pr.d===0) return `<span class="pill wait">Fala 2</span>`;
+  const dl=daysLeft(p.open);
+  if(dl<0 && pr.d===0) return `<span class="pill bad">deadline minął</span>`;
+  if(pr.d>0) return `<span class="pill warn">w toku ${pr.pct}%</span>`;
+  return `<span class="pill">do zrobienia</span>`;
+}
+
+// ---------- tabs ----------
+document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("nav.tabs button").forEach(x=>x.classList.remove("active"));
+  document.querySelectorAll("section").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active"); document.getElementById(b.dataset.tab).classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
+// ---------- import/export/reset ----------
+function exportState(){ const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
+  a.download="bankobranie-stan.json"; a.click(); }
+function importState(inp){ const f=inp.files[0]; if(!f)return; const r=new FileReader();
+  r.onload=e=>{ try{ state=JSON.parse(e.target.result); save(); render(); alert("Stan wczytany ✅"); }
+    catch(err){ alert("Błąd pliku JSON"); } }; r.readAsText(f); }
+function resetState(){ if(confirm("Wyczyścić wszystkie odhaczone warunki?")){ state={}; save(); render(); } }
+
+render();
+</script>
+</body>
+</html>

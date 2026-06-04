@@ -1,0 +1,20 @@
+{
+  "id": "2026-04-unicredit-lokata-powitalna-6",
+  "url": "https://www.bankobranie.pl/2026/04/unicredit-lokata-powitalna-6-procent.html",
+  "plik": "promocje/2026-04-unicredit-lokata-powitalna-6.md",
+  "bank": "UniCredit",
+  "produkt": "Lokata Powitalna",
+  "typ": "lokata",
+  "status": "wygasla",
+  "premia_total": null,
+  "data_publikacji": "2026-04-07",
+  "data_koniec_przystapienia": "2026-05-31",
+  "okres_warunkow_mies": null,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:x|2026-05-31|x",
+  "tagi": [
+    "unicredit",
+    "lokata",
+    "oprocentowanie"
+  ]
+}

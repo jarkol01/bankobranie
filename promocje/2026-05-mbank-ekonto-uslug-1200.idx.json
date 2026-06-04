@@ -1,0 +1,20 @@
+{
+  "id": "2026-05-mbank-ekonto-uslug-1200",
+  "url": "https://www.bankobranie.pl/2026/05/mbank-cala-naprzod-zyskaj-z-kontem-media-expert.html",
+  "plik": "promocje/2026-05-mbank-ekonto-uslug-1200.md",
+  "bank": "mBank",
+  "produkt": "eKonto do usług (kampania Cała naprzód – edycja I)",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 1260,
+  "data_publikacji": "2026-05-28",
+  "data_koniec_przystapienia": "2026-08-31",
+  "okres_warunkow_mies": 6,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:1260|2026-08-31|6",
+  "tagi": [
+    "mbank",
+    "konto_osobiste",
+    "media-expert"
+  ]
+}

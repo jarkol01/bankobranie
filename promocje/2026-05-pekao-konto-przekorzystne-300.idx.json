@@ -1,0 +1,25 @@
+{
+  "id": "2026-05-pekao-konto-przekorzystne-300",
+  "url": "https://www.bankobranie.pl/2026/05/pekao-konto-otworz-konto-i-ruszaj-po-wiecej.html",
+  "plik": "promocje/2026-05-pekao-konto-przekorzystne-300.md",
+  "bank": "Bank Pekao",
+  "produkt": "Konto Przekorzystne",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 2700,
+  "data_publikacji": "2026-06-01",
+  "data_koniec_przystapienia": "2026-07-15",
+  "okres_warunkow_mies": 2,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:2700|2026-07-15|2",
+  "tagi": [
+    "bank_pekao",
+    "pekao",
+    "konto_osobiste",
+    "moneyback",
+    "skarbonka",
+    "karta_zlota",
+    "podroz",
+    "oprocentowanie"
+  ]
+}

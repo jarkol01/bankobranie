@@ -1,0 +1,23 @@
+{
+  "id": "2026-06-alior-konto-osobiste-1000",
+  "url": "https://www.bankobranie.pl/2026/06/alior-bank-ekstra-premia-na-start.html",
+  "plik": "promocje/2026-06-alior-konto-osobiste-1000.md",
+  "bank": "Alior Bank",
+  "produkt": "Alior Konto",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 1000,
+  "data_publikacji": "2026-06-01",
+  "data_koniec_przystapienia": "2026-06-30",
+  "okres_warunkow_mies": 8,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:1000|2026-06-30|8",
+  "tagi": [
+    "alior_bank",
+    "alior-bank",
+    "konto_osobiste",
+    "moneyback",
+    "premia-na-start",
+    "bezcenne-chwile"
+  ]
+}

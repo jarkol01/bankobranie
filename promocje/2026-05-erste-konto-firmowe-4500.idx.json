@@ -1,0 +1,21 @@
+{
+  "id": "2026-05-erste-konto-firmowe-4500",
+  "url": "https://www.bankobranie.pl/2026/05/erste-bank-do-4500-zl-za-konto-firmowe.html",
+  "plik": "promocje/2026-05-erste-konto-firmowe-4500.md",
+  "bank": "Erste Bank",
+  "produkt": "Konto Firmowe Online",
+  "typ": "konto_firmowe",
+  "status": "aktywna",
+  "premia_total": 4500,
+  "data_publikacji": "2026-05-01",
+  "data_koniec_przystapienia": "2026-09-30",
+  "okres_warunkow_mies": 3,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:4500|2026-09-30|3",
+  "tagi": [
+    "erste",
+    "konto_firmowe",
+    "jednoosobowa_dzialalnosc",
+    "premia_gotowkowa"
+  ]
+}

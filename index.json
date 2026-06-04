@@ -1,0 +1,985 @@
+{
+  "_meta": {
+    "zrodlo": "https://www.bankobranie.pl",
+    "opis": "Manifest zescrapowanych promocji. Klucz glowny = url. content_hash sluzy do wykrywania zmian.",
+    "schema_pliku_promocji": "promocje/RRRR-MM-slug.md (Markdown + YAML frontmatter)",
+    "ostatni_scrape": "2026-06-03",
+    "liczba_promocji": 47,
+    "wg_statusu": {
+      "wygasla": 8,
+      "aktywna": 39
+    },
+    "wg_typu": {
+      "konto_oszczednosciowe": 9,
+      "karta_kredytowa": 6,
+      "konto_osobiste": 18,
+      "lokata": 4,
+      "konto_firmowe": 6,
+      "moneyback": 1,
+      "inne": 3
+    },
+    "scrape_zakonczony": "strony 1-4 (Blogger start=0..90); glebsze strony pominiete jako wygasle/duplikaty"
+  },
+  "promocje": [
+    {
+      "id": "2026-03-unicredit-konto-oszcz-45proc",
+      "url": "https://www.bankobranie.pl/2026/03/unicredit-konto-oszczednosciowe-4-5-proc.html",
+      "plik": "promocje/2026-03-unicredit-konto-oszcz-45proc.md",
+      "bank": "UniCredit",
+      "produkt": "Konto Oszczędnościowe UniCredit",
+      "typ": "konto_oszczednosciowe",
+      "status": "wygasla",
+      "premia_total": null,
+      "data_publikacji": "2026-03-26",
+      "data_koniec_przystapienia": "2026-05-03",
+      "okres_warunkow_mies": null,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:x|2026-05-03|x",
+      "tagi": [
+        "unicredit",
+        "konto_oszczednosciowe",
+        "oprocentowanie"
+      ]
+    },
+    {
+      "id": "2026-04-citibank-apple-watch-300",
+      "url": "https://www.bankobranie.pl/2026/04/citibank-apple-watch.html",
+      "plik": "promocje/2026-04-citibank-apple-watch-300.md",
+      "bank": "Citibank Handlowy",
+      "produkt": "Karta kredytowa Citi Simplicity",
+      "typ": "karta_kredytowa",
+      "status": "wygasla",
+      "premia_total": 1399,
+      "data_publikacji": "2026-04-01",
+      "data_koniec_przystapienia": "2026-05-07",
+      "okres_warunkow_mies": 12,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:1399|2026-05-07|12",
+      "tagi": [
+        "citibank",
+        "karta_kredytowa",
+        "apple-watch"
+      ]
+    },
+    {
+      "id": "2026-05-citibank-citikonto-700",
+      "url": "https://www.bankobranie.pl/2026/05/citibank-700-zl-za-konto-last-minute.html",
+      "plik": "promocje/2026-05-citibank-citikonto-700.md",
+      "bank": "Citibank Handlowy",
+      "produkt": "CitiKonto",
+      "typ": "konto_osobiste",
+      "status": "wygasla",
+      "premia_total": 700,
+      "data_publikacji": "2026-05-11",
+      "data_koniec_przystapienia": "2026-05-25",
+      "okres_warunkow_mies": 3,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:700|2026-05-25|3",
+      "tagi": [
+        "citibank",
+        "konto_osobiste"
+      ]
+    },
+    {
+      "id": "2026-03-pocztowy-pieniadze-lubia-wracac-1110",
+      "url": "https://www.bankobranie.pl/2026/03/pocztowy-pieniadze-lubia-wracac.html",
+      "plik": "promocje/2026-03-pocztowy-pieniadze-lubia-wracac-1110.md",
+      "bank": "Bank Pocztowy",
+      "produkt": "Konto w Porządku",
+      "typ": "konto_osobiste",
+      "status": "wygasla",
+      "premia_total": 1110,
+      "data_publikacji": "2026-03-19",
+      "data_koniec_przystapienia": "2026-05-31",
+      "okres_warunkow_mies": 12,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:1110|2026-05-31|12",
+      "tagi": [
+        "pocztowy",
+        "konto_osobiste"
+      ]
+    },
+    {
+      "id": "2026-04-pko-bp-karta-przejrzysty-zwrot-300",
+      "url": "https://www.bankobranie.pl/2026/04/pko-bp-przejrzysty-zwrot-4.html",
+      "plik": "promocje/2026-04-pko-bp-karta-przejrzysty-zwrot-300.md",
+      "bank": "PKO BP",
+      "produkt": "Przejrzysta karta kredytowa PKO Visa",
+      "typ": "karta_kredytowa",
+      "status": "wygasla",
+      "premia_total": 300,
+      "data_publikacji": "2026-05-04",
+      "data_koniec_przystapienia": "2026-05-31",
+      "okres_warunkow_mies": 3,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:300|2026-05-31|3",
+      "tagi": [
+        "pko-bp",
+        "karta_kredytowa",
+        "moneyback"
+      ]
+    },
+    {
+      "id": "2026-04-unicredit-lokata-powitalna-6",
+      "url": "https://www.bankobranie.pl/2026/04/unicredit-lokata-powitalna-6-procent.html",
+      "plik": "promocje/2026-04-unicredit-lokata-powitalna-6.md",
+      "bank": "UniCredit",
+      "produkt": "Lokata Powitalna",
+      "typ": "lokata",
+      "status": "wygasla",
+      "premia_total": null,
+      "data_publikacji": "2026-04-07",
+      "data_koniec_przystapienia": "2026-05-31",
+      "okres_warunkow_mies": null,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:x|2026-05-31|x",
+      "tagi": [
+        "unicredit",
+        "lokata",
+        "oprocentowanie"
+      ]
+    },
+    {
+      "id": "2026-05-unicredit-konto-200",
+      "url": "https://www.bankobranie.pl/2026/05/unicredit-konto-osobiste-z-bonusem-200-zl-edycja-4.html",
+      "plik": "promocje/2026-05-unicredit-konto-200.md",
+      "bank": "UniCredit",
+      "produkt": "Konto Osobiste z bonusem 200 zł (edycja 4)",
+      "typ": "konto_osobiste",
+      "status": "wygasla",
+      "premia_total": 200,
+      "data_publikacji": "2026-05-26",
+      "data_koniec_przystapienia": "2026-05-31",
+      "okres_warunkow_mies": 1,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:200|2026-05-31|1",
+      "tagi": [
+        "unicredit",
+        "konto_osobiste"
+      ]
+    },
+    {
+      "id": "2026-04-raiffeisen-konto-oszcz-45proc",
+      "url": "https://www.bankobranie.pl/2026/04/raiffeisen-digital-bank-konto-oszczednosciowe-start-4-5-proc.html",
+      "plik": "promocje/2026-04-raiffeisen-konto-oszcz-45proc.md",
+      "bank": "Raiffeisen Digital Bank",
+      "produkt": "Rachunek Oszczędnościowy Start",
+      "typ": "konto_oszczednosciowe",
+      "status": "wygasla",
+      "premia_total": null,
+      "data_publikacji": "2026-04-22",
+      "data_koniec_przystapienia": "2026-06-02",
+      "okres_warunkow_mies": 3,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:x|2026-06-02|3",
+      "tagi": [
+        "raiffeisen",
+        "konto_oszczednosciowe",
+        "oprocentowanie"
+      ]
+    },
+    {
+      "id": "2026-03-mbank-firma-konto-500",
+      "url": "https://www.bankobranie.pl/2026/03/zdobadz-500-z-premii-za-otwarcie-firmy.html",
+      "plik": "promocje/2026-03-mbank-firma-konto-500.md",
+      "bank": "mBank",
+      "produkt": "mBiznes Konto Standard",
+      "typ": "konto_firmowe",
+      "status": "aktywna",
+      "premia_total": 500,
+      "data_publikacji": "2026-03-01",
+      "data_koniec_przystapienia": "2026-06-10",
+      "okres_warunkow_mies": 1,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:500|2026-06-10|1",
+      "tagi": [
+        "mbank",
+        "konto_firmowe",
+        "jednoosobowa_dzialalnosc",
+        "premia_gotowkowa",
+        "rejestracja_jdg"
+      ]
+    },
+    {
+      "id": "2026-03-mbank-mbiznes-700",
+      "url": "https://www.bankobranie.pl/2026/03/mbank-mbiznes-z-premia-na-start-xvi-edycja-700-zl.html",
+      "plik": "promocje/2026-03-mbank-mbiznes-700.md",
+      "bank": "mBank",
+      "produkt": "mBiznes Konto Standard",
+      "typ": "konto_firmowe",
+      "status": "aktywna",
+      "premia_total": 700,
+      "data_publikacji": "2026-03-17",
+      "data_koniec_przystapienia": "2026-06-10",
+      "okres_warunkow_mies": 1,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:700|2026-06-10|1",
+      "tagi": [
+        "mbank",
+        "konto_firmowe"
+      ]
+    },
+    {
+      "id": "2026-06-ing-konto-700-mobilni",
+      "url": "https://www.bankobranie.pl/2025/08/przekierowanie-2.html",
+      "plik": "promocje/2026-06-ing-konto-700-mobilni.md",
+      "bank": "ING Bank Śląski",
+      "produkt": "Konto w Planie ING Go (Konto z Lwem)",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 700,
+      "data_publikacji": "2026-04-09",
+      "data_koniec_przystapienia": "2026-06-10",
+      "okres_warunkow_mies": 3,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:700|2026-06-10|3",
+      "tagi": [
+        "ing_bank_slaski",
+        "ing",
+        "konto_osobiste",
+        "bonus_gotowka",
+        "nowi_klienci",
+        "mobilni_zyskuja",
+        "program_polecen",
+        "transakcje_karta_blik",
+        "wplyw_miesieczny",
+        "oko",
+        "logowanie_apka"
+      ]
+    },
+    {
+      "id": "2026-04-ing-karta-kredytowa-460",
+      "url": "https://www.bankobranie.pl/2026/04/blog-post_24.html",
+      "plik": "promocje/2026-04-ing-karta-kredytowa-460.md",
+      "bank": "ING Bank Śląski",
+      "produkt": "Karta kredytowa ING (promocja z kodem PK460090426)",
+      "typ": "karta_kredytowa",
+      "status": "aktywna",
+      "premia_total": 460,
+      "data_publikacji": "2026-04-24",
+      "data_koniec_przystapienia": "2026-06-12",
+      "okres_warunkow_mies": 13,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:460|2026-06-12|13",
+      "tagi": [
+        "ing",
+        "karta_kredytowa"
+      ]
+    },
+    {
+      "id": "2026-05-velobank-eko-6proc",
+      "url": "https://www.bankobranie.pl/2026/05/velobank-elastyczne-konto-oszczednosciowe-edycja-7-2026.html",
+      "plik": "promocje/2026-05-velobank-eko-6proc.md",
+      "bank": "VeloBank",
+      "produkt": "VeloBank Elastyczne Konto Oszczędnościowe",
+      "typ": "konto_oszczednosciowe",
+      "status": "aktywna",
+      "premia_total": null,
+      "data_publikacji": "2026-05-21",
+      "data_koniec_przystapienia": "2026-06-12",
+      "okres_warunkow_mies": null,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:x|2026-06-12|x",
+      "tagi": [
+        "velobank",
+        "konto_oszczednosciowe",
+        "oprocentowanie"
+      ]
+    },
+    {
+      "id": "2026-05-velobank-velolokata-6proc",
+      "url": "https://www.bankobranie.pl/2026/05/velobank-velolokata-dla-aktywnych-edycja-5-2026.html",
+      "plik": "promocje/2026-05-velobank-velolokata-6proc.md",
+      "bank": "VeloBank",
+      "produkt": "VeloLokata dla Aktywnych – edycja 5/2026",
+      "typ": "lokata",
+      "status": "aktywna",
+      "premia_total": null,
+      "data_publikacji": "2026-05-14",
+      "data_koniec_przystapienia": "2026-06-15",
+      "okres_warunkow_mies": 6,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:x|2026-06-15|6",
+      "tagi": [
+        "velobank",
+        "lokata",
+        "oprocentowanie"
+      ]
+    },
+    {
+      "id": "2026-04-millennium-konto-oszcz-profit-55proc",
+      "url": "https://www.bankobranie.pl/2026/04/millennium-konto-oszczednosciowe-profit-74-edycja.html",
+      "plik": "promocje/2026-04-millennium-konto-oszcz-profit-55proc.md",
+      "bank": "Bank Millennium",
+      "produkt": "Konto Oszczędnościowe Profit (edycja 74)",
+      "typ": "konto_oszczednosciowe",
+      "status": "aktywna",
+      "premia_total": null,
+      "data_publikacji": "2026-04-23",
+      "data_koniec_przystapienia": "2026-06-17",
+      "okres_warunkow_mies": 3,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:x|2026-06-17|3",
+      "tagi": [
+        "millennium",
+        "konto_oszczednosciowe",
+        "oprocentowanie"
+      ]
+    },
+    {
+      "id": "2026-05-pekao-konto-oszcz-5proc",
+      "url": "https://www.bankobranie.pl/2026/05/pekao-konto-oszczednosciowe-5-proc.html",
+      "plik": "promocje/2026-05-pekao-konto-oszcz-5proc.md",
+      "bank": "Bank Pekao",
+      "produkt": "Konto Oszczędnościowe Pekao",
+      "typ": "konto_oszczednosciowe",
+      "status": "aktywna",
+      "premia_total": 300,
+      "data_publikacji": "2026-05-29",
+      "data_koniec_przystapienia": "2026-06-17",
+      "okres_warunkow_mies": null,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:300|2026-06-17|x",
+      "tagi": [
+        "bank_pekao",
+        "pekao",
+        "konto_oszczednosciowe",
+        "oprocentowanie"
+      ]
+    },
+    {
+      "id": "2026-04-bnp-karta-biedronka-300",
+      "url": "https://www.bankobranie.pl/2026/04/bnp-paribas-do-300-zl-do-biedronki-.html",
+      "plik": "promocje/2026-04-bnp-karta-biedronka-300.md",
+      "bank": "BNP Paribas",
+      "produkt": "Karta kredytowa Mastercard Standard / Mastercard Gold BNP Paribas",
+      "typ": "karta_kredytowa",
+      "status": "aktywna",
+      "premia_total": 300,
+      "data_publikacji": "2026-04-14",
+      "data_koniec_przystapienia": "2026-06-30",
+      "okres_warunkow_mies": 6,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:300|2026-06-30|6",
+      "tagi": [
+        "bnp-paribas",
+        "karta",
+        "biedronka"
+      ]
+    },
+    {
+      "id": "2026-04-ing-konto-dziecka-300",
+      "url": "https://www.bankobranie.pl/2026/04/ing-do-.html",
+      "plik": "promocje/2026-04-ing-konto-dziecka-300.md",
+      "bank": "ING Bank Śląski",
+      "produkt": "Konto w Planie ING Go dla dzieci",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 300,
+      "data_publikacji": "2026-04-03",
+      "data_koniec_przystapienia": "2026-06-30",
+      "okres_warunkow_mies": 3,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:300|2026-06-30|3",
+      "tagi": [
+        "ing",
+        "konto_osobiste",
+        "dzieci"
+      ]
+    },
+    {
+      "id": "2026-04-ing-konto-firmowe-4400",
+      "url": "https://www.bankobranie.pl/2026/04/ing-bank-slaski-4400-zl-za-konto-firmowe.html",
+      "plik": "promocje/2026-04-ing-konto-firmowe-4400.md",
+      "bank": "ING Bank Śląski",
+      "produkt": "Konto Firmowe ING",
+      "typ": "konto_firmowe",
+      "status": "aktywna",
+      "premia_total": 4400,
+      "data_publikacji": "2026-04-01",
+      "data_koniec_przystapienia": "2026-06-30",
+      "okres_warunkow_mies": 12,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:4400|2026-06-30|12",
+      "tagi": [
+        "ing",
+        "konto_firmowe"
+      ]
+    },
+    {
+      "id": "2026-04-pko-konto-dziecka-300",
+      "url": "https://www.bankobranie.pl/2026/04/do-300-z-premii-za-konto-dla-dziecka-w.html",
+      "plik": "promocje/2026-04-pko-konto-dziecka-300.md",
+      "bank": "PKO BP",
+      "produkt": "PKO Konto Dziecka / PKO Konto dla Młodych",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 300,
+      "data_publikacji": "2026-04-01",
+      "data_koniec_przystapienia": "2026-06-30",
+      "okres_warunkow_mies": 10,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:300|2026-06-30|10",
+      "tagi": [
+        "pko-bp",
+        "konto_osobiste",
+        "dzieci"
+      ]
+    },
+    {
+      "id": "2026-04-pko-zakupy-z-premia-600",
+      "url": "https://www.bankobranie.pl/2026/04/pko-bp-zakupy-z-premia.html",
+      "plik": "promocje/2026-04-pko-zakupy-z-premia-600.md",
+      "bank": "PKO BP",
+      "produkt": "Konto za Zero (PKO BP)",
+      "typ": "moneyback",
+      "status": "aktywna",
+      "premia_total": 600,
+      "data_publikacji": "2026-04-01",
+      "data_koniec_przystapienia": "2026-06-30",
+      "okres_warunkow_mies": 10,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:600|2026-06-30|10",
+      "tagi": [
+        "pko-bp"
+      ]
+    },
+    {
+      "id": "2026-04-volkswagen-lokata-bezwarunkowa-45",
+      "url": "https://www.bankobranie.pl/2026/04/volkswagen-bank-lokata-bezwarunkowa.html",
+      "plik": "promocje/2026-04-volkswagen-lokata-bezwarunkowa-45.md",
+      "bank": "Volkswagen Bank",
+      "produkt": "Lokata Bezwarunkowa",
+      "typ": "lokata",
+      "status": "aktywna",
+      "premia_total": null,
+      "data_publikacji": "2026-04-09",
+      "data_koniec_przystapienia": "2026-06-30",
+      "okres_warunkow_mies": null,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:x|2026-06-30|x",
+      "tagi": [
+        "volkswagen-bank",
+        "lokata",
+        "oprocentowanie"
+      ]
+    },
+    {
+      "id": "2026-06-alior-konto-osobiste-1000",
+      "url": "https://www.bankobranie.pl/2026/06/alior-bank-ekstra-premia-na-start.html",
+      "plik": "promocje/2026-06-alior-konto-osobiste-1000.md",
+      "bank": "Alior Bank",
+      "produkt": "Alior Konto",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 1000,
+      "data_publikacji": "2026-06-01",
+      "data_koniec_przystapienia": "2026-06-30",
+      "okres_warunkow_mies": 8,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:1000|2026-06-30|8",
+      "tagi": [
+        "alior_bank",
+        "alior-bank",
+        "konto_osobiste",
+        "moneyback",
+        "premia-na-start",
+        "bezcenne-chwile"
+      ]
+    },
+    {
+      "id": "2026-06-ing-oko-bonus-55proc",
+      "url": "https://www.bankobranie.pl/2026/06/ing-bank-slaski-oko-bonus-start.html",
+      "plik": "promocje/2026-06-ing-oko-bonus-55proc.md",
+      "bank": "ING Bank Śląski",
+      "produkt": "OKO Bonus na start (5,5%) i OKO Bonus (4,5%)",
+      "typ": "konto_oszczednosciowe",
+      "status": "aktywna",
+      "premia_total": null,
+      "data_publikacji": "2026-06-02",
+      "data_koniec_przystapienia": "2026-07-08",
+      "okres_warunkow_mies": 3,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:x|2026-07-08|3",
+      "tagi": [
+        "ing_bank_slaski",
+        "ing",
+        "konto_oszczednosciowe",
+        "oprocentowanie"
+      ]
+    },
+    {
+      "id": "2026-06-erste-konto-dziecka-300",
+      "url": "https://www.bankobranie.pl/2026/06/erste-bank-konto-dziecka.html",
+      "plik": "promocje/2026-06-erste-konto-dziecka-300.md",
+      "bank": "Erste Bank",
+      "produkt": "Konto Smart (dla dzieci i nastolatków)",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 300,
+      "data_publikacji": "2026-06-01",
+      "data_koniec_przystapienia": "2026-07-12",
+      "okres_warunkow_mies": 2,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:300|2026-07-12|2",
+      "tagi": [
+        "erste_bank",
+        "erste",
+        "konto_osobiste",
+        "dzieci"
+      ]
+    },
+    {
+      "id": "2026-05-pekao-konto-przekorzystne-300",
+      "url": "https://www.bankobranie.pl/2026/05/pekao-konto-otworz-konto-i-ruszaj-po-wiecej.html",
+      "plik": "promocje/2026-05-pekao-konto-przekorzystne-300.md",
+      "bank": "Bank Pekao",
+      "produkt": "Konto Przekorzystne",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 2700,
+      "data_publikacji": "2026-06-01",
+      "data_koniec_przystapienia": "2026-07-15",
+      "okres_warunkow_mies": 2,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:2700|2026-07-15|2",
+      "tagi": [
+        "bank_pekao",
+        "pekao",
+        "konto_osobiste",
+        "moneyback",
+        "skarbonka",
+        "karta_zlota",
+        "podroz",
+        "oprocentowanie"
+      ]
+    },
+    {
+      "id": "2026-06-alior-konto-max-oszcz-48proc",
+      "url": "https://www.bankobranie.pl/2026/06/alior-konto-max-oszczednosciowe-nowe-srodki-3-edycja.html",
+      "plik": "promocje/2026-06-alior-konto-max-oszcz-48proc.md",
+      "bank": "Alior Bank",
+      "produkt": "Konto Max Oszczędnościowe",
+      "typ": "konto_oszczednosciowe",
+      "status": "aktywna",
+      "premia_total": null,
+      "data_publikacji": "2026-06-02",
+      "data_koniec_przystapienia": "2026-07-30",
+      "okres_warunkow_mies": 3,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:x|2026-07-30|3",
+      "tagi": [
+        "alior_bank",
+        "alior",
+        "konto_oszczednosciowe",
+        "oprocentowanie"
+      ]
+    },
+    {
+      "id": "2026-06-alior-konto-oszcz-start-5proc",
+      "url": "https://www.bankobranie.pl/2026/06/alior-bank-konto-oszczednosciowe-na-start-9-edycja.html",
+      "plik": "promocje/2026-06-alior-konto-oszcz-start-5proc.md",
+      "bank": "Alior Bank",
+      "produkt": "Konto Oszczednosciowe na Start (9. edycja)",
+      "typ": "konto_oszczednosciowe",
+      "status": "aktywna",
+      "premia_total": null,
+      "data_publikacji": "2026-06-02",
+      "data_koniec_przystapienia": "2026-07-30",
+      "okres_warunkow_mies": 3,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:x|2026-07-30|3",
+      "tagi": [
+        "alior_bank",
+        "alior",
+        "konto_oszczednosciowe",
+        "oprocentowanie"
+      ]
+    },
+    {
+      "id": "2026-04-velobank-program-polecen",
+      "url": "https://www.bankobranie.pl/2026/04/velobank-doceniam-velo-polecam-velo-edycja-2-2026.html",
+      "plik": "promocje/2026-04-velobank-program-polecen.md",
+      "bank": "VeloBank",
+      "produkt": "Doceniam Velo - polecam Velo",
+      "typ": "inne",
+      "status": "aktywna",
+      "premia_total": 150,
+      "data_publikacji": "2026-04-01",
+      "data_koniec_przystapienia": "2026-07-31",
+      "okres_warunkow_mies": 3,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:150|2026-07-31|3",
+      "tagi": [
+        "velobank",
+        "program-polecen"
+      ]
+    },
+    {
+      "id": "2026-05-pekao-karta-miles-and-more-500",
+      "url": "https://www.bankobranie.pl/2026/05/pekao-ekstra-mile-i-bonus-z-karta.html",
+      "plik": "promocje/2026-05-pekao-karta-miles-and-more-500.md",
+      "bank": "Bank Pekao",
+      "produkt": "Karta kredytowa Pekao w programie Miles & More (promocja \"Ekstra mile i bonus z kartą\")",
+      "typ": "karta_kredytowa",
+      "status": "aktywna",
+      "premia_total": 500,
+      "data_publikacji": "2026-05-18",
+      "data_koniec_przystapienia": "2026-07-31",
+      "okres_warunkow_mies": 2,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:500|2026-07-31|2",
+      "tagi": [
+        "bank_pekao",
+        "pekao",
+        "karta_kredytowa",
+        "miles-and-more"
+      ]
+    },
+    {
+      "id": "2026-06-erste-konto-smart-800",
+      "url": "https://www.bankobranie.pl/2026/06/erste-bank-800-zl-za-konto.html",
+      "plik": "promocje/2026-06-erste-konto-smart-800.md",
+      "bank": "Erste Bank",
+      "produkt": "Konto Smart",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 800,
+      "data_publikacji": "2026-06-01",
+      "data_koniec_przystapienia": "2026-07-31",
+      "okres_warunkow_mies": 3,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:800|2026-07-31|3",
+      "tagi": [
+        "konto_osobiste",
+        "erste_bank",
+        "bonus_gotowka",
+        "nowi_klienci",
+        "moje_cele",
+        "program_polecen",
+        "transakcje_karta_blik",
+        "wplyw_miesieczny"
+      ]
+    },
+    {
+      "id": "2026-05-mbank-ekonto-junior-300",
+      "url": "https://www.bankobranie.pl/2026/05/mbank-ekonto-junior-z-kieszonkowym-na-wakacje-edycja-2026.html",
+      "plik": "promocje/2026-05-mbank-ekonto-junior-300.md",
+      "bank": "mBank",
+      "produkt": "mBank eKonto Junior",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 300,
+      "data_publikacji": "2026-05-19",
+      "data_koniec_przystapienia": "2026-08-03",
+      "okres_warunkow_mies": 2,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:300|2026-08-03|2",
+      "tagi": [
+        "mbank",
+        "konto_osobiste",
+        "dzieci"
+      ]
+    },
+    {
+      "id": "2026-05-millennium-konto-360-junior-200",
+      "url": "https://www.bankobranie.pl/2026/05/millennium-twoja-ekarta-goodie-z-kontem-360-junior.html",
+      "plik": "promocje/2026-05-millennium-konto-360-junior-200.md",
+      "bank": "Bank Millennium",
+      "produkt": "Konto 360° Junior (promocja \"Twoja eKarta goodie z Kontem 360°Junior\")",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 200,
+      "data_publikacji": "2026-05-01",
+      "data_koniec_przystapienia": "2026-08-09",
+      "okres_warunkow_mies": null,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:200|2026-08-09|x",
+      "tagi": [
+        "millennium",
+        "konto_osobiste",
+        "dzieci"
+      ]
+    },
+    {
+      "id": "2026-04-ing-program-polecen",
+      "url": "https://www.bankobranie.pl/2026/04/ing-bank-program-polecen-konta.html",
+      "plik": "promocje/2026-04-ing-program-polecen.md",
+      "bank": "ING Bank Śląski",
+      "produkt": "Program poleceń ING",
+      "typ": "inne",
+      "status": "aktywna",
+      "premia_total": 100,
+      "data_publikacji": "2026-04-01",
+      "data_koniec_przystapienia": "2026-08-12",
+      "okres_warunkow_mies": null,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:100|2026-08-12|x",
+      "tagi": [
+        "ing",
+        "program-polecen"
+      ]
+    },
+    {
+      "id": "2026-04-millennium-karta-impresja-400",
+      "url": "https://www.bankobranie.pl/2026/04/millennium-karta-impresja-moneyback-10-proc.html",
+      "plik": "promocje/2026-04-millennium-karta-impresja-400.md",
+      "bank": "Bank Millennium",
+      "produkt": "Karta Kredytowa Visa Impresja (promocja moneyback 10%)",
+      "typ": "karta_kredytowa",
+      "status": "aktywna",
+      "premia_total": 400,
+      "data_publikacji": "2026-04-28",
+      "data_koniec_przystapienia": "2026-08-31",
+      "okres_warunkow_mies": 4,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:400|2026-08-31|4",
+      "tagi": [
+        "millennium",
+        "karta_kredytowa",
+        "moneyback"
+      ]
+    },
+    {
+      "id": "2026-05-bnp-podroznik-700",
+      "url": "https://www.bankobranie.pl/2026/05/bnp-paribas-podroznik-edycja-1.html",
+      "plik": "promocje/2026-05-bnp-podroznik-700.md",
+      "bank": "BNP Paribas",
+      "produkt": "Konto Otwarte na Ciebie z Kartą Otwartą na Świat (promocja \"Podróżnik - edycja 1\")",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 700,
+      "data_publikacji": "2026-05-26",
+      "data_koniec_przystapienia": "2026-08-31",
+      "okres_warunkow_mies": 12,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:700|2026-08-31|12",
+      "tagi": [
+        "bnp_paribas",
+        "bnp-paribas",
+        "konto_osobiste"
+      ]
+    },
+    {
+      "id": "2026-05-mbank-ekonto-uslug-1200",
+      "url": "https://www.bankobranie.pl/2026/05/mbank-cala-naprzod-zyskaj-z-kontem-media-expert.html",
+      "plik": "promocje/2026-05-mbank-ekonto-uslug-1200.md",
+      "bank": "mBank",
+      "produkt": "eKonto do usług (kampania Cała naprzód – edycja I)",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 1260,
+      "data_publikacji": "2026-05-28",
+      "data_koniec_przystapienia": "2026-08-31",
+      "okres_warunkow_mies": 6,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:1260|2026-08-31|6",
+      "tagi": [
+        "mbank",
+        "konto_osobiste",
+        "media-expert"
+      ]
+    },
+    {
+      "id": "2026-05-mbank-mkonto-intensive-1010",
+      "url": "https://www.bankobranie.pl/2026/05/mbank-1000-zl-za-mkonto-intensive.html",
+      "plik": "promocje/2026-05-mbank-mkonto-intensive-1010.md",
+      "bank": "mBank",
+      "produkt": "mKonto Intensive",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 1010,
+      "data_publikacji": "2026-05-28",
+      "data_koniec_przystapienia": "2026-08-31",
+      "okres_warunkow_mies": 6,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:1010|2026-08-31|6",
+      "tagi": [
+        "mbank",
+        "konto_osobiste"
+      ]
+    },
+    {
+      "id": "2026-06-pocztowy-konto-moneyback-960",
+      "url": "https://www.bankobranie.pl/2026/06/pocztowy-promocja-konta.html",
+      "plik": "promocje/2026-06-pocztowy-konto-moneyback-960.md",
+      "bank": "Bank Pocztowy",
+      "produkt": "Konto w Porządku / Konto w Porządku Start",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 960,
+      "data_publikacji": "2026-06-01",
+      "data_koniec_przystapienia": "2026-08-31",
+      "okres_warunkow_mies": 12,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:960|2026-08-31|12",
+      "tagi": [
+        "bank_pocztowy",
+        "pocztowy",
+        "konto_osobiste",
+        "moneyback"
+      ]
+    },
+    {
+      "id": "2026-03-millennium-konto-firmowe-2400",
+      "url": "https://www.bankobranie.pl/2026/03/millennium-promocja-moj-biznes.html",
+      "plik": "promocje/2026-03-millennium-konto-firmowe-2400.md",
+      "bank": "Bank Millennium",
+      "produkt": "Konto Mój Biznes",
+      "typ": "konto_firmowe",
+      "status": "aktywna",
+      "premia_total": 2400,
+      "data_publikacji": "2026-04-01",
+      "data_koniec_przystapienia": "2026-09-30",
+      "okres_warunkow_mies": 6,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:2400|2026-09-30|6",
+      "tagi": [
+        "millennium",
+        "konto_firmowe"
+      ]
+    },
+    {
+      "id": "2026-04-nest-konto-1250",
+      "url": "https://www.bankobranie.pl/2026/04/nest-bank-zyskaj-do-1250-zl-premii-z-nest-ko.html",
+      "plik": "promocje/2026-04-nest-konto-1250.md",
+      "bank": "Nest Bank",
+      "produkt": "Nest Konto",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 1250,
+      "data_publikacji": "2026-04-01",
+      "data_koniec_przystapienia": "2026-09-30",
+      "okres_warunkow_mies": 24,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:1250|2026-09-30|24",
+      "tagi": [
+        "nest",
+        "konto_osobiste"
+      ]
+    },
+    {
+      "id": "2026-05-erste-konto-firmowe-4500",
+      "url": "https://www.bankobranie.pl/2026/05/erste-bank-do-4500-zl-za-konto-firmowe.html",
+      "plik": "promocje/2026-05-erste-konto-firmowe-4500.md",
+      "bank": "Erste Bank",
+      "produkt": "Konto Firmowe Online",
+      "typ": "konto_firmowe",
+      "status": "aktywna",
+      "premia_total": 4500,
+      "data_publikacji": "2026-05-01",
+      "data_koniec_przystapienia": "2026-09-30",
+      "okres_warunkow_mies": 3,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:4500|2026-09-30|3",
+      "tagi": [
+        "erste",
+        "konto_firmowe",
+        "jednoosobowa_dzialalnosc",
+        "premia_gotowkowa"
+      ]
+    },
+    {
+      "id": "2026-05-mbank-polecambank",
+      "url": "https://www.bankobranie.pl/2026/05/mbank-program-polecen-polecambank.html",
+      "plik": "promocje/2026-05-mbank-polecambank.md",
+      "bank": "mBank",
+      "produkt": "PolecamBank",
+      "typ": "inne",
+      "status": "aktywna",
+      "premia_total": 300,
+      "data_publikacji": "2026-05-28",
+      "data_koniec_przystapienia": "2026-09-30",
+      "okres_warunkow_mies": null,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:300|2026-09-30|x",
+      "tagi": [
+        "mbank",
+        "inne",
+        "program-polecen"
+      ]
+    },
+    {
+      "id": "2026-04-alior-karta-firmowa-punkty",
+      "url": "https://www.bankobranie.pl/2026/04/alior-punkty-powitalne-w-programie-mastercard-bezcenne-chwile-edycja-2.html",
+      "plik": "promocje/2026-04-alior-karta-firmowa-punkty.md",
+      "bank": "Alior Bank",
+      "produkt": "Karta Mastercard z Plusem do konta firmowego (iKonto Biznes)",
+      "typ": "konto_firmowe",
+      "status": "aktywna",
+      "premia_total": 400,
+      "data_publikacji": "2026-04-23",
+      "data_koniec_przystapienia": "2026-10-15",
+      "okres_warunkow_mies": 2,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:400|2026-10-15|2",
+      "tagi": [
+        "alior",
+        "konto_firmowe",
+        "karta_firmowa"
+      ]
+    },
+    {
+      "id": "2026-04-millennium-konto-700",
+      "url": "https://www.bankobranie.pl/2026/04/millennium-do-700-zl-na-twoje-przyjemnosci-z-kontem.html",
+      "plik": "promocje/2026-04-millennium-konto-700.md",
+      "bank": "Bank Millennium",
+      "produkt": "Konto 360",
+      "typ": "konto_osobiste",
+      "status": "aktywna",
+      "premia_total": 700,
+      "data_publikacji": "2026-04-01",
+      "data_koniec_przystapienia": "2026-10-27",
+      "okres_warunkow_mies": 6,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:700|2026-10-27|6",
+      "tagi": [
+        "millennium",
+        "konto_osobiste"
+      ]
+    },
+    {
+      "id": "2026-05-erste-konto-pro-oszcz-45proc",
+      "url": "https://www.bankobranie.pl/2026/05/erste-bank-konto-pro-oszczednosciowe.html",
+      "plik": "promocje/2026-05-erste-konto-pro-oszcz-45proc.md",
+      "bank": "Erste Bank",
+      "produkt": "Konto Pro Oszczędnościowe",
+      "typ": "konto_oszczednosciowe",
+      "status": "aktywna",
+      "premia_total": null,
+      "data_publikacji": "2026-05-15",
+      "data_koniec_przystapienia": null,
+      "okres_warunkow_mies": 4,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:x|x|4",
+      "tagi": [
+        "erste_bank",
+        "erste",
+        "konto_oszczednosciowe",
+        "oprocentowanie"
+      ]
+    },
+    {
+      "id": "2026-05-nest-lokata-witaj-61proc",
+      "url": "https://www.bankobranie.pl/2026/05/nest-bank-lokata-witaj-konto-oszczednosciowe-6-1-proc.html",
+      "plik": "promocje/2026-05-nest-lokata-witaj-61proc.md",
+      "bank": "Nest Bank",
+      "produkt": "Nest Lokata Witaj + Nest Konto Oszczędnościowe",
+      "typ": "lokata",
+      "status": "aktywna",
+      "premia_total": 100,
+      "data_publikacji": "2026-05-29",
+      "data_koniec_przystapienia": null,
+      "okres_warunkow_mies": 3,
+      "scraped_at": "2026-06-03",
+      "content_hash": "fp:100|x|3",
+      "tagi": [
+        "nest_bank",
+        "nest",
+        "lokata",
+        "konto_oszczednosciowe",
+        "oprocentowanie"
+      ]
+    }
+  ]
+}

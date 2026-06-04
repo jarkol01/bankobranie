@@ -1,0 +1,22 @@
+{
+  "id": "2026-03-mbank-firma-konto-500",
+  "url": "https://www.bankobranie.pl/2026/03/zdobadz-500-z-premii-za-otwarcie-firmy.html",
+  "plik": "promocje/2026-03-mbank-firma-konto-500.md",
+  "bank": "mBank",
+  "produkt": "mBiznes Konto Standard",
+  "typ": "konto_firmowe",
+  "status": "aktywna",
+  "premia_total": 500,
+  "data_publikacji": "2026-03-01",
+  "data_koniec_przystapienia": "2026-06-10",
+  "okres_warunkow_mies": 1,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:500|2026-06-10|1",
+  "tagi": [
+    "mbank",
+    "konto_firmowe",
+    "jednoosobowa_dzialalnosc",
+    "premia_gotowkowa",
+    "rejestracja_jdg"
+  ]
+}

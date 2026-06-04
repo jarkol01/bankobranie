@@ -1,0 +1,20 @@
+{
+  "id": "2026-04-raiffeisen-konto-oszcz-45proc",
+  "url": "https://www.bankobranie.pl/2026/04/raiffeisen-digital-bank-konto-oszczednosciowe-start-4-5-proc.html",
+  "plik": "promocje/2026-04-raiffeisen-konto-oszcz-45proc.md",
+  "bank": "Raiffeisen Digital Bank",
+  "produkt": "Rachunek Oszczędnościowy Start",
+  "typ": "konto_oszczednosciowe",
+  "status": "wygasla",
+  "premia_total": null,
+  "data_publikacji": "2026-04-22",
+  "data_koniec_przystapienia": "2026-06-02",
+  "okres_warunkow_mies": 3,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:x|2026-06-02|3",
+  "tagi": [
+    "raiffeisen",
+    "konto_oszczednosciowe",
+    "oprocentowanie"
+  ]
+}

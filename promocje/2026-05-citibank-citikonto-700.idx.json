@@ -1,0 +1,19 @@
+{
+  "id": "2026-05-citibank-citikonto-700",
+  "url": "https://www.bankobranie.pl/2026/05/citibank-700-zl-za-konto-last-minute.html",
+  "plik": "promocje/2026-05-citibank-citikonto-700.md",
+  "bank": "Citibank Handlowy",
+  "produkt": "CitiKonto",
+  "typ": "konto_osobiste",
+  "status": "wygasla",
+  "premia_total": 700,
+  "data_publikacji": "2026-05-11",
+  "data_koniec_przystapienia": "2026-05-25",
+  "okres_warunkow_mies": 3,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:700|2026-05-25|3",
+  "tagi": [
+    "citibank",
+    "konto_osobiste"
+  ]
+}

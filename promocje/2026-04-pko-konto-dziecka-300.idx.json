@@ -1,0 +1,20 @@
+{
+  "id": "2026-04-pko-konto-dziecka-300",
+  "url": "https://www.bankobranie.pl/2026/04/do-300-z-premii-za-konto-dla-dziecka-w.html",
+  "plik": "promocje/2026-04-pko-konto-dziecka-300.md",
+  "bank": "PKO BP",
+  "produkt": "PKO Konto Dziecka / PKO Konto dla Młodych",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 300,
+  "data_publikacji": "2026-04-01",
+  "data_koniec_przystapienia": "2026-06-30",
+  "okres_warunkow_mies": 10,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:300|2026-06-30|10",
+  "tagi": [
+    "pko-bp",
+    "konto_osobiste",
+    "dzieci"
+  ]
+}

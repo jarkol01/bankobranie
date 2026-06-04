@@ -1,0 +1,20 @@
+{
+  "id": "2026-03-unicredit-konto-oszcz-45proc",
+  "url": "https://www.bankobranie.pl/2026/03/unicredit-konto-oszczednosciowe-4-5-proc.html",
+  "plik": "promocje/2026-03-unicredit-konto-oszcz-45proc.md",
+  "bank": "UniCredit",
+  "produkt": "Konto Oszczędnościowe UniCredit",
+  "typ": "konto_oszczednosciowe",
+  "status": "wygasla",
+  "premia_total": null,
+  "data_publikacji": "2026-03-26",
+  "data_koniec_przystapienia": "2026-05-03",
+  "okres_warunkow_mies": null,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:x|2026-05-03|x",
+  "tagi": [
+    "unicredit",
+    "konto_oszczednosciowe",
+    "oprocentowanie"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "2026-03-mbank-mbiznes-700",
+  "url": "https://www.bankobranie.pl/2026/03/mbank-mbiznes-z-premia-na-start-xvi-edycja-700-zl.html",
+  "plik": "promocje/2026-03-mbank-mbiznes-700.md",
+  "bank": "mBank",
+  "produkt": "mBiznes Konto Standard",
+  "typ": "konto_firmowe",
+  "status": "aktywna",
+  "premia_total": 700,
+  "data_publikacji": "2026-03-17",
+  "data_koniec_przystapienia": "2026-06-10",
+  "okres_warunkow_mies": 1,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:700|2026-06-10|1",
+  "tagi": [
+    "mbank",
+    "konto_firmowe"
+  ]
+}

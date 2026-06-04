@@ -1,0 +1,19 @@
+{
+  "id": "2026-04-millennium-konto-700",
+  "url": "https://www.bankobranie.pl/2026/04/millennium-do-700-zl-na-twoje-przyjemnosci-z-kontem.html",
+  "plik": "promocje/2026-04-millennium-konto-700.md",
+  "bank": "Bank Millennium",
+  "produkt": "Konto 360",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 700,
+  "data_publikacji": "2026-04-01",
+  "data_koniec_przystapienia": "2026-10-27",
+  "okres_warunkow_mies": 6,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:700|2026-10-27|6",
+  "tagi": [
+    "millennium",
+    "konto_osobiste"
+  ]
+}

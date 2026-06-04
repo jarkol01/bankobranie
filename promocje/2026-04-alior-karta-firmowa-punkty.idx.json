@@ -1,0 +1,20 @@
+{
+  "id": "2026-04-alior-karta-firmowa-punkty",
+  "url": "https://www.bankobranie.pl/2026/04/alior-punkty-powitalne-w-programie-mastercard-bezcenne-chwile-edycja-2.html",
+  "plik": "promocje/2026-04-alior-karta-firmowa-punkty.md",
+  "bank": "Alior Bank",
+  "produkt": "Karta Mastercard z Plusem do konta firmowego (iKonto Biznes)",
+  "typ": "konto_firmowe",
+  "status": "aktywna",
+  "premia_total": 400,
+  "data_publikacji": "2026-04-23",
+  "data_koniec_przystapienia": "2026-10-15",
+  "okres_warunkow_mies": 2,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:400|2026-10-15|2",
+  "tagi": [
+    "alior",
+    "konto_firmowe",
+    "karta_firmowa"
+  ]
+}

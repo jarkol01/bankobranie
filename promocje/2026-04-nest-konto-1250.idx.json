@@ -1,0 +1,19 @@
+{
+  "id": "2026-04-nest-konto-1250",
+  "url": "https://www.bankobranie.pl/2026/04/nest-bank-zyskaj-do-1250-zl-premii-z-nest-ko.html",
+  "plik": "promocje/2026-04-nest-konto-1250.md",
+  "bank": "Nest Bank",
+  "produkt": "Nest Konto",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 1250,
+  "data_publikacji": "2026-04-01",
+  "data_koniec_przystapienia": "2026-09-30",
+  "okres_warunkow_mies": 24,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:1250|2026-09-30|24",
+  "tagi": [
+    "nest",
+    "konto_osobiste"
+  ]
+}

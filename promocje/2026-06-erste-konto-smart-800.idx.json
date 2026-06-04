@@ -1,0 +1,25 @@
+{
+  "id": "2026-06-erste-konto-smart-800",
+  "url": "https://www.bankobranie.pl/2026/06/erste-bank-800-zl-za-konto.html",
+  "plik": "promocje/2026-06-erste-konto-smart-800.md",
+  "bank": "Erste Bank",
+  "produkt": "Konto Smart",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 800,
+  "data_publikacji": "2026-06-01",
+  "data_koniec_przystapienia": "2026-07-31",
+  "okres_warunkow_mies": 3,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:800|2026-07-31|3",
+  "tagi": [
+    "konto_osobiste",
+    "erste_bank",
+    "bonus_gotowka",
+    "nowi_klienci",
+    "moje_cele",
+    "program_polecen",
+    "transakcje_karta_blik",
+    "wplyw_miesieczny"
+  ]
+}

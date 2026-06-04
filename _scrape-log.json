@@ -1,0 +1,57 @@
+{
+  "opis": "Historia przebiegow scrapowania bankobranie.pl",
+  "przebiegi": [
+    {
+      "data": "2026-06-03",
+      "zakres": "strona glowna, 30 najnowszych wpisow (strona 1)",
+      "metoda": "1 subagent (Sonnet) = 1 artykul, czysty kontekst, zapis bezposrednio do pliku",
+      "nowe": 21,
+      "zaktualizowane": 0,
+      "pominiete_bez_zmian": 0,
+      "pominiete_niepromocyjne": [
+        "najlepsze-lokaty...czerwiec-2026 (ranking zbiorczy)",
+        "moje-zarabianie...podsumowanie (dziennik)",
+        "przeglad-tygodnia x3 (przeglady)",
+        "promocje-bankowe-last-minute-maj-2026 (zbiorczy)",
+        "erste-800-zl-maj-2026-film (duplikat 800 zl Erste)",
+        "alior-konto-oszczednosciowe-na-start-8-edycja (starsza edycja, zastapiona 9.)"
+      ],
+      "uwagi": "Pierwszy przebieg bazowy. premia_total dla czystego oprocentowania = null."
+    },
+    {
+      "data": "2026-06-03",
+      "zakres": "strona 2 (start=30), wpisy 12.05–20.04.2026 — scrapowane tylko nowe/aktywne kandydatury",
+      "metoda": "9 subagentow (Sonnet), 1 artykul = 1 agent",
+      "nowe": 9,
+      "wygasle_znalezione": [
+        "pko-bp-karta (31.05)",
+        "citibank-citikonto-700 (25.05)",
+        "raiffeisen-konto-oszcz (2.06)"
+      ],
+      "decyzja_stop": "Strona 3 pominieta — kwietniowe wpisy w wiekszosci wygasle (regula: stop gdy wiekszosc nieaktywna).",
+      "pominiete": "duplikaty/starsze edycje (ING OKO 12.05, UniCredit ed.3, VeloBank ed.6, starsza Erste 800, BNP Letni szal), przeglady/dzienniki, promocje dla obecnych klientow (ING 15%/Lagodzimy, Santander), Raiffeisen lokaty, karty Citi"
+    },
+    {
+      "data": "2026-06-03",
+      "zakres": "strona 3 (start=60), 1-20.04.2026 — nowe/odrebne pozycje",
+      "metoda": "12 subagentow (Sonnet)",
+      "nowe": 12,
+      "wygasle_znalezione": [
+        "unicredit-lokata-powitalna (31.05)",
+        "citibank-apple-watch (7.05)"
+      ],
+      "uwaga": "Wiele 'kwietniowych' to evergreen z przedluzonym deadline (Millennium 700 do 27.10 itd.)"
+    },
+    {
+      "data": "2026-06-03",
+      "zakres": "strona 4 (start=90), marzec-1.04.2026 — tylko nowe konta firmowe + odrebne",
+      "metoda": "5 subagentow (Sonnet)",
+      "nowe": 5,
+      "wygasle_znalezione": [
+        "unicredit-konto-oszcz-45 (3.05)",
+        "pocztowy-1110 (31.05)"
+      ],
+      "decyzja_stop": "KONIEC scrapowania. Strona 4 w wiekszosci duplikaty/wygasle; glebiej brak nowych aktywnych."
+    }
+  ]
+}

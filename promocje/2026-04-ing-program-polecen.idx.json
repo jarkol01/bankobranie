@@ -1,0 +1,19 @@
+{
+  "id": "2026-04-ing-program-polecen",
+  "url": "https://www.bankobranie.pl/2026/04/ing-bank-program-polecen-konta.html",
+  "plik": "promocje/2026-04-ing-program-polecen.md",
+  "bank": "ING Bank Śląski",
+  "produkt": "Program poleceń ING",
+  "typ": "inne",
+  "status": "aktywna",
+  "premia_total": 100,
+  "data_publikacji": "2026-04-01",
+  "data_koniec_przystapienia": "2026-08-12",
+  "okres_warunkow_mies": null,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:100|2026-08-12|x",
+  "tagi": [
+    "ing",
+    "program-polecen"
+  ]
+}

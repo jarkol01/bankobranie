@@ -1,0 +1,18 @@
+{
+  "id": "2026-04-pko-zakupy-z-premia-600",
+  "url": "https://www.bankobranie.pl/2026/04/pko-bp-zakupy-z-premia.html",
+  "plik": "promocje/2026-04-pko-zakupy-z-premia-600.md",
+  "bank": "PKO BP",
+  "produkt": "Konto za Zero (PKO BP)",
+  "typ": "moneyback",
+  "status": "aktywna",
+  "premia_total": 600,
+  "data_publikacji": "2026-04-01",
+  "data_koniec_przystapienia": "2026-06-30",
+  "okres_warunkow_mies": 10,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:600|2026-06-30|10",
+  "tagi": [
+    "pko-bp"
+  ]
+}

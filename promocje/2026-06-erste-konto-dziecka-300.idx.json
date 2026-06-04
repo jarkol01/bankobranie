@@ -1,0 +1,21 @@
+{
+  "id": "2026-06-erste-konto-dziecka-300",
+  "url": "https://www.bankobranie.pl/2026/06/erste-bank-konto-dziecka.html",
+  "plik": "promocje/2026-06-erste-konto-dziecka-300.md",
+  "bank": "Erste Bank",
+  "produkt": "Konto Smart (dla dzieci i nastolatków)",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 300,
+  "data_publikacji": "2026-06-01",
+  "data_koniec_przystapienia": "2026-07-12",
+  "okres_warunkow_mies": 2,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:300|2026-07-12|2",
+  "tagi": [
+    "erste_bank",
+    "erste",
+    "konto_osobiste",
+    "dzieci"
+  ]
+}

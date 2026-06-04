@@ -1,0 +1,21 @@
+{
+  "id": "2026-05-erste-konto-pro-oszcz-45proc",
+  "url": "https://www.bankobranie.pl/2026/05/erste-bank-konto-pro-oszczednosciowe.html",
+  "plik": "promocje/2026-05-erste-konto-pro-oszcz-45proc.md",
+  "bank": "Erste Bank",
+  "produkt": "Konto Pro Oszczędnościowe",
+  "typ": "konto_oszczednosciowe",
+  "status": "aktywna",
+  "premia_total": null,
+  "data_publikacji": "2026-05-15",
+  "data_koniec_przystapienia": null,
+  "okres_warunkow_mies": 4,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:x|x|4",
+  "tagi": [
+    "erste_bank",
+    "erste",
+    "konto_oszczednosciowe",
+    "oprocentowanie"
+  ]
+}

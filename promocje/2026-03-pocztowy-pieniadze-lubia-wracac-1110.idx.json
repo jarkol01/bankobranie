@@ -1,0 +1,19 @@
+{
+  "id": "2026-03-pocztowy-pieniadze-lubia-wracac-1110",
+  "url": "https://www.bankobranie.pl/2026/03/pocztowy-pieniadze-lubia-wracac.html",
+  "plik": "promocje/2026-03-pocztowy-pieniadze-lubia-wracac-1110.md",
+  "bank": "Bank Pocztowy",
+  "produkt": "Konto w Porządku",
+  "typ": "konto_osobiste",
+  "status": "wygasla",
+  "premia_total": 1110,
+  "data_publikacji": "2026-03-19",
+  "data_koniec_przystapienia": "2026-05-31",
+  "okres_warunkow_mies": 12,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:1110|2026-05-31|12",
+  "tagi": [
+    "pocztowy",
+    "konto_osobiste"
+  ]
+}

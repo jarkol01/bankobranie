@@ -1,0 +1,19 @@
+{
+  "id": "2026-03-millennium-konto-firmowe-2400",
+  "url": "https://www.bankobranie.pl/2026/03/millennium-promocja-moj-biznes.html",
+  "plik": "promocje/2026-03-millennium-konto-firmowe-2400.md",
+  "bank": "Bank Millennium",
+  "produkt": "Konto Mój Biznes",
+  "typ": "konto_firmowe",
+  "status": "aktywna",
+  "premia_total": 2400,
+  "data_publikacji": "2026-04-01",
+  "data_koniec_przystapienia": "2026-09-30",
+  "okres_warunkow_mies": 6,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:2400|2026-09-30|6",
+  "tagi": [
+    "millennium",
+    "konto_firmowe"
+  ]
+}

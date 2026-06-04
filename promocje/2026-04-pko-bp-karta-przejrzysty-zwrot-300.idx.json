@@ -1,0 +1,20 @@
+{
+  "id": "2026-04-pko-bp-karta-przejrzysty-zwrot-300",
+  "url": "https://www.bankobranie.pl/2026/04/pko-bp-przejrzysty-zwrot-4.html",
+  "plik": "promocje/2026-04-pko-bp-karta-przejrzysty-zwrot-300.md",
+  "bank": "PKO BP",
+  "produkt": "Przejrzysta karta kredytowa PKO Visa",
+  "typ": "karta_kredytowa",
+  "status": "wygasla",
+  "premia_total": 300,
+  "data_publikacji": "2026-05-04",
+  "data_koniec_przystapienia": "2026-05-31",
+  "okres_warunkow_mies": 3,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:300|2026-05-31|3",
+  "tagi": [
+    "pko-bp",
+    "karta_kredytowa",
+    "moneyback"
+  ]
+}

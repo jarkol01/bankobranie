@@ -1,0 +1,19 @@
+{
+  "id": "2026-04-velobank-program-polecen",
+  "url": "https://www.bankobranie.pl/2026/04/velobank-doceniam-velo-polecam-velo-edycja-2-2026.html",
+  "plik": "promocje/2026-04-velobank-program-polecen.md",
+  "bank": "VeloBank",
+  "produkt": "Doceniam Velo - polecam Velo",
+  "typ": "inne",
+  "status": "aktywna",
+  "premia_total": 150,
+  "data_publikacji": "2026-04-01",
+  "data_koniec_przystapienia": "2026-07-31",
+  "okres_warunkow_mies": 3,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:150|2026-07-31|3",
+  "tagi": [
+    "velobank",
+    "program-polecen"
+  ]
+}

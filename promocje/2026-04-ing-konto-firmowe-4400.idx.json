@@ -1,0 +1,19 @@
+{
+  "id": "2026-04-ing-konto-firmowe-4400",
+  "url": "https://www.bankobranie.pl/2026/04/ing-bank-slaski-4400-zl-za-konto-firmowe.html",
+  "plik": "promocje/2026-04-ing-konto-firmowe-4400.md",
+  "bank": "ING Bank Śląski",
+  "produkt": "Konto Firmowe ING",
+  "typ": "konto_firmowe",
+  "status": "aktywna",
+  "premia_total": 4400,
+  "data_publikacji": "2026-04-01",
+  "data_koniec_przystapienia": "2026-06-30",
+  "okres_warunkow_mies": 12,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:4400|2026-06-30|12",
+  "tagi": [
+    "ing",
+    "konto_firmowe"
+  ]
+}

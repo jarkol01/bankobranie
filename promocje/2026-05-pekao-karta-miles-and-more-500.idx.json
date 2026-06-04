@@ -1,0 +1,21 @@
+{
+  "id": "2026-05-pekao-karta-miles-and-more-500",
+  "url": "https://www.bankobranie.pl/2026/05/pekao-ekstra-mile-i-bonus-z-karta.html",
+  "plik": "promocje/2026-05-pekao-karta-miles-and-more-500.md",
+  "bank": "Bank Pekao",
+  "produkt": "Karta kredytowa Pekao w programie Miles & More (promocja \"Ekstra mile i bonus z kartą\")",
+  "typ": "karta_kredytowa",
+  "status": "aktywna",
+  "premia_total": 500,
+  "data_publikacji": "2026-05-18",
+  "data_koniec_przystapienia": "2026-07-31",
+  "okres_warunkow_mies": 2,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:500|2026-07-31|2",
+  "tagi": [
+    "bank_pekao",
+    "pekao",
+    "karta_kredytowa",
+    "miles-and-more"
+  ]
+}

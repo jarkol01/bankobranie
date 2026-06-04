@@ -1,0 +1,22 @@
+{
+  "id": "2026-05-nest-lokata-witaj-61proc",
+  "url": "https://www.bankobranie.pl/2026/05/nest-bank-lokata-witaj-konto-oszczednosciowe-6-1-proc.html",
+  "plik": "promocje/2026-05-nest-lokata-witaj-61proc.md",
+  "bank": "Nest Bank",
+  "produkt": "Nest Lokata Witaj + Nest Konto Oszczędnościowe",
+  "typ": "lokata",
+  "status": "aktywna",
+  "premia_total": 100,
+  "data_publikacji": "2026-05-29",
+  "data_koniec_przystapienia": null,
+  "okres_warunkow_mies": 3,
+  "scraped_at": "2026-06-03",
+  "content_hash": "fp:100|x|3",
+  "tagi": [
+    "nest_bank",
+    "nest",
+    "lokata",
+    "konto_oszczednosciowe",
+    "oprocentowanie"
+  ]
+}
