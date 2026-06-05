@@ -19,6 +19,7 @@ Decyzje użytkownika będą podejmowane **na podstawie tych danych**, więc prio
 .
 ├── CLAUDE.md          # ten plik
 ├── README.md          # opis struktury, legenda pól, workflow (dla człowieka)
+├── index.html         # APLIKACJA: interaktywny tracker planu (hostowany na GitHub Pages)
 ├── index.json         # MANIFEST: 1 wpis = 1 artykuł; szybki dedup + przegląd
 ├── _scrape-log.json   # historia przebiegów scrapowania
 └── promocje/          # 1 promocja = 2 pliki:
@@ -110,10 +111,40 @@ limity uczestników) · `## Źródło` (data pobrania + ew. rozwiązany URL prze
   (kanonizacja banku, `premia_total` 0→null, przeliczenie `content_hash`, sort po deadline; aktualizacja `_meta`).
   Skrypt jest idempotentny — można puszczać po każdym batchu.
 - **Analiza / strategia** → operuj na `index.json` (warstwa maszynowa); po szczegóły i haczyki sięgaj do `.md`.
-  Do personalnej strategii potrzebne dane użytkownika: wiek (zwolnienia z opłat <26), już posiadane konta
-  (karencje „brak konta od…"), możliwy wpływ miesięczny, liczba kont prowadzonych równolegle, interesujące typy produktów.
+  Profil użytkownika i wybrany plan są już ustalone — patrz sekcja „Strategia i research" oraz memory.
+  Przy aktualizacji planu pamiętaj o przeliczeniu wpływu na `index.html` (obiekt `PLAN`) i `git push`.
+- **Aktualizacja trackera / planu** → edytuj `PLAN` w `index.html`, commit + `git push` (Pages odświeża się samo).
+
+## Aplikacja (tracker) + wdrożenie na GitHub Pages
+
+`index.html` to samodzielna aplikacja webowa (jeden plik: HTML+CSS+JS inline, bez zależności,
+działa też lokalnie z dwukliku). Zakładki: Pulpit · Harmonogram miesięczny · Produkty
+(checklisty) · Spend plan · Zasady. Stan odhaczeń trzymany w **localStorage przeglądarki**
+(czyli **per urządzenie** — nie synchronizuje się między telefonem a kompem; jest Eksport/Import JSON
+do przenoszenia). Repo zawiera „czysty" tracker bez odhaczeń użytkownika.
+
+**Wdrożenie (stan 2026-06-04):**
+- Repo: **github.com/jarkol01/bankobranie** — PUBLICZNE (darmowy Pages wymaga publicznego repo).
+- Hosting: **GitHub Pages**, źródło `main` / katalog główny (`/`). Adres: **https://jarkol01.github.io/bankobranie/**.
+- Konto GitHub użytkownika: `jarkol01`; `gh` i `git` są dostępne i zalogowane (protokół SSH).
+- **Aktualizacja:** edytuj plik → `git add -A && git commit && git push` → Pages przebuduje się sam (~1–2 min, pierwszy build dłużej; 404 zanim się postawi to normalne). Commit message kończ trailerem `Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>`.
+- Dane planu są **wbudowane w `index.html`** (obiekt `PLAN`) — przy zmianie strategii edytuj ten obiekt, nie tylko bazę `promocje/`.
+
+## Strategia i research (stan)
+
+- **Strategia personalna jest już ułożona** i wdrożona w `index.html`. Profil użytkownika i wybrany plan
+  zapisane w pamięci projektu (memory: `bankobranie-profil-uzytkownika`, `bankobranie-projekt`).
+  W skrócie: użytkownik ma ≤26 lat (do lutego 2027), konto w mBanku (→ promocje mBank na konto osobiste zablokowane),
+  swobodnie przepuszcza wpływy między bankami, wydaje ~3080 zł/mc (głównie ZEN, benefit ~1–2%), chce 1 kartę kredytową.
+- **Ustalenia z researchu (przydatne na przyszłość):**
+  - BLIK działa niezależnie w wielu bankach (brak konfliktu). Wpływy można „przepuszczać", o ile regulamin nie wymaga *„wynagrodzenia"*.
+  - Transakcje do warunków rób zakupami, NIE doładowaniem ZEN/e-portfeli (wykluczone MCC).
+  - Pekao: KONTO Przekorzystne ZAWSZE przed kartą kredytową (promocja konta wymaga braku produktów kredytowych „na dzień przystąpienia"; karta nie wymaga konta).
+  - Karta kredytowa Pekao z Żubrem: limit **do 7000 zł bez dokumentów** (online); pusty BIK to główne ryzyko niższego limitu. Przewalutowanie po **tabeli banku ~3,9–4,3% spread** (nie kurs Mastercard) → słaba do FX, używać tylko gdzie wymagana (kaucja auta), resztę przez ZEN. Bankomat zagr. 7%/5%/3% — unikać.
+- Research robić **osobnym subagentem** (Sonnet, WebSearch/WebFetch), nie zaśmiecać głównego kontekstu; prosić o rozróżnienie „potwierdzone w oficjalnym źródle vs praktyka" + URL-e.
 
 ## Środowisko
 
 - `python3` dostępny (używany do scalania/normalizacji). Brak gwarancji `jq`/`node` — domyślnie `python3`.
+- `git` + `gh` dostępne i zalogowane (`jarkol01`, SSH) — patrz wdrożenie powyżej.
 - Dzisiejszą datę bierz z kontekstu sesji; statusy i terminy licz względem niej.
