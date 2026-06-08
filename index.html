@@ -88,6 +88,15 @@
   .sync-check input{width:17px;height:17px;accent-color:var(--acc)}
   .ok-text{color:var(--acc)!important}
   .bad-text{color:var(--bad)!important}
+  .sync-badge{margin-left:auto;font-size:12px;display:none;align-items:center;gap:6px;
+    white-space:nowrap;padding:0 4px;color:var(--mut)}
+  .sync-badge.show{display:flex}
+  .sync-badge.ok{color:var(--acc)}
+  .sync-badge.err{color:var(--bad)}
+  .spin{width:12px;height:12px;border:2px solid var(--line);border-top-color:var(--acc2);
+    border-radius:50%;display:inline-block;animation:spin .7s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media(max-width:560px){.sync-badge{font-size:11px;width:100%;margin:4px 0 0;justify-content:flex-end}}
   .sub{color:var(--mut);font-size:13px;margin:6px 0}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
   .kv{background:var(--panel2);border-radius:8px;padding:8px 10px;font-size:13px}
@@ -132,6 +141,7 @@
     <button data-tab="deadliny">Deadliny</button>
     <button data-tab="produkty">Produkty</button>
     <button data-tab="zasady">Zasady</button>
+    <span id="sync-badge" class="sync-badge" title="Status synchronizacji"></span>
   </nav>
 
   <section id="dash" class="active">
@@ -573,6 +583,13 @@ function syncCfg(){ return {
   gist:(localStorage.getItem("bb_sync_gist")||"").trim(),
   auto:localStorage.getItem("bb_sync_auto")==="1" }; }
 function setSyncStatus(msg,cls){ const e=document.getElementById("sync-status"); if(e){ e.textContent=msg; e.className="sub "+(cls||""); } }
+function hhmm(ms){ return new Date(ms).toLocaleTimeString("pl-PL",{hour:"2-digit",minute:"2-digit"}); }
+function setSyncBadge(kind,text){ const b=document.getElementById("sync-badge"); if(!b) return;
+  b.className="sync-badge show"+(kind&&kind!=="syncing"?" "+kind:"");
+  if(kind==="syncing") b.innerHTML='<span class="spin"></span>'+(text||"zapisywanie…");
+  else if(kind==="ok") b.innerHTML="✓ "+(text||"zapisano");
+  else if(kind==="err") b.innerHTML="⚠️ "+(text||"błąd sync");
+  else b.className="sync-badge"; }
 function toggleSyncPanel(){ const p=document.getElementById("sync-panel");
   const show=p.style.display==="none"; p.style.display=show?"block":"none";
   if(show){ const c=syncCfg();
@@ -588,6 +605,7 @@ function saveSyncCfg(){
 
 let autoPushTimer=null;
 function scheduleAutoPush(){ const c=syncCfg(); if(!c.auto||!c.token) return;
+  setSyncBadge("syncing","zapisywanie…");
   clearTimeout(autoPushTimer); autoPushTimer=setTimeout(()=>gistPush(true),1500); }
 
 async function gistPush(silent){
@@ -596,40 +614,45 @@ async function gistPush(silent){
   const payload=JSON.stringify({ts:Date.now(),data:state});
   const body=JSON.stringify({description:"Bankobranie — stan trackera",public:false,files:{[SYNC_FILE]:{content:payload}}});
   try{
-    if(!silent) setSyncStatus("Wysyłanie…");
+    setSyncBadge("syncing","wysyłanie…"); if(!silent) setSyncStatus("Wysyłanie…");
     const url=c.gist?"https://api.github.com/gists/"+c.gist:"https://api.github.com/gists";
     const res=await fetch(url,{method:c.gist?"PATCH":"POST",headers:GH_HEADERS(c.token),body});
     if(!res.ok) throw new Error("HTTP "+res.status+(res.status===401?" (zły token)":res.status===404?" (zły Gist ID)":""));
     const j=await res.json();
     if(!c.gist && j.id){ localStorage.setItem("bb_sync_gist",j.id); const gi=document.getElementById("sync-gist"); if(gi) gi.value=j.id; }
-    setSyncStatus("Zapisano w chmurze ✓ "+new Date().toLocaleTimeString("pl-PL"),"ok-text");
-  }catch(e){ setSyncStatus("Błąd zapisu: "+e.message,"bad-text"); }
+    const t=Date.now(); localStorage.setItem("bb_sync_done",String(t));
+    setSyncBadge("ok",hhmm(t)); setSyncStatus("Zapisano w chmurze ✓ "+hhmm(t),"ok-text");
+  }catch(e){ setSyncBadge("err"); setSyncStatus("Błąd zapisu: "+e.message,"bad-text"); }
 }
 
 async function gistPull(silent){
   const c=syncCfg();
   if(!c.token||!c.gist){ if(!silent) setSyncStatus("Podaj token i Gist ID (lub najpierw wyślij do chmury).","bad-text"); return; }
   try{
-    if(!silent) setSyncStatus("Pobieranie…");
+    setSyncBadge("syncing","wczytywanie…"); if(!silent) setSyncStatus("Pobieranie…");
     const res=await fetch("https://api.github.com/gists/"+c.gist,{headers:GH_HEADERS(c.token)});
     if(!res.ok) throw new Error("HTTP "+res.status);
     const j=await res.json();
     const f=j.files&&j.files[SYNC_FILE];
-    if(!f){ if(!silent) setSyncStatus("Gist nie zawiera pliku stanu.","bad-text"); return; }
+    if(!f){ setSyncBadge("err"); if(!silent) setSyncStatus("Gist nie zawiera pliku stanu.","bad-text"); return; }
     const parsed=JSON.parse(f.content);
     const remoteTs=parsed.ts||0, localTs=Number(localStorage.getItem("bb_sync_ts")||0);
-    if(silent && remoteTs<=localTs){ setSyncStatus("Lokalny stan aktualny (≥ chmura)."); return; }
+    const t=Date.now(); localStorage.setItem("bb_sync_done",String(t));
+    if(silent && remoteTs<=localTs){ setSyncBadge("ok",hhmm(t)); setSyncStatus("Lokalny stan aktualny (≥ chmura)."); return; }
     state=parsed.data||{};
     localStorage.setItem(LS_KEY,JSON.stringify(state));
     localStorage.setItem("bb_sync_ts",String(remoteTs));
     render();
-    setSyncStatus("Wczytano z chmury ✓ "+new Date().toLocaleTimeString("pl-PL"),"ok-text");
-  }catch(e){ if(!silent) setSyncStatus("Błąd odczytu: "+e.message,"bad-text"); }
+    setSyncBadge("ok",hhmm(t)); setSyncStatus("Wczytano z chmury ✓ "+hhmm(t),"ok-text");
+  }catch(e){ setSyncBadge("err"); if(!silent) setSyncStatus("Błąd odczytu: "+e.message,"bad-text"); }
 }
 
 render();
-// auto-pull przy starcie (jeśli włączony auto-sync i skonfigurowany)
-if(syncCfg().auto && syncCfg().token && syncCfg().gist) gistPull(true);
+// status sync przy starcie
+(function(){ const c=syncCfg(); if(!c.token||!c.gist) return;
+  const done=Number(localStorage.getItem("bb_sync_done")||0);
+  if(done) setSyncBadge("ok",hhmm(done));
+  if(c.auto) gistPull(true); })();
 </script>
 </body>
 </html>
