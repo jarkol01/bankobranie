@@ -62,6 +62,13 @@
   .conds li.counter{align-items:center}
   .conds li.counter.checked .cnt-btn{border-color:var(--acc)}
   .conds li.counter.checked .cnt-val{color:var(--acc)}
+  .cond-group{margin:12px 0 0}
+  .cond-group:first-child{margin-top:4px}
+  .cond-group-title{font-size:11px;font-weight:700;color:var(--mut);text-transform:uppercase;
+    letter-spacing:.06em;padding:5px 0 4px;border-bottom:1px solid var(--line);margin-bottom:2px}
+  .conds li.optional{opacity:.75}
+  .opt-badge{font-size:10px;padding:1px 7px;border-radius:999px;background:#122030;
+    color:var(--acc2);font-weight:600;margin-left:5px;vertical-align:middle;white-space:nowrap}
   .sub{color:var(--mut);font-size:13px;margin:6px 0}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
   .kv{background:var(--panel2);border-radius:8px;padding:8px 10px;font-size:13px}
@@ -105,7 +112,6 @@
     <button data-tab="dash" class="active">Pulpit</button>
     <button data-tab="harmonogram">Harmonogram</button>
     <button data-tab="produkty">Produkty</button>
-    <button data-tab="spend">Spend plan</button>
     <button data-tab="zasady">Zasady</button>
   </nav>
 
@@ -136,12 +142,6 @@
     </div>
   </section>
 
-  <section id="spend">
-    <h2>Spend plan — ~3 080 zł/mc</h2>
-    <p class="sub">Nie dokładasz wydatków — <b>przepinasz</b> istniejące z ZEN na karty promocyjne na czas kampanii. ~połowa stacjonarnie, ~połowa online.</p>
-    <div id="spend-body"></div>
-  </section>
-
   <section id="zasady">
     <h2>Zasady przekrojowe (ściąga)</h2>
     <div id="rules"></div>
@@ -153,77 +153,145 @@
 <script>
 const PLAN = {
   products: [
-    { id:"ing", bank:"ING", name:"Konto „Mobilni zyskują” + polecenie", cash:700, mile:0, open:"2026-06-10",
-      tag:"600 zł + 100 zł polecenie", note:"konto otwarte 5.06 w apce, z kodem polecenia ✅",
-      karencja:"brak konta ING od 1.01.2025",
-      conds:["Otwórz konto przez APKĘ do 10.06, z OKO + kartą, z kodem polecenia (✅ 5.06)",
-             "Zgody marketingowe (e-mail + profilowanie) do 14 dni od wniosku → do ~19.06 ⚠️",
-             "Wpływ ≥1000 zł w miesiącu A (czerwiec)","Wpływ ≥1000 zł w miesiącu B (lipiec)",
-             {text:"5 płatności karta/BLIK w czerwcu",count:5},{text:"5 płatności w lipcu",count:5},{text:"5 płatności w sierpniu (łącznie 15)",count:5},
-             {text:"3× logowanie do aplikacji",count:3},
-             "600 zł na OKO przez 1 dzień w oknie 3–10.09 ⚠️",
-             {text:"Polecenie: 10 płatności karta/BLIK do 11.10 (pokrywa się z 15 powyżej)",count:10},
-             "Polecenie: PO 10 płatnościach saldo ≥600 zł na KONCIE (nie OKO!) na koniec min. 1 dnia, do 12.10"],
-      payout:"600 zł na OKO do 30.09 · 100 zł na konto dzień roboczy po warunkach (ostatnia wypłata 13.10)",
-      oplaty:"konto 0 zł · karta 0 zł jeśli ≥300 zł/mc (inaczej 10 zł)",
-      spend:{stac:0, online:300}, pitfalls:["Nie zamieniaj na konto wspólne","Nie zamykaj karty, konta ani OKO do wypłaty obu premii",
-        "DWA osobne salda 600 zł: na OKO (okno 3–10.09 → premia 600) i na koncie osobistym (po 10 tx, do 12.10 → premia 100)",
-        "15 transakcji to po 5 w KAŻDYM z 3 miesięcy kalendarzowych — nie 2!"] },
+    { id:”ing”, bank:”ING”, name:”Konto „Mobilni zyskują” + polecenie”, cash:700, mile:0, open:”2026-06-10”,
+      tag:”600 zł + 100 zł polecenie”, note:”konto otwarte 5.06 w apce, z kodem polecenia ✅”,
+      karencja:”brak konta ING od 1.01.2025”,
+      groups:[
+        {title:”Start”, items:[
+          “Otwórz konto przez APKĘ do 10.06, z OKO + kartą, z kodem polecenia (✅ 5.06)”,
+          “Zgody marketingowe (e-mail + profilowanie) do 14 dni od wniosku → do ~19.06 ⚠️”,
+          {text:”3× logowanie do aplikacji”,count:3}]},
+        {title:”Czerwiec”, items:[
+          “Wpływ ≥1000 zł”,
+          {text:”5 płatności karta/BLIK”,count:5},
+          {text:”Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)”,optional:true}]},
+        {title:”Lipiec”, items:[
+          “Wpływ ≥1000 zł”,
+          {text:”5 płatności karta/BLIK”,count:5},
+          {text:”Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)”,optional:true}]},
+        {title:”Sierpień”, items:[
+          {text:”5 płatności karta/BLIK”,count:5},
+          {text:”Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)”,optional:true}]},
+        {title:”Wrzesień”, items:[
+          “600 zł na OKO przez 1 dzień w oknie 3–10.09 ⚠️”]},
+        {title:”Polecenie (+100 zł)”, items:[
+          {text:”10 płatności karta/BLIK do 11.10 (pokrywa się z płatnościami powyżej)”,count:10},
+          “PO 10 płatnościach saldo ≥600 zł na KONCIE (nie OKO!) na koniec min. 1 dnia, do 12.10”]}
+      ],
+      payout:”600 zł na OKO do 30.09 · 100 zł na konto dzień roboczy po warunkach (ostatnia wypłata 13.10)”,
+      oplaty:”konto 0 zł · karta 0 zł jeśli ≥300 zł/mc (inaczej 10 zł)”,
+      pitfalls:[“Nie zamieniaj na konto wspólne”,”Nie zamykaj karty, konta ani OKO do wypłaty obu premii”,
+        “DWA osobne salda 600 zł: na OKO (okno 3–10.09 → premia 600) i na koncie osobistym (po 10 tx, do 12.10 → premia 100)”,
+        “15 transakcji to po 5 w KAŻDYM z 3 miesięcy kalendarzowych — nie 2!”] },
 
-    { id:"alior", bank:"Alior", name:"Alior Konto", cash:1000, mile:0, open:"2026-06-30",
-      tag:"200 zł + 800 moneyback", note:"kod ZYSKAJ2026 · + obrączka płatnicza (rzecz, 500 zł)",
-      karencja:"brak konta osobistego w Alior od 3 lat",
-      conds:["Otwórz z kodem ZYSKAJ2026 do 30.06",
-             {text:"W 10 dni: 5 płatności karta/BLIK",count:5},"W 10 dni: rejestracja w Bezcenne Chwile","W 10 dni: logowanie w apce  → 200 zł",
-             "Moneyback (8 mc): 1000 zł/mc STACJONARNIE","Moneyback: wpływ 2000 zł/mc z innego banku","Moneyback: logowanie w apce co mies.  → do 800 zł"],
-      payout:"200 zł do końca kolejnego mc · moneyback co mies. (do ~lutego 2027)",
-      oplaty:"konto 0 zł · karta 7 zł/mc (0 zł przy ≥5 płatności/mc)",
-      spend:{stac:1000, online:0}, pitfalls:["Moneyback TYLKO płatności stacjonarne (online i ZEN się nie liczą)","Brak kary — w słabszym mc dostajesz 10% od tego, co wydasz"] },
+    { id:”alior”, bank:”Alior”, name:”Alior Konto”, cash:1000, mile:0, open:”2026-06-30”,
+      tag:”200 zł + 800 moneyback”, note:”kod ZYSKAJ2026 · + obrączka płatnicza (rzecz, 500 zł)”,
+      karencja:”brak konta osobistego w Alior od 3 lat”,
+      groups:[
+        {title:”Start”, items:[
+          “Otwórz z kodem ZYSKAJ2026 do 30.06”]},
+        {title:”W 10 dniach od otwarcia (→ 200 zł)”, items:[
+          {text:”5 płatności karta/BLIK”,count:5},
+          “Rejestracja w Bezcenne Chwile”,
+          “Logowanie w aplikacji”]},
+        {title:”Moneyback miesięczny (8 mc, → do 800 zł)”, items:[
+          “1000 zł/mc płatności STACJONARNIE”,
+          “Wpływ 2000 zł/mc z innego banku”,
+          “Logowanie w aplikacji co miesiąc”]}
+      ],
+      payout:”200 zł do końca kolejnego mc · moneyback co mies. (do ~lutego 2027)”,
+      oplaty:”konto 0 zł · karta 7 zł/mc (0 zł przy ≥5 płatności/mc)”,
+      pitfalls:[“Moneyback TYLKO płatności stacjonarne (online i ZEN się nie liczą)”,”Brak kary — w słabszym mc dostajesz 10% od tego, co wydasz”] },
 
-    { id:"erste", bank:"Erste", name:"Konto Smart", cash:700, mile:0, open:"2026-07-31",
-      tag:"premia za otwarcie", note:"+100 zł z polecenia (osobny deadline 12.06!)",
-      karencja:"brak dostępu do e-bankowości Erste od 1.06.2024",
-      conds:["Otwórz przez link promocyjny do 31.07",
-             "Mies. 1: wpływ 1500 zł + 5 płatności karta/BLIK + cel w „Moje Cele”","Mies. 2: to samo","Mies. 3: to samo  → 3×200 + 100 zł"],
-      payout:"do 20. dnia mc po spełnieniu warunków danego miesiąca",
-      oplaty:"karta 0 zł (masz <26) · konto 0 zł przy ≥300 zł płatności/mc",
-      spend:{stac:0, online:300}, pitfalls:["„Moje Cele” musi być aktywne przez 3 mc","Wykluczone: Revolut/Curve/DiPocket, hazard, wymiana walut"] },
+    { id:”erste”, bank:”Erste”, name:”Konto Smart”, cash:700, mile:0, open:”2026-07-31”,
+      tag:”premia za otwarcie”, note:”+100 zł z polecenia (osobny deadline 12.06!)”,
+      karencja:”brak dostępu do e-bankowości Erste od 1.06.2024”,
+      groups:[
+        {title:”Start”, items:[
+          “Otwórz przez link promocyjny do 31.07”]},
+        {title:”Miesiąc 1 (→ 200 zł)”, items:[
+          “Wpływ ≥1500 zł”,
+          {text:”5 płatności karta/BLIK”,count:5},
+          “Cel w „Moje Cele” aktywny”,
+          {text:”Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)”,optional:true}]},
+        {title:”Miesiąc 2 (→ 200 zł)”, items:[
+          “Wpływ ≥1500 zł”,
+          {text:”5 płatności karta/BLIK”,count:5},
+          “Cel w „Moje Cele” aktywny”,
+          {text:”Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)”,optional:true}]},
+        {title:”Miesiąc 3 (→ 200 zł + 100 zł polecenie)”, items:[
+          “Wpływ ≥1500 zł”,
+          {text:”5 płatności karta/BLIK”,count:5},
+          “Cel w „Moje Cele” aktywny”,
+          {text:”Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)”,optional:true}]}
+      ],
+      payout:”do 20. dnia mc po spełnieniu warunków danego miesiąca”,
+      oplaty:”karta 0 zł (masz <26) · konto 0 zł przy ≥300 zł płatności/mc”,
+      pitfalls:[“„Moje Cele” musi być aktywne przez 3 mc”,”Wykluczone: Revolut/Curve/DiPocket, hazard, wymiana walut”] },
 
-    { id:"pekao-konto", bank:"Pekao", name:"Konto Przekorzystne", cash:300, mile:0, open:"2026-07-15",
-      tag:"premia za otwarcie", note:"1️⃣ OTWÓRZ PRZED kartą kredytową Pekao!",
-      karencja:"brak konta w Pekao 1.05.2024–31.05.2026 · brak produktów kredytowych na dzień startu",
-      conds:["Otwórz online (selfie) do 15.07 — PRZED kartą kredytową","Logowanie do bankowości/PeoPay w dniu otwarcia",
-             {text:"Mies. 1: 5 płatności kartą",count:5},{text:"Mies. 2: 5 płatności kartą → 3×100 zł",count:5}],
-      payout:"3×100 zł — kolejno do 15.08, 15.09, 15.10",
-      oplaty:"konto 0 zł · karta debetowa 0 zł (masz <26)",
-      spend:{stac:0, online:50}, pitfalls:["Otwórz w oddziale = brak promocji","Pomijamy moneyback podróżny 2400 (wymaga karty złotej + dużych wydatków)"] },
+    { id:”pekao-konto”, bank:”Pekao”, name:”Konto Przekorzystne”, cash:300, mile:0, open:”2026-07-15”,
+      tag:”premia za otwarcie”, note:”1️⃣ OTWÓRZ PRZED kartą kredytową Pekao!”,
+      karencja:”brak konta w Pekao 1.05.2024–31.05.2026 · brak produktów kredytowych na dzień startu”,
+      groups:[
+        {title:”Start”, items:[
+          “Otwórz online (selfie) do 15.07 — PRZED kartą kredytową”,
+          “Logowanie do bankowości/PeoPay w dniu otwarcia”]},
+        {title:”Miesiąc 1 (→ 100 zł do 15.08)”, items:[
+          {text:”5 płatności kartą”,count:5}]},
+        {title:”Miesiąc 2 (→ 100 zł do 15.09)”, items:[
+          {text:”5 płatności kartą”,count:5}]}
+      ],
+      payout:”3×100 zł — kolejno do 15.08, 15.09, 15.10”,
+      oplaty:”konto 0 zł · karta debetowa 0 zł (masz <26)”,
+      pitfalls:[“Otwórz w oddziale = brak promocji”,”Pomijamy moneyback podróżny 2400 (wymaga karty złotej + dużych wydatków)”] },
 
-    { id:"pekao-karta", bank:"Pekao", name:"Karta kredytowa Miles & More", cash:500, mile:6000, open:"2026-07-31",
-      tag:"karta kredytowa", note:"2️⃣ Dopiero PO koncie Przekorzystnym · wariant STANDARD = 0 zł bezwarunkowo",
-      karencja:"brak karty kredytowej Pekao przed 12.05.2026 (konto osobiste NIE przeszkadza)",
-      conds:["Złóż wniosek z kodem BONUS (po otwarciu konta)","Limit kredytowy min. 2000 zł (zdolność)","Dołącz kartę do Miles & More do końca mc po umowie","1000 zł płatności kartą kredytową w ciągu 2 mc  → 500 zł + 6000 mil"],
-      payout:"500 zł + mile do końca mc po spełnieniu warunków",
-      oplaty:"Standard 0 zł/mc BEZWARUNKOWO — idealna do wynajmu auta",
-      spend:{stac:0, online:500}, pitfalls:["Karta kredytowa → wpływa na BIK","1000 zł to push jednorazowy (2 mc), potem karta leży darmowa"] },
+    { id:”pekao-karta”, bank:”Pekao”, name:”Karta kredytowa Miles & More”, cash:500, mile:6000, open:”2026-07-31”,
+      tag:”karta kredytowa”, note:”2️⃣ Dopiero PO koncie Przekorzystnym · wariant STANDARD = 0 zł bezwarunkowo”,
+      karencja:”brak karty kredytowej Pekao przed 12.05.2026 (konto osobiste NIE przeszkadza)”,
+      groups:[
+        {title:”Start”, items:[
+          “Złóż wniosek z kodem BONUS (po otwarciu konta Pekao)”,
+          “Limit kredytowy min. 2000 zł (zdolność)”,
+          “Dołącz kartę do Miles & More do końca mc po umowie”]},
+        {title:”Push (→ 500 zł + 6000 mil)”, items:[
+          “1000 zł płatności kartą kredytową w ciągu 2 mc”]}
+      ],
+      payout:”500 zł + mile do końca mc po spełnieniu warunków”,
+      oplaty:”Standard 0 zł/mc BEZWARUNKOWO — idealna do wynajmu auta”,
+      pitfalls:[“Karta kredytowa → wpływa na BIK”,”1000 zł to push jednorazowy (2 mc), potem karta leży darmowa”] },
 
-    { id:"millennium", bank:"Millennium", name:"Konto 360", cash:700, mile:0, open:"2026-10-27",
-      tag:"FALA 2 — otwórz ~sierpień", note:"start ~sierpień (gdy push Pekao skończony)",
-      karencja:"brak konta w Millennium od 1.01.2022",
-      conds:["Otwórz (planowo sierpień, deadline 27.10)",
-             "Start (14 dni): wpływ 1500 zł (masz <26) + 5 płatności mobilnych STACJONARNIE + rejestracja BLIK  → 200 zł",
-             "Mies. 1–5: wpływ 1500 zł + 1000 zł kartą/mc  → 500 zł"],
-      payout:"200 zł po 1. mc · 500 zł po 6. mc",
-      oplaty:"konto 0 zł · karta 0 zł (masz <26 / ≥5 transakcji)",
-      spend:{stac:0, online:1000}, pitfalls:["Start: 5 płatności MOBILNYCH (Google/Apple/Samsung Pay) stacjonarnie","Zweryfikuj w regulaminie czy lojalnościowe 1000 zł liczy online"] },
+    { id:”millennium”, bank:”Millennium”, name:”Konto 360”, cash:700, mile:0, open:”2026-10-27”,
+      tag:”FALA 2 — otwórz ~sierpień”, note:”start ~sierpień (gdy push Pekao skończony)”,
+      karencja:”brak konta w Millennium od 1.01.2022”,
+      groups:[
+        {title:”Start — w 14 dniach od otwarcia (→ 200 zł)”, items:[
+          “Otwórz konto (planowo sierpień, deadline 27.10)”,
+          “Wpływ ≥1500 zł”,
+          {text:”5 płatności mobilnych STACJONARNIE (Google/Apple/Samsung Pay)”,count:5},
+          “Rejestracja BLIK”]},
+        {title:”Miesiące 1–5 (→ 500 zł)”, items:[
+          “Wpływ ≥1500 zł/mc”,
+          “Płatności kartą ≥1000 zł/mc”]}
+      ],
+      payout:”200 zł po 1. mc · 500 zł po 6. mc”,
+      oplaty:”konto 0 zł · karta 0 zł (masz <26 / ≥5 transakcji)”,
+      pitfalls:[“Start: 5 płatności MOBILNYCH (Google/Apple/Samsung Pay) stacjonarnie”,”Zweryfikuj w regulaminie czy lojalnościowe 1000 zł liczy online”] },
 
-    { id:"nest", bank:"Nest", name:"Nest Konto (opcja pasywna)", cash:1250, mile:0, open:"2026-09-30",
-      tag:"❔ do decyzji", note:"24 mc po 50 zł · mały wysiłek (1 tx/mc) ale długi horyzont",
-      karencja:"brak konta w Nest od 1.01.2021",
-      conds:["DECYZJA: zweryfikuj czy „wpływ wynagrodzenia” = wymaga tytułu wynagrodzenia (blokuje przepuszczanie)",
-             "Jeśli OK: wpływ 1500 zł (masz <26) + 1 płatność karta/BLIK co mies. przez 24 mc","Wymiana euro w Nest  → +50 zł"],
-      payout:"50 zł/mc przez 24 mc + 50 zł za euro",
-      oplaty:"konto 0 zł · pierwsza karta 0 zł",
-      spend:{stac:0, online:0}, pitfalls:["24 miesiące zobowiązania","Zgody marketingowe przez cały okres"] }
+    { id:”nest”, bank:”Nest”, name:”Nest Konto (opcja pasywna)”, cash:1250, mile:0, open:”2026-09-30”,
+      tag:”❔ do decyzji”, note:”24 mc po 50 zł · mały wysiłek (1 tx/mc) ale długi horyzont”,
+      karencja:”brak konta w Nest od 1.01.2021”,
+      groups:[
+        {title:”Decyzja wstępna”, items:[
+          “DECYZJA: zweryfikuj czy „wpływ wynagrodzenia” = wymaga tytułu wynagrodzenia (blokuje przepuszczanie)”]},
+        {title:”Co miesiąc przez 24 mc (→ 50 zł/mc)”, items:[
+          “Wpływ ≥1500 zł”,
+          “1 płatność karta/BLIK co miesiąc”]},
+        {title:”Jednorazowo”, items:[
+          “Wymiana euro w Nest → +50 zł”]}
+      ],
+      payout:”50 zł/mc przez 24 mc + 50 zł za euro”,
+      oplaty:”konto 0 zł · pierwsza karta 0 zł”,
+      pitfalls:[“24 miesiące zobowiązania”,”Zgody marketingowe przez cały okres”] }
   ],
 
   months: [
@@ -267,17 +335,18 @@ const PLAN = {
 };
 
 // ---------- stan (localStorage) ----------
-const LS_KEY = "bankobranie_v1";
+const LS_KEY = "bankobranie_v2";
 let state = JSON.parse(localStorage.getItem(LS_KEY) || "{}");
 function save(){ localStorage.setItem(LS_KEY, JSON.stringify(state)); }
-function key(pid,i){ return pid+":"+i; }
-function isCounter(c){ return typeof c==='object'&&c!==null&&'count' in c; }
-function isDone(pid,i,cond){ if(cond&&isCounter(cond)) return (state[key(pid,i)]||0)>=cond.count; return !!state[key(pid,i)]; }
-function getCount(pid,i){ return state[key(pid,i)]||0; }
-function toggle(pid,i,val){ state[key(pid,i)]=val; save(); render(); }
-function increment(pid,i,target){ const c=getCount(pid,i); if(c<target){state[key(pid,i)]=c+1;save();render();} }
-function decrement(pid,i){ const c=getCount(pid,i); if(c>0){state[key(pid,i)]=c-1;save();render();} }
-function prodProgress(p){ const t=p.conds.length; let d=0; p.conds.forEach((c,i)=>{if(isDone(p.id,i,c))d++;}); return {d,t,pct:t?Math.round(d/t*100):0}; }
+function key(pid,gi,ii){ return pid+":"+gi+":"+ii; }
+function isCounter(c){ return typeof c==='object'&&c!==null&&'count' in c&&!c.optional; }
+function isOptional(c){ return typeof c==='object'&&c!==null&&c.optional===true; }
+function isDone(pid,gi,ii,cond){ if(cond&&isCounter(cond)) return (state[key(pid,gi,ii)]||0)>=cond.count; return !!state[key(pid,gi,ii)]; }
+function getCount(pid,gi,ii){ return state[key(pid,gi,ii)]||0; }
+function toggle(pid,gi,ii,val){ state[key(pid,gi,ii)]=val; save(); render(); }
+function increment(pid,gi,ii,target){ const c=getCount(pid,gi,ii); if(c<target){state[key(pid,gi,ii)]=c+1;save();render();} }
+function decrement(pid,gi,ii){ const c=getCount(pid,gi,ii); if(c>0){state[key(pid,gi,ii)]=c-1;save();render();} }
+function prodProgress(p){ let d=0,t=0; (p.groups||[]).forEach((g,gi)=>{ g.items.forEach((c,ii)=>{ if(isOptional(c))return; t++; if(isDone(p.id,gi,ii,c))d++; }); }); return{d,t,pct:t?Math.round(d/t*100):0}; }
 
 // ---------- daty ----------
 function daysLeft(iso){ const now=new Date(); now.setHours(0,0,0,0); const d=new Date(iso+"T00:00:00");
@@ -325,21 +394,28 @@ function render(){
   const pl=document.getElementById("prod-list"); pl.innerHTML="";
   PLAN.products.forEach(p=>{
     const pr=prodProgress(p);
-    let conds="";
-    p.conds.forEach((c,i)=>{
-      const done=isDone(p.id,i,c);
-      if(isCounter(c)){
-        const cur=getCount(p.id,i);
-        conds+=`<li class="counter${done?' checked':''}">
-          <div class="cnt-ctrl">
-            <button class="cnt-btn" onclick="decrement('${p.id}',${i})">−</button>
-            <span class="cnt-val">${cur}/${c.count}</span>
-            <button class="cnt-btn" onclick="increment('${p.id}',${i},${c.count})">+</button>
-          </div><label>${c.text}</label></li>`;
-      } else {
-        conds+=`<li class="${done?'checked':''}"><input type="checkbox" ${done?'checked':''}
-          onchange="toggle('${p.id}',${i},this.checked)"><label>${c}</label></li>`;
-      }
+    let groupsHtml="";
+    (p.groups||[]).forEach((g,gi)=>{
+      let items="";
+      g.items.forEach((c,ii)=>{
+        const done=isDone(p.id,gi,ii,c);
+        const opt=isOptional(c);
+        const text=typeof c==='string'?c:c.text;
+        if(isCounter(c)){
+          const cur=getCount(p.id,gi,ii);
+          items+=`<li class="counter${done?' checked':''}">
+            <div class="cnt-ctrl">
+              <button class="cnt-btn" onclick="decrement('${p.id}',${gi},${ii})">−</button>
+              <span class="cnt-val">${cur}/${c.count}</span>
+              <button class="cnt-btn" onclick="increment('${p.id}',${gi},${ii},${c.count})">+</button>
+            </div><label>${text}</label></li>`;
+        } else {
+          items+=`<li class="${done?'checked':''}${opt?' optional':''}">
+            <input type="checkbox" ${done?'checked':''} onchange="toggle('${p.id}',${gi},${ii},this.checked)">
+            <label>${text}${opt?' <span class="opt-badge">opcjonalne</span>':''}</label></li>`;
+        }
+      });
+      groupsHtml+=`<div class="cond-group"><div class="cond-group-title">${g.title}</div><ul class="conds">${items}</ul></div>`;
     });
     pl.innerHTML += `<div class="card ${pr.pct===100?'done':''}">
       <h3>${p.bank} — ${p.name} ${statusPill(p,pr)}</h3>
@@ -350,7 +426,7 @@ function render(){
         <div class="kv"><b>Wypłata</b>${p.payout}</div>
         <div class="kv"><b>Opłaty</b>${p.oplaty}</div>
       </div>
-      <ul class="conds">${conds}</ul>
+      ${groupsHtml}
       ${p.pitfalls.map(x=>`<div class="warnbox">⚠️ ${x}</div>`).join("")}
       <div class="bar" style="margin-top:12px"><span style="width:${pr.pct}%"></span></div>
     </div>`;
@@ -369,18 +445,6 @@ function render(){
         <div class="sub" style="margin-top:8px">${m.note}</div>
       </div></details>`;
   });
-
-  // spend plan
-  const sp=document.getElementById("spend-body"); sp.innerHTML="";
-  let ts=0,to=0; PLAN.products.filter(p=>p.id!=="nest").forEach(p=>{ts+=p.spend.stac;to+=p.spend.online;});
-  sp.innerHTML = `<table><thead><tr><th>Produkt</th><th>Stacjonarnie /mc</th><th>Online /mc</th><th>Po co</th></tr></thead><tbody>
-    ${PLAN.products.filter(p=>p.spend.stac||p.spend.online).map(p=>`<tr>
-      <td><b>${p.bank}</b> ${p.name}</td><td>${p.spend.stac?fmtCash(p.spend.stac):"—"}</td>
-      <td>${p.spend.online?fmtCash(p.spend.online):"—"}</td><td class="sub">${p.tag}</td></tr>`).join("")}
-    <tr style="font-weight:700"><td>RAZEM (szczyt)</td><td>${fmtCash(ts)}</td><td>${fmtCash(to)}</td><td class="sub">≈ ${fmtCash(ts+to)} / mc</td></tr>
-    </tbody></table>
-    <div class="warnbox">💡 Twój realny obrót ~3 080 zł/mc (≈8 600 €/rok) pokrywa to bez dokładania — przepinasz zakupy z ZEN na karty promocyjne na czas kampanii. Nie wszystkie kampanie peakują w tym samym miesiącu (push Pekao kończy się, zanim startuje Millennium).</div>
-    <div class="warnbox">⚠️ Alior wymaga 1000 zł/mc <b>stacjonarnie</b> — masz ~1500 zł/mc stacjonarnie (pół na pół), więc się mieści z zapasem.</div>`;
 
   // rules
   document.getElementById("rules").innerHTML =
