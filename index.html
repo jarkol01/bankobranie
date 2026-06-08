@@ -79,6 +79,15 @@
   .dl-day .conds li{padding:5px 0}
   .dl-bank{color:var(--acc2);font-weight:600}
   .dl-grp{color:var(--mut);font-size:12px}
+  .sync-row{margin:10px 0}
+  .sync-row label{display:block;font-size:13px;margin-bottom:4px}
+  .sync-panel input[type=text],.sync-panel input[type=password]{width:100%;background:var(--panel2);
+    border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:8px 10px;font-size:14px;font-family:inherit}
+  .sync-panel input:focus{outline:none;border-color:var(--acc2)}
+  .sync-check{display:flex;align-items:center;gap:8px;font-size:14px;margin:10px 0}
+  .sync-check input{width:17px;height:17px;accent-color:var(--acc)}
+  .ok-text{color:var(--acc)!important}
+  .bad-text{color:var(--bad)!important}
   .sub{color:var(--mut);font-size:13px;margin:6px 0}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
   .kv{background:var(--panel2);border-radius:8px;padding:8px 10px;font-size:13px}
@@ -142,13 +151,37 @@
 
   <section id="produkty">
     <h2>Produkty — checklisty</h2>
-    <p class="sub">Odhaczaj warunki na bieżąco. Stan zapisuje się w tej przeglądarce.</p>
+    <p class="sub">Odhaczaj warunki na bieżąco. Stan zapisuje się w tej przeglądarce — włącz „☁️ Synchronizacja", by mieć go też na innych urządzeniach.</p>
     <div id="prod-list"></div>
     <div class="toolbar">
       <button class="btn" onclick="exportState()">⬇️ Eksport stanu (JSON)</button>
       <button class="btn" onclick="document.getElementById('imp').click()">⬆️ Import stanu</button>
       <input id="imp" type="file" accept="application/json" style="display:none" onchange="importState(this)">
       <button class="btn" onclick="resetState()">♻️ Reset</button>
+      <button class="btn" onclick="toggleSyncPanel()">☁️ Synchronizacja</button>
+    </div>
+
+    <div id="sync-panel" class="card sync-panel" style="display:none">
+      <h3 style="margin:0 0 6px">☁️ Synchronizacja przez GitHub Gist</h3>
+      <p class="sub" style="margin-top:0">Stan odhaczeń trzymany w <b>prywatnym Gist</b> na Twoim koncie GitHub — to samo na telefonie i na kompie. Token wklejasz <b>raz na każdym urządzeniu</b>; zostaje tylko w tej przeglądarce, nie trafia do repo.</p>
+      <div class="sync-row">
+        <label>Token GitHub <span class="sub">(PAT z uprawnieniem <code>gist</code>)</span></label>
+        <input id="sync-token" type="password" placeholder="ghp_… / github_pat_…" autocomplete="off">
+      </div>
+      <div class="sync-row">
+        <label>Gist ID <span class="sub">(zostaw puste przy 1. zapisie — utworzy się sam; potem przeklej ten sam ID na drugie urządzenie)</span></label>
+        <input id="sync-gist" type="text" placeholder="(utworzy się automatycznie)" autocomplete="off">
+      </div>
+      <label class="sync-check"><input id="sync-auto" type="checkbox"> Auto-sync (zapis po zmianie, odczyt przy otwarciu strony)</label>
+      <div class="toolbar">
+        <button class="btn" onclick="saveSyncCfg()">💾 Zapisz ustawienia</button>
+        <button class="btn" onclick="gistPush()">⬆️ Wyślij do chmury</button>
+        <button class="btn" onclick="gistPull(false)">⬇️ Wczytaj z chmury</button>
+      </div>
+      <p id="sync-status" class="sub" style="margin-bottom:0">—</p>
+      <details style="margin-top:8px"><summary class="sub" style="cursor:pointer">Jak zdobyć token?</summary>
+        <p class="sub">GitHub → Settings → Developer settings → <b>Personal access tokens</b> → <b>Tokens (classic)</b> → Generate new token → zaznacz tylko zakres <code>gist</code> → skopiuj i wklej powyżej. (Token „classic" jest najprostszy; fine-grained z uprawnieniem „Gists: Read and write" też zadziała.)</p>
+      </details>
     </div>
   </section>
 
@@ -157,7 +190,7 @@
     <div id="rules"></div>
   </section>
 
-  <div class="foot">Tracker osobisty · dane: analiza bankobranie.pl (stan 2026-06-03) · stan checklist zapisany lokalnie w przeglądarce</div>
+  <div class="foot">Tracker osobisty · dane: analiza bankobranie.pl (stan 2026-06-03) · stan checklist lokalnie w przeglądarce (opcjonalny sync przez GitHub Gist)</div>
 </div>
 
 <script>
@@ -340,7 +373,8 @@ const PLAN = {
 // ---------- stan (localStorage) ----------
 const LS_KEY = "bankobranie_v2";
 let state = JSON.parse(localStorage.getItem(LS_KEY) || "{}");
-function save(){ localStorage.setItem(LS_KEY, JSON.stringify(state)); }
+function save(){ localStorage.setItem(LS_KEY, JSON.stringify(state));
+  localStorage.setItem("bb_sync_ts", String(Date.now())); scheduleAutoPush(); }
 function key(pid,gi,ii){ return pid+":"+gi+":"+ii; }
 function isCounter(c){ return typeof c==='object'&&c!==null&&'count' in c&&!c.optional; }
 function isOptional(c){ return typeof c==='object'&&c!==null&&c.optional===true; }
@@ -531,7 +565,71 @@ function importState(inp){ const f=inp.files[0]; if(!f)return; const r=new FileR
     catch(err){ alert("Błąd pliku JSON"); } }; r.readAsText(f); }
 function resetState(){ if(confirm("Wyczyścić wszystkie odhaczone warunki?")){ state={}; save(); render(); } }
 
+// ---------- synchronizacja (GitHub Gist) ----------
+const SYNC_FILE="bankobranie-stan.json";
+const GH_HEADERS=t=>({Authorization:"Bearer "+t,Accept:"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"});
+function syncCfg(){ return {
+  token:(localStorage.getItem("bb_sync_token")||"").trim(),
+  gist:(localStorage.getItem("bb_sync_gist")||"").trim(),
+  auto:localStorage.getItem("bb_sync_auto")==="1" }; }
+function setSyncStatus(msg,cls){ const e=document.getElementById("sync-status"); if(e){ e.textContent=msg; e.className="sub "+(cls||""); } }
+function toggleSyncPanel(){ const p=document.getElementById("sync-panel");
+  const show=p.style.display==="none"; p.style.display=show?"block":"none";
+  if(show){ const c=syncCfg();
+    document.getElementById("sync-token").value=c.token;
+    document.getElementById("sync-gist").value=c.gist;
+    document.getElementById("sync-auto").checked=c.auto;
+    setSyncStatus(c.token? (c.gist?"Skonfigurowane.":"Token jest — Gist utworzy się przy 1. wysyłce."):"—"); } }
+function saveSyncCfg(){
+  localStorage.setItem("bb_sync_token",document.getElementById("sync-token").value.trim());
+  localStorage.setItem("bb_sync_gist",document.getElementById("sync-gist").value.trim());
+  localStorage.setItem("bb_sync_auto",document.getElementById("sync-auto").checked?"1":"0");
+  setSyncStatus("Ustawienia zapisane ✓","ok-text"); }
+
+let autoPushTimer=null;
+function scheduleAutoPush(){ const c=syncCfg(); if(!c.auto||!c.token) return;
+  clearTimeout(autoPushTimer); autoPushTimer=setTimeout(()=>gistPush(true),1500); }
+
+async function gistPush(silent){
+  const c=syncCfg();
+  if(!c.token){ setSyncStatus("Najpierw podaj token (i zapisz ustawienia).","bad-text"); return; }
+  const payload=JSON.stringify({ts:Date.now(),data:state});
+  const body=JSON.stringify({description:"Bankobranie — stan trackera",public:false,files:{[SYNC_FILE]:{content:payload}}});
+  try{
+    if(!silent) setSyncStatus("Wysyłanie…");
+    const url=c.gist?"https://api.github.com/gists/"+c.gist:"https://api.github.com/gists";
+    const res=await fetch(url,{method:c.gist?"PATCH":"POST",headers:GH_HEADERS(c.token),body});
+    if(!res.ok) throw new Error("HTTP "+res.status+(res.status===401?" (zły token)":res.status===404?" (zły Gist ID)":""));
+    const j=await res.json();
+    if(!c.gist && j.id){ localStorage.setItem("bb_sync_gist",j.id); const gi=document.getElementById("sync-gist"); if(gi) gi.value=j.id; }
+    setSyncStatus("Zapisano w chmurze ✓ "+new Date().toLocaleTimeString("pl-PL"),"ok-text");
+  }catch(e){ setSyncStatus("Błąd zapisu: "+e.message,"bad-text"); }
+}
+
+async function gistPull(silent){
+  const c=syncCfg();
+  if(!c.token||!c.gist){ if(!silent) setSyncStatus("Podaj token i Gist ID (lub najpierw wyślij do chmury).","bad-text"); return; }
+  try{
+    if(!silent) setSyncStatus("Pobieranie…");
+    const res=await fetch("https://api.github.com/gists/"+c.gist,{headers:GH_HEADERS(c.token)});
+    if(!res.ok) throw new Error("HTTP "+res.status);
+    const j=await res.json();
+    const f=j.files&&j.files[SYNC_FILE];
+    if(!f){ if(!silent) setSyncStatus("Gist nie zawiera pliku stanu.","bad-text"); return; }
+    const parsed=JSON.parse(f.content);
+    const remoteTs=parsed.ts||0, localTs=Number(localStorage.getItem("bb_sync_ts")||0);
+    if(silent && remoteTs<=localTs){ setSyncStatus("Lokalny stan aktualny (≥ chmura)."); return; }
+    state=parsed.data||{};
+    localStorage.setItem(LS_KEY,JSON.stringify(state));
+    localStorage.setItem("bb_sync_ts",String(remoteTs));
+    render();
+    setSyncStatus("Wczytano z chmury ✓ "+new Date().toLocaleTimeString("pl-PL"),"ok-text");
+  }catch(e){ if(!silent) setSyncStatus("Błąd odczytu: "+e.message,"bad-text"); }
+}
+
 render();
+// auto-pull przy starcie (jeśli włączony auto-sync i skonfigurowany)
+if(syncCfg().auto && syncCfg().token && syncCfg().gist) gistPull(true);
 </script>
 </body>
 </html>
