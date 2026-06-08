@@ -54,6 +54,14 @@
   .conds li{display:flex;gap:10px;align-items:flex-start;padding:6px 0}
   .conds input{margin-top:3px;width:17px;height:17px;accent-color:var(--acc);flex:none}
   .conds li.checked label{color:var(--mut);text-decoration:line-through}
+  .cnt-ctrl{display:flex;align-items:center;gap:5px;flex:none}
+  .cnt-btn{width:26px;height:26px;border-radius:6px;background:var(--panel2);border:1px solid var(--line);
+    color:var(--txt);cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;padding:0;line-height:1}
+  .cnt-btn:hover{border-color:var(--acc2);color:var(--acc2)}
+  .cnt-val{min-width:44px;text-align:center;font-weight:700;font-size:13px}
+  .conds li.counter{align-items:center}
+  .conds li.counter.checked .cnt-btn{border-color:var(--acc)}
+  .conds li.counter.checked .cnt-val{color:var(--acc)}
   .sub{color:var(--mut);font-size:13px;margin:6px 0}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
   .kv{background:var(--panel2);border-radius:8px;padding:8px 10px;font-size:13px}
@@ -151,10 +159,10 @@ const PLAN = {
       conds:["Otwórz konto przez APKĘ do 10.06, z OKO + kartą, z kodem polecenia (✅ 5.06)",
              "Zgody marketingowe (e-mail + profilowanie) do 14 dni od wniosku → do ~19.06 ⚠️",
              "Wpływ ≥1000 zł w miesiącu A (czerwiec)","Wpływ ≥1000 zł w miesiącu B (lipiec)",
-             "5 płatności karta/BLIK w czerwcu","5 płatności w lipcu","5 płatności w sierpniu (łącznie 15)",
-             "3× logowanie do aplikacji",
+             {text:"5 płatności karta/BLIK w czerwcu",count:5},{text:"5 płatności w lipcu",count:5},{text:"5 płatności w sierpniu (łącznie 15)",count:5},
+             {text:"3× logowanie do aplikacji",count:3},
              "600 zł na OKO przez 1 dzień w oknie 3–10.09 ⚠️",
-             "Polecenie: 10 płatności karta/BLIK do 11.10 (pokrywa się z 15 powyżej)",
+             {text:"Polecenie: 10 płatności karta/BLIK do 11.10 (pokrywa się z 15 powyżej)",count:10},
              "Polecenie: PO 10 płatnościach saldo ≥600 zł na KONCIE (nie OKO!) na koniec min. 1 dnia, do 12.10"],
       payout:"600 zł na OKO do 30.09 · 100 zł na konto dzień roboczy po warunkach (ostatnia wypłata 13.10)",
       oplaty:"konto 0 zł · karta 0 zł jeśli ≥300 zł/mc (inaczej 10 zł)",
@@ -166,7 +174,7 @@ const PLAN = {
       tag:"200 zł + 800 moneyback", note:"kod ZYSKAJ2026 · + obrączka płatnicza (rzecz, 500 zł)",
       karencja:"brak konta osobistego w Alior od 3 lat",
       conds:["Otwórz z kodem ZYSKAJ2026 do 30.06",
-             "W 10 dni: 5 płatności karta/BLIK","W 10 dni: rejestracja w Bezcenne Chwile","W 10 dni: logowanie w apce  → 200 zł",
+             {text:"W 10 dni: 5 płatności karta/BLIK",count:5},"W 10 dni: rejestracja w Bezcenne Chwile","W 10 dni: logowanie w apce  → 200 zł",
              "Moneyback (8 mc): 1000 zł/mc STACJONARNIE","Moneyback: wpływ 2000 zł/mc z innego banku","Moneyback: logowanie w apce co mies.  → do 800 zł"],
       payout:"200 zł do końca kolejnego mc · moneyback co mies. (do ~lutego 2027)",
       oplaty:"konto 0 zł · karta 7 zł/mc (0 zł przy ≥5 płatności/mc)",
@@ -185,7 +193,7 @@ const PLAN = {
       tag:"premia za otwarcie", note:"1️⃣ OTWÓRZ PRZED kartą kredytową Pekao!",
       karencja:"brak konta w Pekao 1.05.2024–31.05.2026 · brak produktów kredytowych na dzień startu",
       conds:["Otwórz online (selfie) do 15.07 — PRZED kartą kredytową","Logowanie do bankowości/PeoPay w dniu otwarcia",
-             "Mies. 1: 5 płatności kartą","Mies. 2: 5 płatności kartą  → 3×100 zł"],
+             {text:"Mies. 1: 5 płatności kartą",count:5},{text:"Mies. 2: 5 płatności kartą → 3×100 zł",count:5}],
       payout:"3×100 zł — kolejno do 15.08, 15.09, 15.10",
       oplaty:"konto 0 zł · karta debetowa 0 zł (masz <26)",
       spend:{stac:0, online:50}, pitfalls:["Otwórz w oddziale = brak promocji","Pomijamy moneyback podróżny 2400 (wymaga karty złotej + dużych wydatków)"] },
@@ -263,9 +271,13 @@ const LS_KEY = "bankobranie_v1";
 let state = JSON.parse(localStorage.getItem(LS_KEY) || "{}");
 function save(){ localStorage.setItem(LS_KEY, JSON.stringify(state)); }
 function key(pid,i){ return pid+":"+i; }
-function isDone(pid,i){ return !!state[key(pid,i)]; }
+function isCounter(c){ return typeof c==='object'&&c!==null&&'count' in c; }
+function isDone(pid,i,cond){ if(cond&&isCounter(cond)) return (state[key(pid,i)]||0)>=cond.count; return !!state[key(pid,i)]; }
+function getCount(pid,i){ return state[key(pid,i)]||0; }
 function toggle(pid,i,val){ state[key(pid,i)]=val; save(); render(); }
-function prodProgress(p){ const t=p.conds.length; let d=0; p.conds.forEach((_,i)=>{if(isDone(p.id,i))d++}); return {d,t,pct:t?Math.round(d/t*100):0}; }
+function increment(pid,i,target){ const c=getCount(pid,i); if(c<target){state[key(pid,i)]=c+1;save();render();} }
+function decrement(pid,i){ const c=getCount(pid,i); if(c>0){state[key(pid,i)]=c-1;save();render();} }
+function prodProgress(p){ const t=p.conds.length; let d=0; p.conds.forEach((c,i)=>{if(isDone(p.id,i,c))d++;}); return {d,t,pct:t?Math.round(d/t*100):0}; }
 
 // ---------- daty ----------
 function daysLeft(iso){ const now=new Date(); now.setHours(0,0,0,0); const d=new Date(iso+"T00:00:00");
@@ -314,9 +326,21 @@ function render(){
   PLAN.products.forEach(p=>{
     const pr=prodProgress(p);
     let conds="";
-    p.conds.forEach((c,i)=>{ const ck=isDone(p.id,i);
-      conds += `<li class="${ck?'checked':''}"><input type="checkbox" ${ck?'checked':''}
-        onchange="toggle('${p.id}',${i},this.checked)"><label>${c}</label></li>`; });
+    p.conds.forEach((c,i)=>{
+      const done=isDone(p.id,i,c);
+      if(isCounter(c)){
+        const cur=getCount(p.id,i);
+        conds+=`<li class="counter${done?' checked':''}">
+          <div class="cnt-ctrl">
+            <button class="cnt-btn" onclick="decrement('${p.id}',${i})">−</button>
+            <span class="cnt-val">${cur}/${c.count}</span>
+            <button class="cnt-btn" onclick="increment('${p.id}',${i},${c.count})">+</button>
+          </div><label>${c.text}</label></li>`;
+      } else {
+        conds+=`<li class="${done?'checked':''}"><input type="checkbox" ${done?'checked':''}
+          onchange="toggle('${p.id}',${i},this.checked)"><label>${c}</label></li>`;
+      }
+    });
     pl.innerHTML += `<div class="card ${pr.pct===100?'done':''}">
       <h3>${p.bank} — ${p.name} ${statusPill(p,pr)}</h3>
       <div class="sub">${p.tag} · <b>${fmtCash(p.cash)}</b>${p.mile?" + "+p.mile+" mil":""} ${p.note?"· "+p.note:""}</div>
