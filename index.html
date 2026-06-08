@@ -153,145 +153,145 @@
 <script>
 const PLAN = {
   products: [
-    { id:”ing”, bank:”ING”, name:”Konto „Mobilni zyskują” + polecenie”, cash:700, mile:0, open:”2026-06-10”,
-      tag:”600 zł + 100 zł polecenie”, note:”konto otwarte 5.06 w apce, z kodem polecenia ✅”,
-      karencja:”brak konta ING od 1.01.2025”,
+    { id:"ing", bank:"ING", name:"Konto „Mobilni zyskują” + polecenie", cash:700, mile:0, open:"2026-06-10",
+      tag:"600 zł + 100 zł polecenie", note:"konto otwarte 5.06 w apce, z kodem polecenia ✅",
+      karencja:"brak konta ING od 1.01.2025",
       groups:[
-        {title:”Start”, items:[
-          “Otwórz konto przez APKĘ do 10.06, z OKO + kartą, z kodem polecenia (✅ 5.06)”,
-          “Zgody marketingowe (e-mail + profilowanie) do 14 dni od wniosku → do ~19.06 ⚠️”,
-          {text:”3× logowanie do aplikacji”,count:3}]},
-        {title:”Czerwiec”, items:[
-          “Wpływ ≥1000 zł”,
-          {text:”5 płatności karta/BLIK”,count:5},
-          {text:”Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)”,optional:true}]},
-        {title:”Lipiec”, items:[
-          “Wpływ ≥1000 zł”,
-          {text:”5 płatności karta/BLIK”,count:5},
-          {text:”Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)”,optional:true}]},
-        {title:”Sierpień”, items:[
-          {text:”5 płatności karta/BLIK”,count:5},
-          {text:”Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)”,optional:true}]},
-        {title:”Wrzesień”, items:[
-          “600 zł na OKO przez 1 dzień w oknie 3–10.09 ⚠️”]},
-        {title:”Polecenie (+100 zł)”, items:[
-          {text:”10 płatności karta/BLIK do 11.10 (pokrywa się z płatnościami powyżej)”,count:10},
-          “PO 10 płatnościach saldo ≥600 zł na KONCIE (nie OKO!) na koniec min. 1 dnia, do 12.10”]}
+        {title:"Start", items:[
+          "Otwórz konto przez APKĘ do 10.06, z OKO + kartą, z kodem polecenia (✅ 5.06)",
+          "Zgody marketingowe (e-mail + profilowanie) do 14 dni od wniosku → do ~19.06 ⚠️",
+          {text:"3× logowanie do aplikacji",count:3}]},
+        {title:"Czerwiec", items:[
+          "Wpływ ≥1000 zł",
+          {text:"5 płatności karta/BLIK",count:5},
+          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)",optional:true}]},
+        {title:"Lipiec", items:[
+          "Wpływ ≥1000 zł",
+          {text:"5 płatności karta/BLIK",count:5},
+          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)",optional:true}]},
+        {title:"Sierpień", items:[
+          {text:"5 płatności karta/BLIK",count:5},
+          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)",optional:true}]},
+        {title:"Wrzesień", items:[
+          "600 zł na OKO przez 1 dzień w oknie 3–10.09 ⚠️"]},
+        {title:"Polecenie (+100 zł)", items:[
+          {text:"10 płatności karta/BLIK do 11.10 (pokrywa się z płatnościami powyżej)",count:10},
+          "PO 10 płatnościach saldo ≥600 zł na KONCIE (nie OKO!) na koniec min. 1 dnia, do 12.10"]}
       ],
-      payout:”600 zł na OKO do 30.09 · 100 zł na konto dzień roboczy po warunkach (ostatnia wypłata 13.10)”,
-      oplaty:”konto 0 zł · karta 0 zł jeśli ≥300 zł/mc (inaczej 10 zł)”,
-      pitfalls:[“Nie zamieniaj na konto wspólne”,”Nie zamykaj karty, konta ani OKO do wypłaty obu premii”,
-        “DWA osobne salda 600 zł: na OKO (okno 3–10.09 → premia 600) i na koncie osobistym (po 10 tx, do 12.10 → premia 100)”,
-        “15 transakcji to po 5 w KAŻDYM z 3 miesięcy kalendarzowych — nie 2!”] },
+      payout:"600 zł na OKO do 30.09 · 100 zł na konto dzień roboczy po warunkach (ostatnia wypłata 13.10)",
+      oplaty:"konto 0 zł · karta 0 zł jeśli ≥300 zł/mc (inaczej 10 zł)",
+      pitfalls:["Nie zamieniaj na konto wspólne","Nie zamykaj karty, konta ani OKO do wypłaty obu premii",
+        "DWA osobne salda 600 zł: na OKO (okno 3–10.09 → premia 600) i na koncie osobistym (po 10 tx, do 12.10 → premia 100)",
+        "15 transakcji to po 5 w KAŻDYM z 3 miesięcy kalendarzowych — nie 2!"] },
 
-    { id:”alior”, bank:”Alior”, name:”Alior Konto”, cash:1000, mile:0, open:”2026-06-30”,
-      tag:”200 zł + 800 moneyback”, note:”kod ZYSKAJ2026 · + obrączka płatnicza (rzecz, 500 zł)”,
-      karencja:”brak konta osobistego w Alior od 3 lat”,
+    { id:"alior", bank:"Alior", name:"Alior Konto", cash:1000, mile:0, open:"2026-06-30",
+      tag:"200 zł + 800 moneyback", note:"kod ZYSKAJ2026 · + obrączka płatnicza (rzecz, 500 zł)",
+      karencja:"brak konta osobistego w Alior od 3 lat",
       groups:[
-        {title:”Start”, items:[
-          “Otwórz z kodem ZYSKAJ2026 do 30.06”]},
-        {title:”W 10 dniach od otwarcia (→ 200 zł)”, items:[
-          {text:”5 płatności karta/BLIK”,count:5},
-          “Rejestracja w Bezcenne Chwile”,
-          “Logowanie w aplikacji”]},
-        {title:”Moneyback miesięczny (8 mc, → do 800 zł)”, items:[
-          “1000 zł/mc płatności STACJONARNIE”,
-          “Wpływ 2000 zł/mc z innego banku”,
-          “Logowanie w aplikacji co miesiąc”]}
+        {title:"Start", items:[
+          "Otwórz z kodem ZYSKAJ2026 do 30.06"]},
+        {title:"W 10 dniach od otwarcia (→ 200 zł)", items:[
+          {text:"5 płatności karta/BLIK",count:5},
+          "Rejestracja w Bezcenne Chwile",
+          "Logowanie w aplikacji"]},
+        {title:"Moneyback miesięczny (8 mc, → do 800 zł)", items:[
+          "1000 zł/mc płatności STACJONARNIE",
+          "Wpływ 2000 zł/mc z innego banku",
+          "Logowanie w aplikacji co miesiąc"]}
       ],
-      payout:”200 zł do końca kolejnego mc · moneyback co mies. (do ~lutego 2027)”,
-      oplaty:”konto 0 zł · karta 7 zł/mc (0 zł przy ≥5 płatności/mc)”,
-      pitfalls:[“Moneyback TYLKO płatności stacjonarne (online i ZEN się nie liczą)”,”Brak kary — w słabszym mc dostajesz 10% od tego, co wydasz”] },
+      payout:"200 zł do końca kolejnego mc · moneyback co mies. (do ~lutego 2027)",
+      oplaty:"konto 0 zł · karta 7 zł/mc (0 zł przy ≥5 płatności/mc)",
+      pitfalls:["Moneyback TYLKO płatności stacjonarne (online i ZEN się nie liczą)","Brak kary — w słabszym mc dostajesz 10% od tego, co wydasz"] },
 
-    { id:”erste”, bank:”Erste”, name:”Konto Smart”, cash:700, mile:0, open:”2026-07-31”,
-      tag:”premia za otwarcie”, note:”+100 zł z polecenia (osobny deadline 12.06!)”,
-      karencja:”brak dostępu do e-bankowości Erste od 1.06.2024”,
+    { id:"erste", bank:"Erste", name:"Konto Smart", cash:700, mile:0, open:"2026-07-31",
+      tag:"premia za otwarcie", note:"+100 zł z polecenia (osobny deadline 12.06!)",
+      karencja:"brak dostępu do e-bankowości Erste od 1.06.2024",
       groups:[
-        {title:”Start”, items:[
-          “Otwórz przez link promocyjny do 31.07”]},
-        {title:”Miesiąc 1 (→ 200 zł)”, items:[
-          “Wpływ ≥1500 zł”,
-          {text:”5 płatności karta/BLIK”,count:5},
-          “Cel w „Moje Cele” aktywny”,
-          {text:”Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)”,optional:true}]},
-        {title:”Miesiąc 2 (→ 200 zł)”, items:[
-          “Wpływ ≥1500 zł”,
-          {text:”5 płatności karta/BLIK”,count:5},
-          “Cel w „Moje Cele” aktywny”,
-          {text:”Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)”,optional:true}]},
-        {title:”Miesiąc 3 (→ 200 zł + 100 zł polecenie)”, items:[
-          “Wpływ ≥1500 zł”,
-          {text:”5 płatności karta/BLIK”,count:5},
-          “Cel w „Moje Cele” aktywny”,
-          {text:”Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)”,optional:true}]}
+        {title:"Start", items:[
+          "Otwórz przez link promocyjny do 31.07"]},
+        {title:"Miesiąc 1 (→ 200 zł)", items:[
+          "Wpływ ≥1500 zł",
+          {text:"5 płatności karta/BLIK",count:5},
+          "Cel w „Moje Cele” aktywny",
+          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)",optional:true}]},
+        {title:"Miesiąc 2 (→ 200 zł)", items:[
+          "Wpływ ≥1500 zł",
+          {text:"5 płatności karta/BLIK",count:5},
+          "Cel w „Moje Cele” aktywny",
+          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)",optional:true}]},
+        {title:"Miesiąc 3 (→ 200 zł + 100 zł polecenie)", items:[
+          "Wpływ ≥1500 zł",
+          {text:"5 płatności karta/BLIK",count:5},
+          "Cel w „Moje Cele” aktywny",
+          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)",optional:true}]}
       ],
-      payout:”do 20. dnia mc po spełnieniu warunków danego miesiąca”,
-      oplaty:”karta 0 zł (masz <26) · konto 0 zł przy ≥300 zł płatności/mc”,
-      pitfalls:[“„Moje Cele” musi być aktywne przez 3 mc”,”Wykluczone: Revolut/Curve/DiPocket, hazard, wymiana walut”] },
+      payout:"do 20. dnia mc po spełnieniu warunków danego miesiąca",
+      oplaty:"karta 0 zł (masz <26) · konto 0 zł przy ≥300 zł płatności/mc",
+      pitfalls:["„Moje Cele” musi być aktywne przez 3 mc","Wykluczone: Revolut/Curve/DiPocket, hazard, wymiana walut"] },
 
-    { id:”pekao-konto”, bank:”Pekao”, name:”Konto Przekorzystne”, cash:300, mile:0, open:”2026-07-15”,
-      tag:”premia za otwarcie”, note:”1️⃣ OTWÓRZ PRZED kartą kredytową Pekao!”,
-      karencja:”brak konta w Pekao 1.05.2024–31.05.2026 · brak produktów kredytowych na dzień startu”,
+    { id:"pekao-konto", bank:"Pekao", name:"Konto Przekorzystne", cash:300, mile:0, open:"2026-07-15",
+      tag:"premia za otwarcie", note:"1️⃣ OTWÓRZ PRZED kartą kredytową Pekao!",
+      karencja:"brak konta w Pekao 1.05.2024–31.05.2026 · brak produktów kredytowych na dzień startu",
       groups:[
-        {title:”Start”, items:[
-          “Otwórz online (selfie) do 15.07 — PRZED kartą kredytową”,
-          “Logowanie do bankowości/PeoPay w dniu otwarcia”]},
-        {title:”Miesiąc 1 (→ 100 zł do 15.08)”, items:[
-          {text:”5 płatności kartą”,count:5}]},
-        {title:”Miesiąc 2 (→ 100 zł do 15.09)”, items:[
-          {text:”5 płatności kartą”,count:5}]}
+        {title:"Start", items:[
+          "Otwórz online (selfie) do 15.07 — PRZED kartą kredytową",
+          "Logowanie do bankowości/PeoPay w dniu otwarcia"]},
+        {title:"Miesiąc 1 (→ 100 zł do 15.08)", items:[
+          {text:"5 płatności kartą",count:5}]},
+        {title:"Miesiąc 2 (→ 100 zł do 15.09)", items:[
+          {text:"5 płatności kartą",count:5}]}
       ],
-      payout:”3×100 zł — kolejno do 15.08, 15.09, 15.10”,
-      oplaty:”konto 0 zł · karta debetowa 0 zł (masz <26)”,
-      pitfalls:[“Otwórz w oddziale = brak promocji”,”Pomijamy moneyback podróżny 2400 (wymaga karty złotej + dużych wydatków)”] },
+      payout:"3×100 zł — kolejno do 15.08, 15.09, 15.10",
+      oplaty:"konto 0 zł · karta debetowa 0 zł (masz <26)",
+      pitfalls:["Otwórz w oddziale = brak promocji","Pomijamy moneyback podróżny 2400 (wymaga karty złotej + dużych wydatków)"] },
 
-    { id:”pekao-karta”, bank:”Pekao”, name:”Karta kredytowa Miles & More”, cash:500, mile:6000, open:”2026-07-31”,
-      tag:”karta kredytowa”, note:”2️⃣ Dopiero PO koncie Przekorzystnym · wariant STANDARD = 0 zł bezwarunkowo”,
-      karencja:”brak karty kredytowej Pekao przed 12.05.2026 (konto osobiste NIE przeszkadza)”,
+    { id:"pekao-karta", bank:"Pekao", name:"Karta kredytowa Miles & More", cash:500, mile:6000, open:"2026-07-31",
+      tag:"karta kredytowa", note:"2️⃣ Dopiero PO koncie Przekorzystnym · wariant STANDARD = 0 zł bezwarunkowo",
+      karencja:"brak karty kredytowej Pekao przed 12.05.2026 (konto osobiste NIE przeszkadza)",
       groups:[
-        {title:”Start”, items:[
-          “Złóż wniosek z kodem BONUS (po otwarciu konta Pekao)”,
-          “Limit kredytowy min. 2000 zł (zdolność)”,
-          “Dołącz kartę do Miles & More do końca mc po umowie”]},
-        {title:”Push (→ 500 zł + 6000 mil)”, items:[
-          “1000 zł płatności kartą kredytową w ciągu 2 mc”]}
+        {title:"Start", items:[
+          "Złóż wniosek z kodem BONUS (po otwarciu konta Pekao)",
+          "Limit kredytowy min. 2000 zł (zdolność)",
+          "Dołącz kartę do Miles & More do końca mc po umowie"]},
+        {title:"Push (→ 500 zł + 6000 mil)", items:[
+          "1000 zł płatności kartą kredytową w ciągu 2 mc"]}
       ],
-      payout:”500 zł + mile do końca mc po spełnieniu warunków”,
-      oplaty:”Standard 0 zł/mc BEZWARUNKOWO — idealna do wynajmu auta”,
-      pitfalls:[“Karta kredytowa → wpływa na BIK”,”1000 zł to push jednorazowy (2 mc), potem karta leży darmowa”] },
+      payout:"500 zł + mile do końca mc po spełnieniu warunków",
+      oplaty:"Standard 0 zł/mc BEZWARUNKOWO — idealna do wynajmu auta",
+      pitfalls:["Karta kredytowa → wpływa na BIK","1000 zł to push jednorazowy (2 mc), potem karta leży darmowa"] },
 
-    { id:”millennium”, bank:”Millennium”, name:”Konto 360”, cash:700, mile:0, open:”2026-10-27”,
-      tag:”FALA 2 — otwórz ~sierpień”, note:”start ~sierpień (gdy push Pekao skończony)”,
-      karencja:”brak konta w Millennium od 1.01.2022”,
+    { id:"millennium", bank:"Millennium", name:"Konto 360", cash:700, mile:0, open:"2026-10-27",
+      tag:"FALA 2 — otwórz ~sierpień", note:"start ~sierpień (gdy push Pekao skończony)",
+      karencja:"brak konta w Millennium od 1.01.2022",
       groups:[
-        {title:”Start — w 14 dniach od otwarcia (→ 200 zł)”, items:[
-          “Otwórz konto (planowo sierpień, deadline 27.10)”,
-          “Wpływ ≥1500 zł”,
-          {text:”5 płatności mobilnych STACJONARNIE (Google/Apple/Samsung Pay)”,count:5},
-          “Rejestracja BLIK”]},
-        {title:”Miesiące 1–5 (→ 500 zł)”, items:[
-          “Wpływ ≥1500 zł/mc”,
-          “Płatności kartą ≥1000 zł/mc”]}
+        {title:"Start — w 14 dniach od otwarcia (→ 200 zł)", items:[
+          "Otwórz konto (planowo sierpień, deadline 27.10)",
+          "Wpływ ≥1500 zł",
+          {text:"5 płatności mobilnych STACJONARNIE (Google/Apple/Samsung Pay)",count:5},
+          "Rejestracja BLIK"]},
+        {title:"Miesiące 1–5 (→ 500 zł)", items:[
+          "Wpływ ≥1500 zł/mc",
+          "Płatności kartą ≥1000 zł/mc"]}
       ],
-      payout:”200 zł po 1. mc · 500 zł po 6. mc”,
-      oplaty:”konto 0 zł · karta 0 zł (masz <26 / ≥5 transakcji)”,
-      pitfalls:[“Start: 5 płatności MOBILNYCH (Google/Apple/Samsung Pay) stacjonarnie”,”Zweryfikuj w regulaminie czy lojalnościowe 1000 zł liczy online”] },
+      payout:"200 zł po 1. mc · 500 zł po 6. mc",
+      oplaty:"konto 0 zł · karta 0 zł (masz <26 / ≥5 transakcji)",
+      pitfalls:["Start: 5 płatności MOBILNYCH (Google/Apple/Samsung Pay) stacjonarnie","Zweryfikuj w regulaminie czy lojalnościowe 1000 zł liczy online"] },
 
-    { id:”nest”, bank:”Nest”, name:”Nest Konto (opcja pasywna)”, cash:1250, mile:0, open:”2026-09-30”,
-      tag:”❔ do decyzji”, note:”24 mc po 50 zł · mały wysiłek (1 tx/mc) ale długi horyzont”,
-      karencja:”brak konta w Nest od 1.01.2021”,
+    { id:"nest", bank:"Nest", name:"Nest Konto (opcja pasywna)", cash:1250, mile:0, open:"2026-09-30",
+      tag:"❔ do decyzji", note:"24 mc po 50 zł · mały wysiłek (1 tx/mc) ale długi horyzont",
+      karencja:"brak konta w Nest od 1.01.2021",
       groups:[
-        {title:”Decyzja wstępna”, items:[
-          “DECYZJA: zweryfikuj czy „wpływ wynagrodzenia” = wymaga tytułu wynagrodzenia (blokuje przepuszczanie)”]},
-        {title:”Co miesiąc przez 24 mc (→ 50 zł/mc)”, items:[
-          “Wpływ ≥1500 zł”,
-          “1 płatność karta/BLIK co miesiąc”]},
-        {title:”Jednorazowo”, items:[
-          “Wymiana euro w Nest → +50 zł”]}
+        {title:"Decyzja wstępna", items:[
+          "DECYZJA: zweryfikuj czy „wpływ wynagrodzenia” = wymaga tytułu wynagrodzenia (blokuje przepuszczanie)"]},
+        {title:"Co miesiąc przez 24 mc (→ 50 zł/mc)", items:[
+          "Wpływ ≥1500 zł",
+          "1 płatność karta/BLIK co miesiąc"]},
+        {title:"Jednorazowo", items:[
+          "Wymiana euro w Nest → +50 zł"]}
       ],
-      payout:”50 zł/mc przez 24 mc + 50 zł za euro”,
-      oplaty:”konto 0 zł · pierwsza karta 0 zł”,
-      pitfalls:[“24 miesiące zobowiązania”,”Zgody marketingowe przez cały okres”] }
+      payout:"50 zł/mc przez 24 mc + 50 zł za euro",
+      oplaty:"konto 0 zł · pierwsza karta 0 zł",
+      pitfalls:["24 miesiące zobowiązania","Zgody marketingowe przez cały okres"] }
   ],
 
   months: [
