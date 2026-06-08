@@ -69,6 +69,16 @@
   .conds li.optional{opacity:.75}
   .opt-badge{font-size:10px;padding:1px 7px;border-radius:999px;background:#122030;
     color:var(--acc2);font-weight:600;margin-left:5px;vertical-align:middle;white-space:nowrap}
+  .dl-day{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:10px 0}
+  .dl-day.allpast{opacity:.5}
+  .dl-day.urgent{border-color:var(--bad)}
+  .dl-head{display:flex;justify-content:space-between;align-items:center;gap:8px;
+    padding-bottom:6px;border-bottom:1px solid var(--line)}
+  .dl-date{font-weight:700;font-size:16px}
+  .dl-day .conds{margin:6px 0 0}
+  .dl-day .conds li{padding:5px 0}
+  .dl-bank{color:var(--acc2);font-weight:600}
+  .dl-grp{color:var(--mut);font-size:12px}
   .sub{color:var(--mut);font-size:13px;margin:6px 0}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
   .kv{background:var(--panel2);border-radius:8px;padding:8px 10px;font-size:13px}
@@ -110,7 +120,7 @@
 
   <nav class="tabs">
     <button data-tab="dash" class="active">Pulpit</button>
-    <button data-tab="harmonogram">Harmonogram</button>
+    <button data-tab="deadliny">Deadliny</button>
     <button data-tab="produkty">Produkty</button>
     <button data-tab="zasady">Zasady</button>
   </nav>
@@ -118,16 +128,16 @@
   <section id="dash" class="active">
     <h2>Pulpit</h2>
     <table>
-      <thead><tr><th>Produkt</th><th>Premia</th><th>Otwórz do</th><th>Status</th><th style="min-width:120px">Postęp</th></tr></thead>
+      <thead><tr><th>Produkt</th><th>Premia</th><th>Najbliższy termin</th><th>Status</th><th style="min-width:120px">Postęp</th></tr></thead>
       <tbody id="dash-body"></tbody>
     </table>
     <p class="sub">Wartości premii i terminy pochodzą z analizy planu. Status/postęp liczone z odhaczonych warunków w zakładce „Produkty".</p>
   </section>
 
-  <section id="harmonogram">
-    <h2>Harmonogram miesięczny</h2>
-    <p class="sub">Co otwierać, ile wydać (i gdzie), jak puszczać wpływy i co odebrać — miesiąc po miesiącu.</p>
-    <div id="months"></div>
+  <section id="deadliny">
+    <h2>Deadliny — od najbliższego</h2>
+    <p class="sub">Każdy wymóg ma własny termin. Pogrupowane po dacie. Odhaczone i przeszłe są wyszarzone. Możesz odhaczać tutaj tak samo jak w „Produktach".</p>
+    <div id="deadliny-body"></div>
   </section>
 
   <section id="produkty">
@@ -158,25 +168,25 @@ const PLAN = {
       karencja:"brak konta ING od 1.01.2025",
       groups:[
         {title:"Start", items:[
-          "Otwórz konto przez APKĘ do 10.06, z OKO + kartą, z kodem polecenia (✅ 5.06)",
-          "Zgody marketingowe (e-mail + profilowanie) do 14 dni od wniosku → do ~19.06 ⚠️",
-          {text:"3× logowanie do aplikacji",count:3}]},
+          {text:"Otwórz konto przez APKĘ do 10.06, z OKO + kartą, z kodem polecenia (✅ 5.06)",deadline:"2026-06-10"},
+          {text:"Zgody marketingowe (e-mail + profilowanie) do 14 dni od wniosku ⚠️",deadline:"2026-06-19"},
+          {text:"3× logowanie do aplikacji",count:3,deadline:"2026-08-31"}]},
         {title:"Czerwiec", items:[
-          "Wpływ ≥1000 zł",
-          {text:"5 płatności karta/BLIK",count:5},
-          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)",optional:true}]},
+          {text:"Wpływ ≥1000 zł",deadline:"2026-06-30"},
+          {text:"5 płatności karta/BLIK",count:5,deadline:"2026-06-30"},
+          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)",optional:true,deadline:"2026-06-30"}]},
         {title:"Lipiec", items:[
-          "Wpływ ≥1000 zł",
-          {text:"5 płatności karta/BLIK",count:5},
-          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)",optional:true}]},
+          {text:"Wpływ ≥1000 zł",deadline:"2026-07-31"},
+          {text:"5 płatności karta/BLIK",count:5,deadline:"2026-07-31"},
+          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)",optional:true,deadline:"2026-07-31"}]},
         {title:"Sierpień", items:[
-          {text:"5 płatności karta/BLIK",count:5},
-          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)",optional:true}]},
+          {text:"5 płatności karta/BLIK",count:5,deadline:"2026-08-31"},
+          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty 10 zł/mc za kartę)",optional:true,deadline:"2026-08-31"}]},
         {title:"Wrzesień", items:[
-          "600 zł na OKO przez 1 dzień w oknie 3–10.09 ⚠️"]},
+          {text:"600 zł na OKO przez 1 dzień w oknie 3–10.09 ⚠️",deadline:"2026-09-10"}]},
         {title:"Polecenie (+100 zł)", items:[
-          {text:"10 płatności karta/BLIK do 11.10 (pokrywa się z płatnościami powyżej)",count:10},
-          "PO 10 płatnościach saldo ≥600 zł na KONCIE (nie OKO!) na koniec min. 1 dnia, do 12.10"]}
+          {text:"10 płatności karta/BLIK (pokrywa się z płatnościami powyżej)",count:10,deadline:"2026-10-11"},
+          {text:"PO 10 płatnościach saldo ≥600 zł na KONCIE (nie OKO!) na koniec min. 1 dnia",deadline:"2026-10-12"}]}
       ],
       payout:"600 zł na OKO do 30.09 · 100 zł na konto dzień roboczy po warunkach (ostatnia wypłata 13.10)",
       oplaty:"konto 0 zł · karta 0 zł jeśli ≥300 zł/mc (inaczej 10 zł)",
@@ -189,27 +199,27 @@ const PLAN = {
       karencja:"brak konta osobistego w Alior od 3 lat",
       groups:[
         {title:"Start", items:[
-          "Otwórz z kodem ZYSKAJ2026 do 30.06"]},
+          {text:"Otwórz z kodem ZYSKAJ2026",deadline:"2026-06-30"}]},
         {title:"W 10 dniach od otwarcia (→ 200 zł)", items:[
-          {text:"5 płatności karta/BLIK",count:5},
-          "Rejestracja w Bezcenne Chwile",
-          "Logowanie w aplikacji"]},
+          {text:"5 płatności karta/BLIK",count:5,deadline:"2026-07-10"},
+          {text:"Rejestracja w Bezcenne Chwile",deadline:"2026-07-10"},
+          {text:"Logowanie w aplikacji",deadline:"2026-07-10"}]},
         {title:"Moneyback — lipiec 2026 (→ do 100 zł)", items:[
-          "1000 zł płatności STACJONARNIE","Wpływ 2000 zł z innego banku","Logowanie w aplikacji"]},
+          {text:"1000 zł płatności STACJONARNIE",deadline:"2026-07-31"},{text:"Wpływ 2000 zł z innego banku",deadline:"2026-07-31"},{text:"Logowanie w aplikacji",deadline:"2026-07-31"}]},
         {title:"Moneyback — sierpień 2026 (→ do 100 zł)", items:[
-          "1000 zł płatności STACJONARNIE","Wpływ 2000 zł z innego banku","Logowanie w aplikacji"]},
+          {text:"1000 zł płatności STACJONARNIE",deadline:"2026-08-31"},{text:"Wpływ 2000 zł z innego banku",deadline:"2026-08-31"},{text:"Logowanie w aplikacji",deadline:"2026-08-31"}]},
         {title:"Moneyback — wrzesień 2026 (→ do 100 zł)", items:[
-          "1000 zł płatności STACJONARNIE","Wpływ 2000 zł z innego banku","Logowanie w aplikacji"]},
+          {text:"1000 zł płatności STACJONARNIE",deadline:"2026-09-30"},{text:"Wpływ 2000 zł z innego banku",deadline:"2026-09-30"},{text:"Logowanie w aplikacji",deadline:"2026-09-30"}]},
         {title:"Moneyback — październik 2026 (→ do 100 zł)", items:[
-          "1000 zł płatności STACJONARNIE","Wpływ 2000 zł z innego banku","Logowanie w aplikacji"]},
+          {text:"1000 zł płatności STACJONARNIE",deadline:"2026-10-31"},{text:"Wpływ 2000 zł z innego banku",deadline:"2026-10-31"},{text:"Logowanie w aplikacji",deadline:"2026-10-31"}]},
         {title:"Moneyback — listopad 2026 (→ do 100 zł)", items:[
-          "1000 zł płatności STACJONARNIE","Wpływ 2000 zł z innego banku","Logowanie w aplikacji"]},
+          {text:"1000 zł płatności STACJONARNIE",deadline:"2026-11-30"},{text:"Wpływ 2000 zł z innego banku",deadline:"2026-11-30"},{text:"Logowanie w aplikacji",deadline:"2026-11-30"}]},
         {title:"Moneyback — grudzień 2026 (→ do 100 zł)", items:[
-          "1000 zł płatności STACJONARNIE","Wpływ 2000 zł z innego banku","Logowanie w aplikacji"]},
+          {text:"1000 zł płatności STACJONARNIE",deadline:"2026-12-31"},{text:"Wpływ 2000 zł z innego banku",deadline:"2026-12-31"},{text:"Logowanie w aplikacji",deadline:"2026-12-31"}]},
         {title:"Moneyback — styczeń 2027 (→ do 100 zł)", items:[
-          "1000 zł płatności STACJONARNIE","Wpływ 2000 zł z innego banku","Logowanie w aplikacji"]},
+          {text:"1000 zł płatności STACJONARNIE",deadline:"2027-01-31"},{text:"Wpływ 2000 zł z innego banku",deadline:"2027-01-31"},{text:"Logowanie w aplikacji",deadline:"2027-01-31"}]},
         {title:"Moneyback — luty 2027 (→ do 100 zł)", items:[
-          "1000 zł płatności STACJONARNIE","Wpływ 2000 zł z innego banku","Logowanie w aplikacji"]}
+          {text:"1000 zł płatności STACJONARNIE",deadline:"2027-02-28"},{text:"Wpływ 2000 zł z innego banku",deadline:"2027-02-28"},{text:"Logowanie w aplikacji",deadline:"2027-02-28"}]}
       ],
       payout:"200 zł do końca kolejnego mc · moneyback co mies. (do ~lutego 2027)",
       oplaty:"konto 0 zł · karta 7 zł/mc (0 zł przy ≥5 płatności/mc)",
@@ -220,22 +230,22 @@ const PLAN = {
       karencja:"brak dostępu do e-bankowości Erste od 1.06.2024",
       groups:[
         {title:"Start", items:[
-          "Otwórz przez link promocyjny do 31.07"]},
+          {text:"Otwórz przez link promocyjny",deadline:"2026-07-31"}]},
         {title:"Miesiąc 1 (→ 200 zł)", items:[
-          "Wpływ ≥1500 zł",
-          {text:"5 płatności karta/BLIK",count:5},
-          "Cel w „Moje Cele” aktywny",
-          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)",optional:true}]},
+          {text:"Wpływ ≥1500 zł",deadline:"2026-08-31"},
+          {text:"5 płatności karta/BLIK",count:5,deadline:"2026-08-31"},
+          {text:"Cel w „Moje Cele” aktywny",deadline:"2026-08-31"},
+          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)",optional:true,deadline:"2026-08-31"}]},
         {title:"Miesiąc 2 (→ 200 zł)", items:[
-          "Wpływ ≥1500 zł",
-          {text:"5 płatności karta/BLIK",count:5},
-          "Cel w „Moje Cele” aktywny",
-          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)",optional:true}]},
+          {text:"Wpływ ≥1500 zł",deadline:"2026-09-30"},
+          {text:"5 płatności karta/BLIK",count:5,deadline:"2026-09-30"},
+          {text:"Cel w „Moje Cele” aktywny",deadline:"2026-09-30"},
+          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)",optional:true,deadline:"2026-09-30"}]},
         {title:"Miesiąc 3 (→ 200 zł + 100 zł polecenie)", items:[
-          "Wpływ ≥1500 zł",
-          {text:"5 płatności karta/BLIK",count:5},
-          "Cel w „Moje Cele” aktywny",
-          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)",optional:true}]}
+          {text:"Wpływ ≥1500 zł",deadline:"2026-10-31"},
+          {text:"5 płatności karta/BLIK",count:5,deadline:"2026-10-31"},
+          {text:"Cel w „Moje Cele” aktywny",deadline:"2026-10-31"},
+          {text:"Wydatki kartą ≥300 zł (uniknięcie opłaty za konto)",optional:true,deadline:"2026-10-31"}]}
       ],
       payout:"do 20. dnia mc po spełnieniu warunków danego miesiąca",
       oplaty:"karta 0 zł (masz <26) · konto 0 zł przy ≥300 zł płatności/mc",
@@ -246,14 +256,14 @@ const PLAN = {
       karencja:"brak konta w Pekao 1.05.2024–31.05.2026 · brak produktów kredytowych na dzień startu",
       groups:[
         {title:"Start", items:[
-          "Otwórz online (selfie) do 15.07 — PRZED kartą kredytową",
-          "Logowanie do bankowości/PeoPay w dniu otwarcia"]},
+          {text:"Otwórz online (selfie) — PRZED kartą kredytową",deadline:"2026-07-15"},
+          {text:"Logowanie do bankowości/PeoPay w dniu otwarcia",deadline:"2026-07-15"}]},
         {title:"Miesiąc 1 (→ 100 zł do 15.08)", items:[
-          {text:"5 płatności kartą",count:5}]},
+          {text:"5 płatności kartą",count:5,deadline:"2026-07-31"}]},
         {title:"Miesiąc 2 (→ 100 zł do 15.09)", items:[
-          {text:"5 płatności kartą",count:5}]},
+          {text:"5 płatności kartą",count:5,deadline:"2026-08-31"}]},
         {title:"Miesiąc 3 (→ 100 zł do 15.10)", items:[
-          {text:"5 płatności kartą",count:5}]}
+          {text:"5 płatności kartą",count:5,deadline:"2026-09-30"}]}
       ],
       payout:"3×100 zł — kolejno do 15.08, 15.09, 15.10",
       oplaty:"konto 0 zł · karta debetowa 0 zł (masz <26)",
@@ -264,11 +274,11 @@ const PLAN = {
       karencja:"brak karty kredytowej Pekao przed 12.05.2026 (konto osobiste NIE przeszkadza)",
       groups:[
         {title:"Start", items:[
-          "Złóż wniosek z kodem BONUS (po otwarciu konta Pekao)",
+          {text:"Złóż wniosek z kodem BONUS (po otwarciu konta Pekao)",deadline:"2026-07-31"},
           "Limit kredytowy min. 2000 zł (zdolność)",
-          "Dołącz kartę do Miles & More do końca mc po umowie"]},
+          {text:"Dołącz kartę do Miles & More do końca mc po umowie",deadline:"2026-08-31"}]},
         {title:"Push (→ 500 zł + 6000 mil)", items:[
-          "1000 zł płatności kartą kredytową w ciągu 2 mc"]}
+          {text:"1000 zł płatności kartą kredytową w ciągu 2 mc",deadline:"2026-09-30"}]}
       ],
       payout:"500 zł + mile do końca mc po spełnieniu warunków",
       oplaty:"Standard 0 zł/mc BEZWARUNKOWO — idealna do wynajmu auta",
@@ -279,20 +289,20 @@ const PLAN = {
       karencja:"brak konta w Millennium od 1.01.2022",
       groups:[
         {title:"Start — w 14 dniach od otwarcia (→ 200 zł)", items:[
-          "Otwórz konto (planowo sierpień, deadline 27.10)",
-          "Wpływ ≥1500 zł",
-          {text:"5 płatności mobilnych STACJONARNIE (Google/Apple/Samsung Pay)",count:5},
-          "Rejestracja BLIK"]},
+          {text:"Otwórz konto (planowo sierpień; twardy deadline 27.10)",deadline:"2026-10-27"},
+          {text:"Wpływ ≥1500 zł",deadline:"2026-08-31"},
+          {text:"5 płatności mobilnych STACJONARNIE (Google/Apple/Samsung Pay)",count:5,deadline:"2026-08-31"},
+          {text:"Rejestracja BLIK",deadline:"2026-08-31"}]},
         {title:"Lojalność — miesiąc 1 (z 5 → 500 zł)", items:[
-          "Wpływ ≥1500 zł","Płatności kartą ≥1000 zł"]},
+          {text:"Wpływ ≥1500 zł",deadline:"2026-09-30"},{text:"Płatności kartą ≥1000 zł",deadline:"2026-09-30"}]},
         {title:"Lojalność — miesiąc 2 (z 5 → 500 zł)", items:[
-          "Wpływ ≥1500 zł","Płatności kartą ≥1000 zł"]},
+          {text:"Wpływ ≥1500 zł",deadline:"2026-10-31"},{text:"Płatności kartą ≥1000 zł",deadline:"2026-10-31"}]},
         {title:"Lojalność — miesiąc 3 (z 5 → 500 zł)", items:[
-          "Wpływ ≥1500 zł","Płatności kartą ≥1000 zł"]},
+          {text:"Wpływ ≥1500 zł",deadline:"2026-11-30"},{text:"Płatności kartą ≥1000 zł",deadline:"2026-11-30"}]},
         {title:"Lojalność — miesiąc 4 (z 5 → 500 zł)", items:[
-          "Wpływ ≥1500 zł","Płatności kartą ≥1000 zł"]},
+          {text:"Wpływ ≥1500 zł",deadline:"2026-12-31"},{text:"Płatności kartą ≥1000 zł",deadline:"2026-12-31"}]},
         {title:"Lojalność — miesiąc 5 (z 5 → 500 zł)", items:[
-          "Wpływ ≥1500 zł","Płatności kartą ≥1000 zł"]}
+          {text:"Wpływ ≥1500 zł",deadline:"2027-01-31"},{text:"Płatności kartą ≥1000 zł",deadline:"2027-01-31"}]}
       ],
       payout:"200 zł po 1. mc · 500 zł po 6. mc",
       oplaty:"konto 0 zł · karta 0 zł (masz <26 / ≥5 transakcji)",
@@ -303,7 +313,7 @@ const PLAN = {
       karencja:"brak konta w Nest od 1.01.2021",
       groups:[
         {title:"Decyzja wstępna", items:[
-          "DECYZJA: zweryfikuj czy „wpływ wynagrodzenia” = wymaga tytułu wynagrodzenia (blokuje przepuszczanie)"]},
+          {text:"DECYZJA: zweryfikuj czy „wpływ wynagrodzenia” = wymaga tytułu wynagrodzenia (blokuje przepuszczanie)",deadline:"2026-09-30"}]},
         {title:"Co miesiąc przez 24 mc (→ 50 zł/mc)", items:[
           "Wpływ ≥1500 zł",
           "1 płatność karta/BLIK co miesiąc"]},
@@ -313,34 +323,6 @@ const PLAN = {
       payout:"50 zł/mc przez 24 mc + 50 zł za euro",
       oplaty:"konto 0 zł · pierwsza karta 0 zł",
       pitfalls:["24 miesiące zobowiązania","Zgody marketingowe przez cały okres"] }
-  ],
-
-  months: [
-    { m:"Czerwiec 2026", open:"ING ✅ (otwarte 5.06, kod polecenia) · Alior (kod ZYSKAJ2026) · Erste · Pekao KONTO → potem KARTA",
-      spend:"Alior 1000 zł STACJONARNIE · Pekao karta push ~500 zł · drobne: 5 tx ING + 5 tx Erste + 5 tx Pekao-konto",
-      inflow:"przepuść rano: 1000→ING · 1500→Erste · 2000→Alior (różne dni, początek mc)",
-      collect:"—  (premie spływają od lipca) · ING: zgody marketingowe do ~19.06 ⚠️",
-      note:"Σ stacjonarnie ~1000 · Σ online ~1000 → mieści się w ~3080/mc ✅" },
-    { m:"Lipiec 2026", open:"(nic nowego — domykasz Falę 1)",
-      spend:"Alior 1000 STACJONARNIE · Pekao karta dokończ push (do 1000 łącznie) · min. Erste/ING/Pekao",
-      inflow:"jak wyżej: ING 1000 · Erste 1500 · Alior 2000",
-      collect:"Alior 200 zł · Pekao konto 100 zł (do 15.08)",
-      note:"Erste i Pekao-konto: 2. miesiąc warunków" },
-    { m:"Sierpień 2026", open:"Millennium 360 (Fala 2 — push Pekao już skończony, robi miejsce)",
-      spend:"Alior 1000 STACJ · Millennium start (5 płatności mobilnych stacj.) · min. Erste · ING 5 tx (3. miesiąc — domyka 15!)",
-      inflow:"ING 1000 · Erste 1500 · Alior 2000 · Millennium 1500",
-      collect:"Erste 200 · Pekao karta 500 + mile · Pekao konto 100 (do 15.09)",
-      note:"Szczyt liczby kont — pilnuj kalendarza" },
-    { m:"Wrzesień 2026", open:"(nic)",
-      spend:"Alior 1000 STACJ · Millennium 1000 · min. pozostałe",
-      inflow:"Alior 2000 · Millennium 1500 (+ ew. ING domknięcie)",
-      collect:"⭐ ING 600 zł — pamiętaj 600 zł na OKO 3–10.09! · ING polecenie 100 zł (saldo 600 na KONCIE po 10 tx, do 12.10) · Erste 200 · Pekao konto 100 (do 15.10)",
-      note:"ING: najważniejsze okno salda OKO + drugie saldo 600 zł na koncie osobistym (polecenie)" },
-    { m:"Październik 2026 → luty 2027", open:"(nic)",
-      spend:"Alior moneyback do ~lutego · Millennium 1000/mc do ~stycznia",
-      inflow:"Alior 2000 · Millennium 1500",
-      collect:"Erste ostatnia transza · Millennium 500 (po 6. mc) · Alior moneyback co mies.",
-      note:"Ogon kampanii — niski wysiłek, dopilnuj zgód i nie zamykaj kont" }
   ],
 
   rules: [
@@ -368,6 +350,20 @@ function toggle(pid,gi,ii,val){ state[key(pid,gi,ii)]=val; save(); render(); }
 function increment(pid,gi,ii,target){ const c=getCount(pid,gi,ii); if(c<target){state[key(pid,gi,ii)]=c+1;save();render();} }
 function decrement(pid,gi,ii){ const c=getCount(pid,gi,ii); if(c>0){state[key(pid,gi,ii)]=c-1;save();render();} }
 function prodProgress(p){ let d=0,t=0; (p.groups||[]).forEach((g,gi)=>{ g.items.forEach((c,ii)=>{ if(isOptional(c))return; t++; if(isDone(p.id,gi,ii,c))d++; }); }); return{d,t,pct:t?Math.round(d/t*100):0}; }
+function condDeadline(c){ return (typeof c==='object'&&c!==null&&c.deadline)?c.deadline:null; }
+function condText(c){ return typeof c==='string'?c:c.text; }
+function allDeadlines(){ const out=[];
+  PLAN.products.forEach(p=>{ (p.groups||[]).forEach((g,gi)=>{ g.items.forEach((c,ii)=>{
+    const dl=condDeadline(c); if(!dl) return;
+    out.push({date:dl, product:p, group:g.title, gi, ii, cond:c,
+      done:isDone(p.id,gi,ii,c), optional:isOptional(c), text:condText(c)});
+  }); }); });
+  out.sort((a,b)=> a.date<b.date?-1:a.date>b.date?1:0); return out; }
+function nextProductDeadline(p){ let best=null;
+  (p.groups||[]).forEach((g,gi)=>{ g.items.forEach((c,ii)=>{
+    const dl=condDeadline(c); if(!dl||isOptional(c)||isDone(p.id,gi,ii,c)) return;
+    if(best===null||dl<best) best=dl;
+  }); }); return best; }
 
 // ---------- daty ----------
 function daysLeft(iso){ const now=new Date(); now.setHours(0,0,0,0); const d=new Date(iso+"T00:00:00");
@@ -385,13 +381,13 @@ function render(){
   document.getElementById("s-got").textContent = fmtCash(got);
   document.getElementById("s-prog").textContent = (tC?Math.round(dC/tC*100):0)+"%";
 
-  // next deadline among not-fully-done
-  let next=null;
-  active.forEach(p=>{ const pr=prodProgress(p); if(pr.pct===100) return;
-    const dl=daysLeft(p.open); if(next===null||dl<next.dl) next={dl,name:p.bank}; });
+  // next deadline: najbliższy niewykonany, nieopcjonalny wymóg
+  const pending = allDeadlines().filter(d=>!d.done && !d.optional && d.product.id!=="nest");
+  const next = pending.length ? pending[0] : null;
   const nx=document.getElementById("s-next");
-  if(next){ nx.textContent = (next.dl<0? "minął":next.dl+" dni")+" · "+next.name;
-    nx.style.color = next.dl<=7? "var(--bad)": next.dl<=21? "var(--warn)":"var(--txt)"; }
+  if(next){ const dl=daysLeft(next.date);
+    nx.textContent = (dl<0? "minął": dl===0? "dziś!": dl+" dni")+" · "+next.product.bank;
+    nx.style.color = dl<=7? "var(--bad)": dl<=21? "var(--warn)":"var(--txt)"; }
   else nx.textContent="—";
 
   document.getElementById("today").textContent = "dziś: "+new Date().toLocaleDateString("pl-PL");
@@ -399,9 +395,14 @@ function render(){
   // dashboard
   const db=document.getElementById("dash-body"); db.innerHTML="";
   PLAN.products.forEach(p=>{
-    const pr=prodProgress(p); const dl=daysLeft(p.open);
-    const dlTxt = p.id==="nest" ? "—" : (dl<0?"minął":dl+" dni ("+p.open.slice(5)+")");
-    const dlCls = dl<=7&&dl>=0?"bad":dl<=21&&dl>=0?"warn":"";
+    const pr=prodProgress(p);
+    const nd=nextProductDeadline(p);
+    let dlTxt, dlCls="";
+    if(pr.pct===100){ dlTxt="✓ gotowe"; }
+    else if(!nd){ dlTxt="—"; }
+    else { const dl=daysLeft(nd);
+      dlTxt=(dl<0?"minął":dl===0?"dziś!":dl+" dni")+" ("+nd.slice(8,10)+"."+nd.slice(5,7)+")";
+      dlCls = dl<=7&&dl>=0?"bad":dl<=21&&dl>=0?"warn":""; }
     db.innerHTML += `<tr>
       <td><b>${p.bank}</b><br><span class="sub">${p.name}</span></td>
       <td>${fmtCash(p.cash)}${p.mile?`<br><span class="pill mile">${p.mile} mil</span>`:""}</td>
@@ -453,19 +454,50 @@ function render(){
     </div>`;
   });
 
-  // months
-  const mo=document.getElementById("months"); mo.innerHTML="";
-  PLAN.months.forEach((m,idx)=>{
-    mo.innerHTML += `<details class="month" ${idx===0?'open':''}>
-      <summary><span>${m.m}</span><span class="pill">${idx+1}/${PLAN.months.length}</span></summary>
-      <div class="body">
-        <div class="row"><span class="tag">📂 Otwórz</span><span>${m.open}</span></div>
-        <div class="row spend"><span class="tag">💳 Wydatki</span><span>${m.spend}</span></div>
-        <div class="row"><span class="tag">💸 Wpływy</span><span>${m.inflow}</span></div>
-        <div class="row collect"><span class="tag">🎁 Odbierz</span><span>${m.collect}</span></div>
-        <div class="sub" style="margin-top:8px">${m.note}</div>
-      </div></details>`;
-  });
+  // deadliny — grupowane po dacie, od najbliższej
+  const dlRoot=document.getElementById("deadliny-body"); dlRoot.innerHTML="";
+  const items=allDeadlines();
+  if(!items.length){ dlRoot.innerHTML='<p class="sub">Brak terminów.</p>'; }
+  else{
+    const byDate={};
+    items.forEach(it=>{ (byDate[it.date]=byDate[it.date]||[]).push(it); });
+    let html="";
+    Object.keys(byDate).sort().forEach(date=>{
+      const grp=byDate[date];
+      const reqs=grp.filter(x=>!x.optional);
+      const allDone=reqs.length>0 && reqs.every(x=>x.done);
+      const dl=daysLeft(date);
+      const past=dl<0;
+      let pillCls="", pillTxt;
+      if(allDone){ pillTxt="✓ zrobione"; }
+      else if(past){ pillCls="bad"; pillTxt="minął "+(-dl)+" dni temu"; }
+      else if(dl===0){ pillCls="bad"; pillTxt="dziś!"; }
+      else { pillCls=dl<=7?"bad":dl<=21?"warn":""; pillTxt=dl+" dni"; }
+      const dateFmt=date.slice(8,10)+"."+date.slice(5,7)+"."+date.slice(0,4);
+      const dayCls="dl-day"+((allDone||past)?" allpast":"")+((!allDone&&!past&&dl<=7)?" urgent":"");
+      let lis="";
+      grp.forEach(it=>{
+        const lbl=`<span class="dl-bank">${it.product.bank}</span> · ${it.text}${it.optional?' <span class="opt-badge">opcjonalne</span>':''} <span class="dl-grp">— ${it.group}</span>`;
+        if(isCounter(it.cond)){
+          const cur=getCount(it.product.id,it.gi,it.ii);
+          lis+=`<li class="counter${it.done?' checked':''}">
+            <div class="cnt-ctrl">
+              <button class="cnt-btn" onclick="decrement('${it.product.id}',${it.gi},${it.ii})">−</button>
+              <span class="cnt-val">${cur}/${it.cond.count}</span>
+              <button class="cnt-btn" onclick="increment('${it.product.id}',${it.gi},${it.ii},${it.cond.count})">+</button>
+            </div><label>${lbl}</label></li>`;
+        } else {
+          lis+=`<li class="${it.done?'checked ':''}${it.optional?'optional':''}">
+            <input type="checkbox" ${it.done?'checked':''} onchange="toggle('${it.product.id}',${it.gi},${it.ii},this.checked)">
+            <label>${lbl}</label></li>`;
+        }
+      });
+      html+=`<div class="${dayCls}"><div class="dl-head"><span class="dl-date">${dateFmt}</span>
+        <span class="${pillCls?'pill '+pillCls:'pill'}">${pillTxt}</span></div>
+        <ul class="conds">${lis}</ul></div>`;
+    });
+    dlRoot.innerHTML=html;
+  }
 
   // rules
   document.getElementById("rules").innerHTML =
