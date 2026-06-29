@@ -303,38 +303,36 @@ const PLAN = {
       oplaty:"karta 0 zł (masz <26) · konto 0 zł przy ≥300 zł płatności/mc",
       pitfalls:["„Moje Cele” musi być aktywne przez 3 mc","Wykluczone: Revolut/Curve/DiPocket, hazard, wymiana walut"] },
 
-    { id:"pekao-konto", bank:"Pekao", name:"Konto Przekorzystne", cash:300, mile:0, open:"2026-07-15",
-      tag:"premia za otwarcie", note:"1️⃣ OTWÓRZ PRZED kartą kredytową Pekao!",
+    { id:"pekao-konto", bank:"Pekao", name:"Konto Przekorzystne", cash:300, mile:0, open:"06.2026 ✅ (przed kartą)",
+      tag:"premia za otwarcie", note:"✅ otwarte w czerwcu PRZED kartą → premia ważna · tylko 2 mc po 5 płatności (czerwiec się NIE liczy)",
       karencja:"brak konta w Pekao 1.05.2024–31.05.2026 · brak produktów kredytowych na dzień startu",
       groups:[
-        {title:"Start", items:[
-          {text:"Otwórz online (selfie) — PRZED kartą kredytową",deadline:"2026-07-15"},
+        {title:"Start (→ 100 zł za otwarcie, do 15.08)", items:[
+          {text:"Otwórz online (selfie) — PRZED kartą kredytową ✅",deadline:"2026-07-15"},
           {text:"Logowanie do bankowości/PeoPay w dniu otwarcia",deadline:"2026-07-15"}]},
-        {title:"Miesiąc 1 (→ 100 zł do 15.08)", items:[
-          {text:"5 płatności kartą",count:5,deadline:"2026-07-31"}]},
-        {title:"Miesiąc 2 (→ 100 zł do 15.09)", items:[
-          {text:"5 płatności kartą",count:5,deadline:"2026-08-31"}]},
-        {title:"Miesiąc 3 (→ 100 zł do 15.10)", items:[
-          {text:"5 płatności kartą",count:5,deadline:"2026-09-30"}]}
+        {title:"Lipiec — 5 płatności (→ 100 zł do 15.09)", items:[
+          {text:"5 płatności kartą (Apple Pay OK · NIE BLIK/ZEN)",count:5,deadline:"2026-07-31"}]},
+        {title:"Sierpień — 5 płatności (→ 100 zł do 15.10)", items:[
+          {text:"5 płatności kartą (Apple Pay OK · NIE BLIK/ZEN)",count:5,deadline:"2026-08-31"}]}
       ],
-      payout:"3×100 zł — kolejno do 15.08, 15.09, 15.10",
+      payout:"100 zł za otwarcie (do 15.08) · 100 zł za lipiec (do 15.09) · 100 zł za sierpień (do 15.10)",
       oplaty:"konto 0 zł · karta debetowa 0 zł (masz <26)",
-      pitfalls:["Otwórz w oddziale = brak promocji","Pomijamy moneyback podróżny 2400 (wymaga karty złotej + dużych wydatków)"] },
+      pitfalls:["✅ Apple Pay / Google Pay / zbliżeniowo telefonem LICZĄ się jako „płatność kartą” (regulamin: też bez fizycznego użycia karty)","❌ NIE liczą się: BLIK (jawnie wykluczony), doładowania ZEN/Revolut, bankomaty, przekazy (MCC 4829/6050/6051) — rób zwykłe ZAKUPY","Tylko 2 miesiące po 5 płatności: LIPIEC + SIERPIEŃ — miesiąc otwarcia (czerwiec) się NIE liczy","Otwórz w oddziale = brak promocji (Ty: online ✅)","Pomijamy moneyback podróżny 2400 (wymaga karty złotej + dużych wydatków)"] },
 
-    { id:"pekao-karta", bank:"Pekao", name:"Karta kredytowa Miles & More", cash:500, mile:6000, open:"2026-07-31",
-      tag:"karta kredytowa", note:"2️⃣ Dopiero PO koncie Przekorzystnym · wariant STANDARD = 0 zł bezwarunkowo",
+    { id:"pekao-karta", bank:"Pekao", name:"Karta kredytowa Miles & More", cash:500, mile:6000, open:"06.2026 ✅ (po koncie)",
+      tag:"karta kredytowa", note:"✅ złożona w czerwcu PO koncie · wariant STANDARD = 0 zł bezwarunkowo · kod BONUS wymagany",
       karencja:"brak karty kredytowej Pekao przed 12.05.2026 (konto osobiste NIE przeszkadza)",
       groups:[
         {title:"Start", items:[
-          {text:"Złóż wniosek z kodem BONUS (po otwarciu konta Pekao)",deadline:"2026-07-31"},
+          {text:"Złóż wniosek z kodem BONUS (po otwarciu konta Pekao) ✅",deadline:"2026-07-31"},
           "Limit kredytowy min. 2000 zł (zdolność)",
-          {text:"Dołącz kartę do Miles & More do końca mc po umowie",deadline:"2026-08-31"}]},
+          {text:"Dołącz kartę do Miles & More (umowa VI → najpóźniej do końca VII)",deadline:"2026-07-31"}]},
         {title:"Push (→ 500 zł + 6000 mil)", items:[
-          {text:"1000 zł płatności kartą kredytową w ciągu 2 mc",deadline:"2026-09-30"}]}
+          {text:"1000 zł płatności — WIELE transakcji OK, Apple Pay OK (NIE ZEN/przekazy/gotówka)",deadline:"2026-08-31"}]}
       ],
-      payout:"500 zł + mile do końca mc po spełnieniu warunków",
+      payout:"500 zł + 6000 mil — do końca mc po spełnieniu warunków",
       oplaty:"Standard 0 zł/mc BEZWARUNKOWO — idealna do wynajmu auta",
-      pitfalls:["Karta kredytowa → wpływa na BIK","1000 zł to push jednorazowy (2 mc), potem karta leży darmowa"] },
+      pitfalls:["✅ 1000 zł = suma WIELU transakcji · Apple Pay / Google Pay liczą się","❌ NIE liczą się: doładowania ZEN/Revolut/portfele elektroniczne, przekazy pieniężne, wypłaty gotówki, kasyna/zakłady","Deadline 1000 zł liczy się od DOŁĄCZENIA do M&M: dołączenie w VI → do 31.07; w VII → do 31.08. Dołącz do M&M jak najszybciej!","Karta kredytowa → wpływa na BIK","1000 zł to push jednorazowy, potem karta leży darmowa (gotowa na wynajem auta)"] },
 
     { id:"millennium", bank:"Millennium", name:"Konto 360", cash:700, mile:0, open:"2026-10-27",
       tag:"FALA 2 — otwórz ~sierpień", note:"start ~sierpień (gdy push Pekao skończony)",
