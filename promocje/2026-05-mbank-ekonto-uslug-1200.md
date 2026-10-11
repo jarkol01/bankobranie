@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/05/mbank-cala-naprzod-zyskaj-z-kontem-media
 bank: mBank
 produkt: eKonto do usług (kampania "Cała naprzód – zyskuj z kontem w mBanku – edycja I")
 typ: konto_osobiste
-status: aktywna
+status: wygasla
 premia_total: 1260
 waluta: PLN
 oprocentowanie:

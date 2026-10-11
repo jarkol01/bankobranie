@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/06/erste-bank-konto-dziecka.html
 bank: Erste Bank
 produkt: Konto Smart (dla dzieci i nastolatków)
 typ: konto_osobiste
-status: aktywna
+status: wygasla
 premia_total: 300
 waluta: PLN
 premia_components:

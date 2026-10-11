@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-millennium-moj-biznes-2400",
+  "url": "https://www.bankobranie.pl/2026/09/millennium-moj-biznes.html",
+  "plik": "promocje/2026-09-millennium-moj-biznes-2400.md",
+  "bank": "Bank Millennium",
+  "produkt": "Konto Mój Biznes (JDG) z kartą Visa Mój Biznes",
+  "typ": "konto_firmowe",
+  "status": "aktywna",
+  "premia_total": 2400,
+  "data_publikacji": "2026-10-01",
+  "data_koniec_przystapienia": "2027-02-28",
+  "okres_warunkow_mies": 6,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:2400|2027-02-28|6",
+  "tagi": ["millennium", "konto_firmowe", "moneyback", "nowi_klienci", "jdg", "zus", "pula_18000", "terminal", "leasing"]
+}

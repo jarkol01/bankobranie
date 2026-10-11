@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/05/pekao-ekstra-mile-i-bonus-z-karta.html
 bank: Bank Pekao
 produkt: Karta kredytowa Pekao w programie Miles & More (promocja "Ekstra mile i bonus z kartą")
 typ: karta_kredytowa
-status: aktywna
+status: wygasla
 premia_total: 500
 waluta: PLN
 premia_components:

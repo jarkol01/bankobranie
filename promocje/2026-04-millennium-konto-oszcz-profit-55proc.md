@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/04/millennium-konto-oszczednosciowe-profit-
 bank: Bank Millennium
 produkt: Konto Oszczędnościowe Profit (edycja 74)
 typ: konto_oszczednosciowe
-status: aktywna
+status: wygasla
 premia_total: null
 waluta: PLN
 oprocentowanie:

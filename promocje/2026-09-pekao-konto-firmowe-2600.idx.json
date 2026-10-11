@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-pekao-konto-firmowe-2600",
+  "url": "https://www.bankobranie.pl/2026/09/pekao-konto-frimowe-z-premia.html",
+  "plik": "promocje/2026-09-pekao-konto-firmowe-2600.md",
+  "bank": "Bank Pekao",
+  "produkt": "Konto Biznes z Żubrem (karta + Pekao24)",
+  "typ": "konto_firmowe",
+  "status": "aktywna",
+  "premia_total": 2600,
+  "data_publikacji": "2026-09-01",
+  "data_koniec_przystapienia": "2026-12-31",
+  "okres_warunkow_mies": 10,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:2600|2026-12-31|10",
+  "tagi": ["pekao", "konto_firmowe", "moneyback", "zus", "nowi_klienci", "jdg", "terminal", "bonus_gotowka"]
+}

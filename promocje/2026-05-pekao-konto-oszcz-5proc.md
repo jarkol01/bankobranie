@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/05/pekao-konto-oszczednosciowe-5-proc.html
 bank: Bank Pekao
 produkt: Konto Oszczędnościowe Pekao
 typ: konto_oszczednosciowe
-status: aktywna
+status: wygasla
 premia_total: 300
 waluta: PLN
 oprocentowanie:

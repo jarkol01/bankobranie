@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/06/alior-konto-max-oszczednosciowe-nowe-sro
 bank: Alior Bank
 produkt: Konto Max Oszczędnościowe
 typ: konto_oszczednosciowe
-status: aktywna
+status: wygasla
 premia_total: null
 waluta: PLN
 oprocentowanie:

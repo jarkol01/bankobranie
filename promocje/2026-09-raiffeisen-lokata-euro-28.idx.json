@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-raiffeisen-lokata-euro-28",
+  "url": "https://www.bankobranie.pl/2026/09/raiffeisen-digital-bank-lokata-euro.html",
+  "plik": "promocje/2026-09-raiffeisen-lokata-euro-28.md",
+  "bank": "Raiffeisen Digital Bank",
+  "produkt": "Lokata powitalna w EUR",
+  "typ": "lokata",
+  "status": "aktywna",
+  "premia_total": null,
+  "data_publikacji": "2026-10-01",
+  "data_koniec_przystapienia": "2026-10-31",
+  "okres_warunkow_mies": null,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:x|2026-10-31|x",
+  "tagi": ["raiffeisen", "lokata", "lokata_powitalna", "eur", "waluta", "nowi_klienci"]
+}

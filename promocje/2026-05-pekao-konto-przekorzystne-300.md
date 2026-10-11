@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/05/pekao-konto-otworz-konto-i-ruszaj-po-wie
 bank: Bank Pekao
 produkt: Konto Przekorzystne
 typ: konto_osobiste
-status: aktywna
+status: wygasla
 premia_total: 2700
 waluta: PLN
 premia_components:

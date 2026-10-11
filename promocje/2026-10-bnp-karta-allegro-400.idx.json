@@ -1,0 +1,16 @@
+{
+  "id": "2026-10-bnp-karta-allegro-400",
+  "url": "https://www.bankobranie.pl/2026/10/bnp-paribas-do-400-zl-do-allegro-z-karta.html",
+  "plik": "promocje/2026-10-bnp-karta-allegro-400.md",
+  "bank": "BNP Paribas",
+  "produkt": "Karta kredytowa Mastercard Standard lub Gold (limit min. 5000 zł)",
+  "typ": "karta_kredytowa",
+  "status": "aktywna",
+  "premia_total": 400,
+  "data_publikacji": "2026-10-07",
+  "data_koniec_przystapienia": "2026-12-31",
+  "okres_warunkow_mies": 4,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:400|2026-12-31|4",
+  "tagi": ["bnp_paribas", "karta_kredytowa", "bon_allegro", "mastercard", "transakcje_karta", "e_wyciag"]
+}

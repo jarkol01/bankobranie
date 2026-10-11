@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-nest-konto-1060",
+  "url": "https://www.bankobranie.pl/2026/09/nest-bank-promocja.html",
+  "plik": "promocje/2026-09-nest-konto-1060.md",
+  "bank": "Nest Bank",
+  "produkt": "Nest Konto (osobiste) + opcjonalnie Nest Lokata Witaj / Konto Oszczędnościowe 6,1%",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 1060,
+  "data_publikacji": "2026-10-01",
+  "data_koniec_przystapienia": "2027-03-31",
+  "okres_warunkow_mies": 12,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:1060|2027-03-31|12",
+  "tagi": ["nest_bank", "konto_osobiste", "bonus_gotowka", "moneyback", "nowi_klienci", "wplyw_miesieczny", "wynagrodzenie", "lokata", "konto_oszczednosciowe", "oprocentowanie_6_1"]
+}

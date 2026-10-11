@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-bnp-podroznik-1100-ed2",
+  "url": "https://www.bankobranie.pl/2026/09/bnp-paribas-promocja-konta.html",
+  "plik": "promocje/2026-09-bnp-podroznik-1100-ed2.md",
+  "bank": "BNP Paribas",
+  "produkt": "Konto Otwarte na Ciebie + Karta Otwarta na Świat (Podróżnik z aplikacją, ed. 2)",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 1100,
+  "data_publikacji": "2026-09-14",
+  "data_koniec_przystapienia": "2026-11-13",
+  "okres_warunkow_mies": 12,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:1100|2026-11-13|12",
+  "tagi": ["bnp_paribas", "konto_osobiste", "bonus_gotowka", "nowi_klienci", "12_miesiecy", "transakcje_karta", "wplyw_miesieczny", "logowanie_apka", "edycja_2"]
+}

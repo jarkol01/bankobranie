@@ -1,0 +1,16 @@
+{
+  "id": "2026-07-alior-konto-800-obraczka",
+  "url": "https://www.bankobranie.pl/2026/07/alior-konto-z-premia-800-zl-i-obraczka.html",
+  "plik": "promocje/2026-07-alior-konto-800-obraczka.md",
+  "bank": "Alior Bank",
+  "produkt": "Alior Konto (promocja Alior Konto z Premią, kod PREMIA2026)",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 800,
+  "data_publikacji": "2026-07-13",
+  "data_koniec_przystapienia": "2026-10-13",
+  "okres_warunkow_mies": 5,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:800|2026-10-13|5",
+  "tagi": ["alior", "konto_osobiste", "bonus_gotowka", "nowi_klienci", "obraczka", "wplyw_miesieczny", "transakcje_karta_blik", "logowanie_apka", "program_polecen", "premia_miesieczna"]
+}

@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/06/pocztowy-promocja-konta.html
 bank: Bank Pocztowy
 produkt: Konto w Porządku / Konto w Porządku Start
 typ: konto_osobiste
-status: aktywna
+status: wygasla
 premia_total: 960
 waluta: PLN
 premia_components:

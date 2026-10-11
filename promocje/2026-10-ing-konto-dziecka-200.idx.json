@@ -1,0 +1,16 @@
+{
+  "id": "2026-10-ing-konto-dziecka-200",
+  "url": "https://www.bankobranie.pl/2026/10/do-200-z-kieszonkowego-za-konto-dla.html",
+  "plik": "promocje/2026-10-ing-konto-dziecka-200.md",
+  "bank": "ING Bank Śląski",
+  "produkt": "Konto w Planie ING Go dla dziecka (<18 lat) otwierane przez rodzica",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 200,
+  "data_publikacji": "2026-10-02",
+  "data_koniec_przystapienia": "2027-01-18",
+  "okres_warunkow_mies": null,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:200|2027-01-18|x",
+  "tagi": ["ing", "konto_osobiste", "dla_dzieci", "nieletni", "bonus_gotowka", "nowi_klienci", "rodzic", "kieszonkowe"]
+}

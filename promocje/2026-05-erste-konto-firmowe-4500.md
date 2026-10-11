@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/05/erste-bank-do-4500-zl-za-konto-firmowe.h
 bank: Erste Bank
 produkt: Konto Firmowe Online
 typ: konto_firmowe
-status: aktywna
+status: wygasla
 premia_total: 4500
 waluta: PLN
 premia_components:

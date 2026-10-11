@@ -1,0 +1,20 @@
+{
+  "id": "2026-06-pekao-konto-oszcz-57proc",
+  "url": "https://www.bankobranie.pl/2026/06/pekao-konto-oszczednosciowe.html",
+  "plik": "promocje/2026-06-pekao-konto-oszcz-57proc.md",
+  "bank": "Bank Pekao",
+  "produkt": "Konto Oszczędnościowe Pekao",
+  "typ": "konto_oszczednosciowe",
+  "status": "aktywna",
+  "premia_total": 300,
+  "data_publikacji": "2026-06-18",
+  "data_koniec_przystapienia": "2026-07-21",
+  "okres_warunkow_mies": null,
+  "scraped_at": "2026-06-18",
+  "content_hash": "fp:300|2026-07-21|x",
+  "tagi": [
+    "pekao",
+    "konto_oszczednosciowe",
+    "oprocentowanie"
+  ]
+}

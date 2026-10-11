@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/04/blog-post_24.html
 bank: ING Bank Śląski
 produkt: Karta kredytowa ING (promocja z kodem PK460090426)
 typ: karta_kredytowa
-status: aktywna
+status: wygasla
 premia_total: 460
 waluta: PLN
 premia_components:

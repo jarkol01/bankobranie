@@ -1,0 +1,16 @@
+{
+  "id": "2026-06-erste-program-polecen",
+  "url": "https://www.bankobranie.pl/2026/06/erste-polecam-moj-bank.html",
+  "plik": "promocje/2026-06-erste-program-polecen.md",
+  "bank": "Erste Bank",
+  "produkt": "Polecam mój Bank – edycja 14 (program poleceń)",
+  "typ": "inne",
+  "status": "aktywna",
+  "premia_total": 1500,
+  "data_publikacji": "2026-06-13",
+  "data_koniec_przystapienia": "2026-09-30",
+  "okres_warunkow_mies": null,
+  "scraped_at": "2026-06-18",
+  "content_hash": "fp:1500|2026-09-30|x",
+  "tagi": ["program_polecen", "erste", "bon_na_zakupy", "konto_smart", "konto_firmowe"]
+}

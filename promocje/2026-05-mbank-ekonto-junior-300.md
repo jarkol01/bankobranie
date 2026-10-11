@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/05/mbank-ekonto-junior-z-kieszonkowym-na-wa
 bank: mBank
 produkt: mBank eKonto Junior
 typ: konto_osobiste
-status: aktywna
+status: wygasla
 premia_total: 300
 waluta: PLN
 

@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-erste-konto-platinum-1500",
+  "url": "https://www.bankobranie.pl/2026/09/odkryj-konto-erste-platinum-z-nagroda-do-1500-zl.html",
+  "plik": "promocje/2026-09-erste-konto-platinum-1500.md",
+  "bank": "Erste Bank",
+  "produkt": "Konto Erste Platinum",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 1500,
+  "data_publikacji": "2026-09-01",
+  "data_koniec_przystapienia": "2026-11-30",
+  "okres_warunkow_mies": 3,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:1500|2026-11-30|3",
+  "tagi": ["erste", "konto_osobiste", "bonus_gotowka", "nowi_klienci", "platinum", "wplyw_miesieczny", "transakcje_karta_blik", "premia_lojalnosciowa", "lokata_powitalna"]
+}

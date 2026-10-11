@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2025/08/przekierowanie-2.html
 bank: ING Bank Śląski
 produkt: Konto w Planie ING Go (Konto z Lwem)
 typ: konto_osobiste
-status: aktywna
+status: wygasla
 premia_total: 700
 waluta: PLN
 premia_components:
@@ -78,3 +78,5 @@ ING Bank Śląski oferuje do 700 zł premii za otwarcie Konta w Planie ING Go (K
 - Artykuł o programie poleceń: https://www.bankobranie.pl/2026/04/ing-bank-program-polecen-konta.html
 - Pobrano: 2026-06-03
 - Zweryfikowano 2026-06-05 z oficjalną stroną ING (warunki obu promocji) — poprawiono: 15 transakcji = po 5 w każdym z 3 miesięcy (nie 2); doprecyzowano zgody (14 dni) i warunki polecenia (saldo po 10 tx, do 12.10)
+- **Zweryfikowano 2026-09-21 z oficjalnym regulaminem PDF** (ta edycja: "Obowiązuje od 9 kwietnia 2026 r.", https://www.ing.pl/_fileserver/item/0y0qxvi, https://www.ing.pl/mobilni-zyskuja-kwiecien26) — dokładny cytat pkt. 2.6: „Od 3 września 2026 r. do 10 września 2026 r. miej na OKO, przez co najmniej jeden dzień Saldo bieżące min. 600 zł." oraz pkt. 3: „Jeśli spełnisz wszystkie warunki promocji [...] nagrodę w kwocie 600 zł wypłacimy Ci do 30 września 2026 r. na Twoje OKO [...]". Brak w regulaminie daty najwcześniejszej wypłaty — tylko termin graniczny 30.09.2026.
+- **Uwaga:** istnieje osobna, nowsza edycja tej samej promocji `2026-06-ing-konto-premia-700` (regulamin "Obowiązuje od 11 czerwca 2026 r.", okno salda OKO 5–12 listopada 2026, deadline wypłaty 3.12.2026, deadline przystąpienia 12.08.2026) — dotyczy kont otwartych w innym oknie czasowym, NIE tej edycji.

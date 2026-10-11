@@ -1,0 +1,16 @@
+{
+  "id": "2026-07-erste-konto-ubezpieczenie-auta-800",
+  "url": "https://www.bankobranie.pl/2026/07/erste-bank-zyskaj-do-800-zl-z-kontem-i-ubezpieczeniem-auta.html",
+  "plik": "promocje/2026-07-erste-konto-ubezpieczenie-auta-800.md",
+  "bank": "Erste Bank",
+  "produkt": "Konto Smart + ubezpieczenie auta",
+  "typ": "konto_osobiste",
+  "status": "wygasla",
+  "premia_total": 800,
+  "data_publikacji": "2026-08-01",
+  "data_koniec_przystapienia": "2026-09-30",
+  "okres_warunkow_mies": 4,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:800|2026-09-30|4",
+  "tagi": ["erste", "konto_osobiste", "bonus_gotowka", "nowi_klienci", "ubezpieczenie_auta", "transakcje_karta_blik", "wplyw_miesieczny", "wygasla"]
+}

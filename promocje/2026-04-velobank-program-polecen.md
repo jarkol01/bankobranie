@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/04/velobank-doceniam-velo-polecam-velo-edyc
 bank: VeloBank
 produkt: Doceniam Velo - polecam Velo
 typ: inne
-status: aktywna
+status: wygasla
 premia_total: 150
 waluta: PLN
 premia_components:

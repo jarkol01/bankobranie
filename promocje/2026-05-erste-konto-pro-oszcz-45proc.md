@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/05/erste-bank-konto-pro-oszczednosciowe.htm
 bank: Erste Bank
 produkt: Konto Pro Oszczędnościowe
 typ: konto_oszczednosciowe
-status: aktywna
+status: wygasla
 premia_total: null
 waluta: PLN
 oprocentowanie:
@@ -18,7 +18,7 @@ oprocentowanie:
   bez_warunkow_do: "2026-08-31"
 premia_components: []
 data_publikacji: "2026-05-15"
-data_koniec_przystapienia: null
+data_koniec_przystapienia: "2026-08-31"
 okres_warunkow_mies: 4
 warunki:
   wplyw_miesieczny_min: 100
@@ -48,8 +48,8 @@ ograniczenia:
     - "Jedno Konto Pro na klienta (niezależnie od liczby kont osobistych)"
     - "Otwarcie wyłącznie przez aplikację mobilną lub bankowość internetową"
     - "Wymóg posiadania konta osobistego w Erste Bank (z wyłączeniem Konta Platinum i Private Banking)"
-scraped_at: "2026-06-03"
-content_hash: "fp:x|x|4"
+scraped_at: "2026-10-11"
+content_hash: "fp:x|2026-08-31|4"
 tagi:
   - erste
   - konto_oszczednosciowe
@@ -76,3 +76,5 @@ Odrębna promocja — premia 800 zł za otwarcie Konta Smart w Erste Bank — ni
 ## Źródło
 
 https://www.bankobranie.pl/2026/05/erste-bank-konto-pro-oszczednosciowe.html
+
+Odświeżono 2026-10-11: artykuł bez noty o zakończeniu, ale stawka 4,5% bez warunków obowiązywała do 31.08.2026 (deadline); od 1.09 tylko warunkowo (może utrzymać się do 31.12.2026 w ramach „Dbam o zdrowie finansowe"). Uznano za wygasłą; komentarz czytelnika sugeruje obniżkę stawek od 25.07 (niezweryfikowane).

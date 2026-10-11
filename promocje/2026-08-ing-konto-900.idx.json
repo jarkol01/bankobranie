@@ -1,0 +1,16 @@
+{
+  "id": "2026-08-ing-konto-900",
+  "url": "https://www.bankobranie.pl/2026/08/ing-bank-slaski-konto-z-premia-do-900-zl.html",
+  "plik": "promocje/2026-08-ing-konto-900.md",
+  "bank": "ING Bank Śląski",
+  "produkt": "Konto w Planie ING (Go/More/Extra/Max) z kartą Visa + OKO – \"Konta pełne korzyści\"",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 900,
+  "data_publikacji": "2026-08-13",
+  "data_koniec_przystapienia": "2026-10-28",
+  "okres_warunkow_mies": 6,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:900|2026-10-28|6",
+  "tagi": ["ing", "konto_osobiste", "bonus_gotowka", "nowi_klienci", "konta_pelne_korzysci", "program_polecen", "transakcje_karta_blik", "wplyw_miesieczny", "oko", "logowanie_apka", "premie_miesieczne"]
+}

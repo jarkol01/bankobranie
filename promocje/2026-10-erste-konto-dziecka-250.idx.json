@@ -1,0 +1,16 @@
+{
+  "id": "2026-10-erste-konto-dziecka-250",
+  "url": "https://www.bankobranie.pl/2026/10/erste-bank-250-zl-jesienna-promocja-dla-mlodych.html",
+  "plik": "promocje/2026-10-erste-konto-dziecka-250.md",
+  "bank": "Erste Bank",
+  "produkt": "Konto Smart dla dziecka i nastolatka (0–17 lat)",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 250,
+  "data_publikacji": "2026-10-07",
+  "data_koniec_przystapienia": "2026-11-30",
+  "okres_warunkow_mies": 2,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:250|2026-11-30|2",
+  "tagi": ["erste", "konto_osobiste", "bonus_gotowka", "konto_dziecka", "nieletni", "rodzic", "transakcje_karta_blik", "tylko_online"]
+}

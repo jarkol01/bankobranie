@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/06/erste-bank-800-zl-za-konto.html
 bank: Erste Bank
 produkt: Konto Smart
 typ: konto_osobiste
-status: aktywna
+status: wygasla
 premia_total: 800
 waluta: PLN
 premia_components:

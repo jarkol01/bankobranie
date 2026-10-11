@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/04/pko-bp-zakupy-z-premia.html
 bank: PKO BP
 produkt: Konto za Zero (PKO BP)
 typ: moneyback
-status: aktywna
+status: wygasla
 premia_total: 600
 waluta: PLN
 premia_components:

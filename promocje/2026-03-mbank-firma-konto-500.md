@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/03/zdobadz-500-z-premii-za-otwarcie-firmy.h
 bank: mBank
 produkt: mBiznes Konto Standard
 typ: konto_firmowe
-status: aktywna
+status: wygasla
 premia_total: 500
 waluta: PLN
 premia_components:

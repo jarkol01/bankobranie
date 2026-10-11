@@ -70,7 +70,7 @@ ograniczenia:
     - Łączny limit środków objętych promocyjnym oprocentowaniem: 50 000 zł (25 000 zł lokata + 25 000 zł konto oszczędnościowe)
     - Oferta dostępna do odwołania (brak konkretnej daty końcowej)
     - Zastrzeżony numer PESEL uniemożliwia skorzystanie z oferty
-scraped_at: 2026-06-03
+scraped_at: 2026-10-11
 content_hash: "fp:100|x|3"
 tagi: [nest, lokata, konto_oszczednosciowe, oprocentowanie]
 ---
@@ -92,3 +92,4 @@ Nest Bank oferuje w ramach promocji powitalnej dwa produkty: Nest Lokatę Witaj 
 
 ## Źródło
 Pobrano 2026-06-03 z bankobranie.pl: https://www.bankobranie.pl/2026/05/nest-bank-lokata-witaj-konto-oszczednosciowe-6-1-proc.html
+Odświeżono 2026-10-11: artykuł bez adnotacji o zakończeniu i bez daty końcowej ("do odwołania"); komentarze z 1 i 7.10.2026 pytają, czy oferta nadal działa (brak odpowiedzi); wpis z 10.2026 o Nest Koncie wspomina nadal "+6,1% dla oszczędności". Status: aktywna (niepotwierdzona oficjalnie), deadline nieznany.

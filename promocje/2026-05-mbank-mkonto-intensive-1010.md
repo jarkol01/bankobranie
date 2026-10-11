@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/05/mbank-1000-zl-za-mkonto-intensive.html
 bank: mBank
 produkt: mKonto Intensive
 typ: konto_osobiste
-status: aktywna
+status: wygasla
 premia_total: 1010
 waluta: PLN
 oprocentowanie:

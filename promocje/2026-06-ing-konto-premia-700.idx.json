@@ -1,0 +1,16 @@
+{
+  "id": "2026-06-ing-konto-premia-700",
+  "url": "https://www.bankobranie.pl/2026/06/ing-bank-konto-z-premia.html",
+  "plik": "promocje/2026-06-ing-konto-premia-700.md",
+  "bank": "ING Bank Śląski",
+  "produkt": "Konto w Planie ING Go z kartą Visa + OKO",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 700,
+  "data_publikacji": "2026-06-01",
+  "data_koniec_przystapienia": "2026-08-12",
+  "okres_warunkow_mies": 3,
+  "scraped_at": "2026-06-18",
+  "content_hash": "fp:700|2026-08-12|3",
+  "tagi": ["ing", "konto_osobiste", "bonus_gotowka", "nowi_klienci", "mobilni_zyskuja", "program_polecen", "transakcje_karta_blik", "wplyw_miesieczny", "oko", "logowanie_apka"]
+}

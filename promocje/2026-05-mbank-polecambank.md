@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/05/mbank-program-polecen-polecambank.html
 bank: mBank
 produkt: PolecamBank
 typ: inne
-status: aktywna
+status: wygasla
 premia_total: 300
 waluta: PLN
 premia_components:

@@ -1,0 +1,16 @@
+{
+  "id": "2026-10-raiffeisen-oszcz-45proc",
+  "url": "https://www.bankobranie.pl/2026/10/raiffeisen-digital-bank-rachunek.html",
+  "plik": "promocje/2026-10-raiffeisen-oszcz-45proc.md",
+  "bank": "Raiffeisen Digital Bank",
+  "produkt": "Rachunek Oszczędnościowy Start",
+  "typ": "konto_oszczednosciowe",
+  "status": "aktywna",
+  "premia_total": null,
+  "data_publikacji": "2026-10-06",
+  "data_koniec_przystapienia": "2026-12-05",
+  "okres_warunkow_mies": 3,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:x|2026-12-05|3",
+  "tagi": ["raiffeisen", "konto_oszczednosciowe", "oprocentowanie", "podatek_austriacki", "tylko_aplikacja"]
+}

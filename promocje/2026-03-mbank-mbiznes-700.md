@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/03/mbank-mbiznes-z-premia-na-start-xvi-edyc
 bank: mBank
 produkt: mBiznes Konto Standard
 typ: konto_firmowe
-status: aktywna
+status: wygasla
 premia_total: 700
 waluta: PLN
 premia_components:

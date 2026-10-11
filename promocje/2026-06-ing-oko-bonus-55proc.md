@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/06/ing-bank-slaski-oko-bonus-start.html
 bank: ING Bank Śląski
 produkt: OKO Bonus na start (5,5%) i OKO Bonus (4,5%)
 typ: konto_oszczednosciowe
-status: aktywna
+status: wygasla
 premia_total: null
 waluta: PLN
 oprocentowanie:

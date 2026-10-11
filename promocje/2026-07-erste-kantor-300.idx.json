@@ -1,0 +1,16 @@
+{
+  "id": "2026-07-erste-kantor-300",
+  "url": "https://www.bankobranie.pl/2026/07/erste-bank-do-300-zl-z-walutami-w-kantorze.html",
+  "plik": "promocje/2026-07-erste-kantor-300.md",
+  "bank": "Erste Bank",
+  "produkt": "Kantor Erste (wymiana walut) + Konto Smart / Konto24 walutowe",
+  "typ": "inne",
+  "status": "wygasla",
+  "premia_total": 300,
+  "data_publikacji": "2026-08-01",
+  "data_koniec_przystapienia": "2026-09-30",
+  "okres_warunkow_mies": 2,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:300|2026-09-30|2",
+  "tagi": ["erste", "kantor", "wymiana_walut", "konto_walutowe", "bonus_gotowka", "nowi_klienci", "obecni_klienci"]
+}

@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/04/do-300-z-premii-za-konto-dla-dziecka-w.h
 bank: PKO BP
 produkt: PKO Konto Dziecka / PKO Konto dla Młodych
 typ: konto_osobiste
-status: aktywna
+status: wygasla
 premia_total: 300
 waluta: PLN
 premia_components:

@@ -1,0 +1,16 @@
+{
+  "id": "2026-10-pekao-konto-dziecka-200",
+  "url": "https://www.bankobranie.pl/2026/10/pekao-konto-dla-dzieci-z-premia-200-zl.html",
+  "plik": "promocje/2026-10-pekao-konto-dziecka-200.md",
+  "bank": "Bank Pekao",
+  "produkt": "Konto Przekorzystne dla młodych (edycja 54)",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 200,
+  "data_publikacji": "2026-10-01",
+  "data_koniec_przystapienia": "2026-11-18",
+  "okres_warunkow_mies": null,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:200|2026-11-18|x",
+  "tagi": ["pekao", "konto_osobiste", "konto_dziecka", "nieletni", "bonus_gotowka", "nowi_klienci", "peopay_kids"]
+}

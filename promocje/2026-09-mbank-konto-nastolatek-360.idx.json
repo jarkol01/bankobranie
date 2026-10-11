@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-mbank-konto-nastolatek-360",
+  "url": "https://www.bankobranie.pl/2026/09/do-360-z-premii-za-konto-dla.html",
+  "plik": "promocje/2026-09-mbank-konto-nastolatek-360.md",
+  "bank": "mBank",
+  "produkt": "eKonto możliwości (13–17 lat) + konto oszczędnościowe Moje Cele",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 360,
+  "data_publikacji": "2026-09-16",
+  "data_koniec_przystapienia": "2026-12-16",
+  "okres_warunkow_mies": 2,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:360|2026-12-16|2",
+  "tagi": ["mbank", "konto_osobiste", "dla_nieletnich", "nastolatek", "bonus_gotowka", "nowi_klienci", "program_polecen", "moje_cele", "edycja_4"]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "2026-10-pko-prosty-zwrot-600",
+  "url": "https://www.bankobranie.pl/2026/10/pko-bp-prosty-zwrot.html",
+  "plik": "promocje/2026-10-pko-prosty-zwrot-600.md",
+  "bank": "PKO BP",
+  "produkt": "Konto za Zero z kartą Visa – „Prosty zwrot\"",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 600,
+  "data_publikacji": "2026-10-02",
+  "data_koniec_przystapienia": "2026-12-31",
+  "okres_warunkow_mies": 5,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:600|2026-12-31|5",
+  "tagi": ["pko_bp", "konto_osobiste", "moneyback", "nowi_klienci", "konto_za_zero", "transakcje_karta", "logowanie_apka", "limit_uczestnikow", "kod_prosto"]
+}

@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/06/alior-bank-konto-oszczednosciowe-na-star
 bank: Alior Bank
 produkt: Konto Oszczednosciowe na Start (9. edycja)
 typ: konto_oszczednosciowe
-status: aktywna
+status: wygasla
 premia_total: null
 waluta: PLN
 oprocentowanie:

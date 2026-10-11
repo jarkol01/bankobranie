@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-mbank-mbiznes-1000-ed7",
+  "url": "https://www.bankobranie.pl/2026/09/mbank-konto-firmowe-mbiznes-z-bonusem-edycja-7.html",
+  "plik": "promocje/2026-09-mbank-mbiznes-1000-ed7.md",
+  "bank": "mBank",
+  "produkt": "mBiznes Konto Standard z kartą Mastercard (Debit Business / WOŚP / WOŚP Mobilna)",
+  "typ": "konto_firmowe",
+  "status": "aktywna",
+  "premia_total": 1000,
+  "data_publikacji": "2026-09-01",
+  "data_koniec_przystapienia": "2026-11-16",
+  "okres_warunkow_mies": 2,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:1000|2026-11-16|2",
+  "tagi": ["mbank", "konto_firmowe", "bonus_gotowka", "nowi_klienci", "karta_mastercard", "edycja_7", "promocje_dodatkowe"]
+}

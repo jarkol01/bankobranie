@@ -1,0 +1,16 @@
+{
+  "id": "2026-06-pko-allegro-15proc",
+  "url": "https://www.bankobranie.pl/2026/06/pko-bp-15-proc-zwrotu-za-zakupy-z-allegro-klik.html",
+  "plik": "promocje/2026-06-pko-allegro-15proc.md",
+  "bank": "PKO BP",
+  "produkt": "Konto osobiste PKO BP z Allegro Klik (15% moneyback)",
+  "typ": "moneyback",
+  "status": "aktywna",
+  "premia_total": 100,
+  "data_publikacji": "2026-06-17",
+  "data_koniec_przystapienia": "2026-06-30",
+  "okres_warunkow_mies": 1,
+  "scraped_at": "2026-06-18",
+  "content_hash": "fp:100|2026-06-30|1",
+  "tagi": ["moneyback", "allegro", "pko-bp", "konto-osobiste"]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "2026-07-velobank-program-polecen-ed3",
+  "url": "https://www.bankobranie.pl/2026/07/velobank-doceniam-velo-polecam-velo-edycja-3-2026.html",
+  "plik": "promocje/2026-07-velobank-program-polecen-ed3.md",
+  "bank": "VeloBank",
+  "produkt": "Program poleceń „Doceniam Velo – polecam Velo\" (edycja 3/2026) – VeloKonto",
+  "typ": "inne",
+  "status": "aktywna",
+  "premia_total": 100,
+  "data_publikacji": "2026-08-01",
+  "data_koniec_przystapienia": "2026-11-30",
+  "okres_warunkow_mies": 3,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:100|2026-11-30|3",
+  "tagi": ["velobank", "program_polecen", "velokonto", "nowi_klienci", "wplyw_miesieczny", "kod_polecenia"]
+}

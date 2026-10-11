@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/05/millennium-twoja-ekarta-goodie-z-kontem-
 bank: Bank Millennium
 produkt: Konto 360° Junior (promocja "Twoja eKarta goodie z Kontem 360°Junior")
 typ: konto_osobiste
-status: aktywna
+status: wygasla
 premia_total: 200
 waluta: PLN
 premia_components:

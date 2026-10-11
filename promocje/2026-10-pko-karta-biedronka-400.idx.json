@@ -1,0 +1,16 @@
+{
+  "id": "2026-10-pko-karta-biedronka-400",
+  "url": "https://www.bankobranie.pl/2026/10/pko-bp-bony-do-biedronki-za-przejrzysta-karte-visa.html",
+  "plik": "promocje/2026-10-pko-karta-biedronka-400.md",
+  "bank": "PKO BP",
+  "produkt": "Przejrzysta karta kredytowa Visa (wariant Visa, nie Mastercard)",
+  "typ": "karta_kredytowa",
+  "status": "aktywna",
+  "premia_total": 400,
+  "data_publikacji": "2026-10-05",
+  "data_koniec_przystapienia": "2026-12-31",
+  "okres_warunkow_mies": 2,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:400|2026-12-31|2",
+  "tagi": ["pko_bp", "karta_kredytowa", "bony_biedronka", "przejrzysta_karta", "visa", "limit_uczestnikow", "portfel_cyfrowy", "transakcje_karta"]
+}

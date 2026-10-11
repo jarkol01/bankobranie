@@ -1,0 +1,16 @@
+{
+  "id": "2026-08-ing-karta-mastercard-500",
+  "url": "https://www.bankobranie.pl/2026/08/do-500-z-premii-za-karte-kredytowa.html",
+  "plik": "promocje/2026-08-ing-karta-mastercard-500.md",
+  "bank": "ING Bank Śląski",
+  "produkt": "Karta kredytowa Mastercard (standard / Platinum)",
+  "typ": "karta_kredytowa",
+  "status": "wygasla",
+  "premia_total": 500,
+  "data_publikacji": "2026-08-17",
+  "data_koniec_przystapienia": "2026-08-31",
+  "okres_warunkow_mies": 6,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:500|2026-08-31|6",
+  "tagi": ["ing", "karta_kredytowa", "mastercard", "bonus_gotowka", "nowi_klienci", "transakcje_karta", "limit_umow"]
+}

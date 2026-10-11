@@ -1,0 +1,17 @@
+{
+  "id": "2026-07-raiffeisen-wymieniaj-55eur",
+  "url": "https://www.bankobranie.pl/2026/07/raiffeisen-digital-bank-55-euro-za-konto.html",
+  "plik": "promocje/2026-07-raiffeisen-wymieniaj-55eur.md",
+  "bank": "Raiffeisen Digital Bank",
+  "produkt": "Wymieniaj i oszczędzaj (konto PLN + konto EUR + oszczędnościowe EUR)",
+  "typ": "inne",
+  "status": "wygasla",
+  "premia_total": 55,
+  "waluta": "EUR",
+  "data_publikacji": "2026-07-21",
+  "data_koniec_przystapienia": "2026-08-18",
+  "okres_warunkow_mies": 2,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:55|2026-08-18|2",
+  "tagi": ["raiffeisen", "waluta_eur", "konto_oszczednosciowe", "wymiana_walut", "nowi_i_obecni", "limit_uczestnikow", "podatek_austriacki", "wygasla"]
+}

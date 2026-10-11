@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/04/ing-bank-slaski-4400-zl-za-konto-firmowe
 bank: ING Bank Śląski
 produkt: Konto Firmowe ING
 typ: konto_firmowe
-status: aktywna
+status: wygasla
 premia_total: 4400
 waluta: PLN
 premia_components:

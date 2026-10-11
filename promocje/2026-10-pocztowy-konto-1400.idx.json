@@ -1,0 +1,16 @@
+{
+  "id": "2026-10-pocztowy-konto-1400",
+  "url": "https://www.bankobranie.pl/2026/10/pocztowy-do-1400-zl-za-konto.html",
+  "plik": "promocje/2026-10-pocztowy-konto-1400.md",
+  "bank": "Bank Pocztowy",
+  "produkt": "Konto w Porządku / Konto w Porządku Start z kartą Mastercard",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 1400,
+  "data_publikacji": "2026-10-01",
+  "data_koniec_przystapienia": "2027-01-31",
+  "okres_warunkow_mies": 12,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:1400|2027-01-31|12",
+  "tagi": ["bank_pocztowy", "konto_osobiste", "moneyback", "nowi_klienci", "bezcenne_chwile", "wplyw_miesieczny", "transakcje_karta", "mastercard", "program_punktowy"]
+}

@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/05/velobank-velolokata-dla-aktywnych-edycja
 bank: VeloBank
 produkt: VeloLokata dla Aktywnych – edycja 5/2026
 typ: lokata
-status: aktywna
+status: wygasla
 premia_total: null
 waluta: PLN
 oprocentowanie:

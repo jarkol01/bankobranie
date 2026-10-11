@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/04/millennium-karta-impresja-moneyback-10-p
 bank: Bank Millennium
 produkt: Karta Kredytowa Visa Impresja (promocja moneyback 10%)
 typ: karta_kredytowa
-status: aktywna
+status: wygasla
 premia_total: 400
 waluta: PLN
 premia_components:

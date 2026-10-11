@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/03/millennium-promocja-moj-biznes.html
 bank: Bank Millennium
 produkt: Konto Mój Biznes
 typ: konto_firmowe
-status: aktywna
+status: wygasla
 premia_total: 2400
 waluta: PLN
 premia_components:

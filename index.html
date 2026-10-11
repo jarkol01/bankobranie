@@ -215,7 +215,7 @@
 <script>
 const PLAN = {
   products: [
-    { id:"ing", bank:"ING", name:"Konto „Mobilni zyskują” + polecenie", cash:700, mile:0, open:"2026-06-10",
+    { id:"ing", received:true, bank:"ING", name:"Konto „Mobilni zyskują” + polecenie", cash:700, mile:0, open:"2026-06-10",
       tag:"600 zł + 100 zł polecenie", note:"konto otwarte 5.06 w apce, z kodem polecenia ✅",
       karencja:"brak konta ING od 1.01.2025",
       groups:[
@@ -303,7 +303,7 @@ const PLAN = {
       oplaty:"karta 0 zł (masz <26) · konto 0 zł przy ≥300 zł płatności/mc",
       pitfalls:["„Moje Cele” musi być aktywne przez 3 mc","Wykluczone: Revolut/Curve/DiPocket, hazard, wymiana walut"] },
 
-    { id:"pekao-konto", bank:"Pekao", name:"Konto Przekorzystne", cash:300, mile:0, open:"06.2026 ✅ (przed kartą)",
+    { id:"pekao-konto", received:true, bank:"Pekao", name:"Konto Przekorzystne", cash:300, mile:0, open:"06.2026 ✅ (przed kartą)",
       tag:"premia za otwarcie", note:"✅ otwarte w czerwcu PRZED kartą → premia ważna · tylko 2 mc po 5 płatności (czerwiec się NIE liczy)",
       karencja:"brak konta w Pekao 1.05.2024–31.05.2026 · brak produktów kredytowych na dzień startu",
       groups:[
@@ -319,7 +319,7 @@ const PLAN = {
       oplaty:"konto 0 zł · karta debetowa 0 zł (masz <26)",
       pitfalls:["✅ Apple Pay / Google Pay / zbliżeniowo telefonem LICZĄ się jako „płatność kartą” (regulamin: też bez fizycznego użycia karty)","❌ NIE liczą się: BLIK (jawnie wykluczony), doładowania ZEN/Revolut, bankomaty, przekazy (MCC 4829/6050/6051) — rób zwykłe ZAKUPY","Tylko 2 miesiące po 5 płatności: LIPIEC + SIERPIEŃ — miesiąc otwarcia (czerwiec) się NIE liczy","Otwórz w oddziale = brak promocji (Ty: online ✅)","Pomijamy moneyback podróżny 2400 (wymaga karty złotej + dużych wydatków)"] },
 
-    { id:"pekao-karta", bank:"Pekao", name:"Karta kredytowa Miles & More", cash:500, mile:6000, open:"06.2026 ✅ (po koncie)",
+    { id:"pekao-karta", received:true, bank:"Pekao", name:"Karta kredytowa Miles & More", cash:500, mile:6000, open:"06.2026 ✅ (po koncie)",
       tag:"karta kredytowa", note:"✅ złożona w czerwcu PO koncie · wariant STANDARD = 0 zł bezwarunkowo · kod BONUS wymagany",
       karencja:"brak karty kredytowej Pekao przed 12.05.2026 (konto osobiste NIE przeszkadza)",
       groups:[
@@ -395,7 +395,7 @@ function save(){ localStorage.setItem(LS_KEY, JSON.stringify(state));
 function key(pid,gi,ii){ return pid+":"+gi+":"+ii; }
 function isCounter(c){ return typeof c==='object'&&c!==null&&'count' in c&&!c.optional; }
 function isOptional(c){ return typeof c==='object'&&c!==null&&c.optional===true; }
-function isDone(pid,gi,ii,cond){ if(cond&&isCounter(cond)) return (state[key(pid,gi,ii)]||0)>=cond.count; return !!state[key(pid,gi,ii)]; }
+function isDone(pid,gi,ii,cond){ if(PLAN.products.some(p=>p.id===pid&&p.received)) return true; if(cond&&isCounter(cond)) return (state[key(pid,gi,ii)]||0)>=cond.count; return !!state[key(pid,gi,ii)]; }
 function getCount(pid,gi,ii){ return state[key(pid,gi,ii)]||0; }
 function toggle(pid,gi,ii,val){ state[key(pid,gi,ii)]=val; save(); render(); }
 function increment(pid,gi,ii,target){ const c=getCount(pid,gi,ii); if(c<target){state[key(pid,gi,ii)]=c+1;save();render();} }

@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-pko-konto-dziecka-300",
+  "url": "https://www.bankobranie.pl/2026/09/pko-bp-konto-dla-dzieci.html",
+  "plik": "promocje/2026-09-pko-konto-dziecka-300.md",
+  "bank": "PKO BP",
+  "produkt": "PKO Konto Dziecka / Konto dla Młodych – Prosty zwrot (kod PROSTO)",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 300,
+  "data_publikacji": "2026-10-02",
+  "data_koniec_przystapienia": "2026-12-31",
+  "okres_warunkow_mies": 3,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:300|2026-12-31|3",
+  "tagi": ["pko_bp", "konto_dziecka", "konto_dla_mlodych", "nieletni", "bonus_gotowka", "prosty_zwrot", "kod_promocyjny", "transakcje_karta", "limit_uczestnikow"]
+}

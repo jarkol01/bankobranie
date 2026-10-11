@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/04/volkswagen-bank-lokata-bezwarunkowa.html
 bank: Volkswagen Bank
 produkt: Lokata Bezwarunkowa
 typ: lokata
-status: aktywna
+status: wygasla
 premia_total: null
 waluta: PLN
 oprocentowanie:

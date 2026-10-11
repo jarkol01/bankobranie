@@ -52,6 +52,68 @@
         "pocztowy-1110 (31.05)"
       ],
       "decyzja_stop": "KONIEC scrapowania. Strona 4 w wiekszosci duplikaty/wygasle; glebiej brak nowych aktywnych."
+    },
+    {
+      "data": "2026-06-18",
+      "zakres": "strona 1 (start=0), wpisy 09.06–18.06.2026 — dedup wzgledem 47 znanych URL",
+      "metoda": "koordynator + 12 subagentow (Sonnet), 1 artykul = 1 agent, zapis bezposredni do plikow",
+      "nowe": 11,
+      "odsiane_niepromocyjne": [
+        "bezcenne-chwile-500-punktow (program lojalnosciowy Mastercard, ~6-7 zl, dla obecnych posiadaczy kart)",
+        "przeglad-tygodnia x2",
+        "najlepsze-lokaty-czerwiec-2026 (ranking)",
+        "moje-zarabianie (dziennik)",
+        "velobank przelewaj-pensje / plac-karta (dla obecnych klientow)",
+        "erste 120 zl za apke (dla obecnych)",
+        "redirecty-duplikaty: Erste 800, Alior tysiak, mBank 1200 (juz w bazie)"
+      ],
+      "nowe_pozycje": [
+        "2026-06-pekao-konto-oszcz-57proc (zastepuje 5proc)",
+        "2026-06-millennium-konto-oszcz-profit-75ed (zastepuje 74/55proc)",
+        "2026-06-pko-allegro-15proc (moneyback Allegro Klik)",
+        "2026-06-velobank-velolokata-6proc-ed6 (zastepuje ed.5)",
+        "2026-06-erste-program-polecen (ed.14)",
+        "2026-06-mbank-konto-nastolatek-360 (13-17 lat)",
+        "2026-06-raiffeisen-lokata-start-55proc",
+        "2026-06-mbank-zaloz-firme-500-ed5",
+        "2026-06-ing-konto-premia-700 (nowa edycja, deadline 12.08)",
+        "2026-06-pko-placisz-karta-kasa-wraca-ed2 (tylko obecni z zaproszeniem)",
+        "2026-06-raiffeisen-oszcz-start-45proc (wznowienie kwiet.)"
+      ],
+      "po_scaleniu": {
+        "lacznie": 58,
+        "aktywne": 42,
+        "wygasle": 16
+      },
+      "decyzja_stop": "Strona 1 wystarczyla — wszystkie wpisy starsze niz 09.06 byly juz w bazie (ostatni scrape 03.06)."
+    },
+    {
+      "data": "2026-10-11",
+      "zakres": "strony 1-4 (start=0..90), wpisy 06.07-11.10.2026 — dedup wzgledem 58 znanych URL",
+      "metoda": "koordynator + 58 subagentow ekstrakcji + 2 odswiezenia (Sonnet), 1 artykul = 1 agent",
+      "nowe": 58,
+      "odswiezone": [
+        "2026-05-erste-konto-pro-oszcz-45proc (-> wygasla, 4,5% bez warunkow do 31.08)",
+        "2026-05-nest-lokata-witaj-61proc (bez zmian, 'do odwolania')"
+      ],
+      "odsiane_niepromocyjne": [
+        "przeglady tygodnia",
+        "moje-zarabianie",
+        "rankingi lokat (sie/wrz/paz)",
+        "loterie: Zwrotnica Blika, Mastercard",
+        "konkursy: ING Lalka, Erste obraczka",
+        "dla obecnych: PKO przenies wynagrodzenie, Toyota, mBank Biedronka 50, Santander Consumer, ING 200 dla aktywnych, ING karta dodatkowa, Erste Moja premia, Bezcenne Chwile/Zapunktuj, Pocztowy 32000 pkt",
+        "zastapione edycje: Pekao 300 (09), mBank eKonto uslug 1010, BNP Podroznik 1000, Raiffeisen euro 2,6%, VeloLokata ed7/8, EKO ed10/11, Alior ed10/ed4, Millennium Profit ed76, ING OKO 07/08, VeloKonto Gold (08), Erste 900, mBank LEGO junior",
+        "przekierowanie-2 (teraz Erste 1500 -> wpis z artykulu)",
+        "VeloBank przewodnik"
+      ],
+      "uwagi": "merge_index.py: reczny status 'wygasla' wygrywa nad data (zastapione/pula); status synchronizowany do frontmattera .md. Tracker: ING + Pekao (konto i karta) oznaczone received:true.",
+      "po_scaleniu": {
+        "lacznie": 116,
+        "aktywne": 53,
+        "wygasle": 63
+      },
+      "decyzja_stop": "Strona 4 (lipiec) w wiekszosci zastapiona nowszymi edycjami lub zakonczona; dalej juz zakres poprzedniego scrape'u (18.06)."
     }
   ]
 }

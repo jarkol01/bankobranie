@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/05/bnp-paribas-podroznik-edycja-1.html
 bank: BNP Paribas
 produkt: Konto Otwarte na Ciebie z Kartą Otwartą na Świat (promocja "Podróżnik - edycja 1")
 typ: konto_osobiste
-status: aktywna
+status: wygasla
 premia_total: 700
 waluta: PLN
 premia_components:

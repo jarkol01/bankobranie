@@ -1,0 +1,16 @@
+{
+  "id": "2026-08-unicredit-zabka-150",
+  "url": "https://www.bankobranie.pl/2026/08/unicredit-zabka-150-zl.html",
+  "plik": "promocje/2026-08-unicredit-zabka-150.md",
+  "bank": "UniCredit",
+  "produkt": "Konto w pakiecie Easy – Bonus na start – Żabka",
+  "typ": "konto_osobiste",
+  "status": "wygasla",
+  "premia_total": 150,
+  "data_publikacji": "2026-08-21",
+  "data_koniec_przystapienia": "2026-09-25",
+  "okres_warunkow_mies": 2,
+  "scraped_at": "2026-10-11",
+  "content_hash": "fp:150|2026-09-25|2",
+  "tagi": ["unicredit", "konto_osobiste", "bony", "zabka", "nowi_klienci", "wplyw_miesieczny", "transakcje_karta", "limit_uczestnikow", "wygasla"]
+}

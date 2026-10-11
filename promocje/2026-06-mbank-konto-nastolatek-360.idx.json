@@ -1,0 +1,16 @@
+{
+  "id": "2026-06-mbank-konto-nastolatek-360",
+  "url": "https://www.bankobranie.pl/2026/06/premia-do-300-z-za-konto-dla.html",
+  "plik": "promocje/2026-06-mbank-konto-nastolatek-360.md",
+  "bank": "mBank",
+  "produkt": "mKonto Młodych (konto osobiste dla nastolatków 13–17 lat)",
+  "typ": "konto_osobiste",
+  "status": "aktywna",
+  "premia_total": 360,
+  "data_publikacji": "2026-06-12",
+  "data_koniec_przystapienia": "2026-09-15",
+  "okres_warunkow_mies": 2,
+  "scraped_at": "2026-06-18",
+  "content_hash": "fp:360|2026-09-15|2",
+  "tagi": ["dla_nieletnich", "mBank", "nastolatek", "konto_osobiste"]
+}

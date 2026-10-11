@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/06/alior-bank-ekstra-premia-na-start.html
 bank: Alior Bank
 produkt: Alior Konto
 typ: konto_osobiste
-status: aktywna
+status: wygasla
 premia_total: 1000
 waluta: PLN
 premia_components:

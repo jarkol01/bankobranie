@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/05/velobank-elastyczne-konto-oszczednosciow
 bank: VeloBank
 produkt: VeloBank Elastyczne Konto Oszczędnościowe
 typ: konto_oszczednosciowe
-status: aktywna
+status: wygasla
 premia_total: null
 waluta: PLN
 oprocentowanie:

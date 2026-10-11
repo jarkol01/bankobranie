@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/04/ing-bank-program-polecen-konta.html
 bank: ING Bank Śląski
 produkt: Program poleceń ING
 typ: inne
-status: aktywna
+status: wygasla
 premia_total: 100
 waluta: PLN
 premia_components:

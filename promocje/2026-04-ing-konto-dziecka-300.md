@@ -4,7 +4,7 @@ url: https://www.bankobranie.pl/2026/04/ing-do-.html
 bank: ING Bank Śląski
 produkt: Konto w Planie ING Go dla dzieci
 typ: konto_osobiste
-status: aktywna
+status: wygasla
 premia_total: 300
 waluta: PLN
 
