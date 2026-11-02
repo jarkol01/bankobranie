@@ -246,36 +246,42 @@ const PLAN = {
         "DWA osobne salda 600 zł: na OKO (okno 3–10.09 → premia 600) i na koncie osobistym (po 10 tx, do 12.10 → premia 100)",
         "15 transakcji to po 5 w KAŻDYM z 3 miesięcy kalendarzowych — nie 2!"] },
 
-    { id:"alior", bank:"Alior", name:"Alior Konto", cash:1000, mile:0, open:"2026-06-30",
-      tag:"200 zł + 800 moneyback", note:"kod ZYSKAJ2026 · + obrączka płatnicza (rzecz, 500 zł)",
+    { id:"alior-konto2", bank:"Alior", name:"Alior Konto z premią", cash:800, mile:0, open:"10.2026 ✅",
+      tag:"200 + 200 + 4×100 zł", note:"✅ otwarte w październiku · + obrączka płatnicza (rzecz, 500 zł)",
       karencja:"brak konta osobistego w Alior od 3 lat",
       groups:[
-        {title:"Start", items:[
-          {text:"Otwórz z kodem ZYSKAJ2026",deadline:"2026-06-30"}]},
-        {title:"W 10 dniach od otwarcia (→ 200 zł)", items:[
-          {text:"5 płatności karta/BLIK",count:5,deadline:"2026-07-10"},
-          {text:"Rejestracja w Bezcenne Chwile",deadline:"2026-07-10"},
-          {text:"Logowanie w aplikacji",deadline:"2026-07-10"}]},
-        {title:"Moneyback — lipiec 2026 (→ do 100 zł)", items:[
-          {text:"1000 zł płatności STACJONARNIE",deadline:"2026-07-31"},{text:"Wpływ 2000 zł z innego banku",deadline:"2026-07-31"},{text:"Logowanie w aplikacji",deadline:"2026-07-31"}]},
-        {title:"Moneyback — sierpień 2026 (→ do 100 zł)", items:[
-          {text:"1000 zł płatności STACJONARNIE",deadline:"2026-08-31"},{text:"Wpływ 2000 zł z innego banku",deadline:"2026-08-31"},{text:"Logowanie w aplikacji",deadline:"2026-08-31"}]},
-        {title:"Moneyback — wrzesień 2026 (→ do 100 zł)", items:[
-          {text:"1000 zł płatności STACJONARNIE",deadline:"2026-09-30"},{text:"Wpływ 2000 zł z innego banku",deadline:"2026-09-30"},{text:"Logowanie w aplikacji",deadline:"2026-09-30"}]},
-        {title:"Moneyback — październik 2026 (→ do 100 zł)", items:[
-          {text:"1000 zł płatności STACJONARNIE",deadline:"2026-10-31"},{text:"Wpływ 2000 zł z innego banku",deadline:"2026-10-31"},{text:"Logowanie w aplikacji",deadline:"2026-10-31"}]},
-        {title:"Moneyback — listopad 2026 (→ do 100 zł)", items:[
-          {text:"1000 zł płatności STACJONARNIE",deadline:"2026-11-30"},{text:"Wpływ 2000 zł z innego banku",deadline:"2026-11-30"},{text:"Logowanie w aplikacji",deadline:"2026-11-30"}]},
-        {title:"Moneyback — grudzień 2026 (→ do 100 zł)", items:[
-          {text:"1000 zł płatności STACJONARNIE",deadline:"2026-12-31"},{text:"Wpływ 2000 zł z innego banku",deadline:"2026-12-31"},{text:"Logowanie w aplikacji",deadline:"2026-12-31"}]},
-        {title:"Moneyback — styczeń 2027 (→ do 100 zł)", items:[
-          {text:"1000 zł płatności STACJONARNIE",deadline:"2027-01-31"},{text:"Wpływ 2000 zł z innego banku",deadline:"2027-01-31"},{text:"Logowanie w aplikacji",deadline:"2027-01-31"}]},
-        {title:"Moneyback — luty 2027 (→ do 100 zł)", items:[
-          {text:"1000 zł płatności STACJONARNIE",deadline:"2027-02-28"},{text:"Wpływ 2000 zł z innego banku",deadline:"2027-02-28"},{text:"Logowanie w aplikacji",deadline:"2027-02-28"}]}
+        {title:"Start — 200 zł + obrączka", items:[
+          "Tylko edycja II (PREMIA800): karta w Google/Apple Pay + 1 płatność w 10 dni od umowy (ed. I PREMIA2026: sam wniosek online wystarczył)",
+          {text:"Odbierz obrączkę kodem z SMS na gotapster.com/alior (kod ważny 14 dni!)",deadline:"2026-11-30"}]},
+        {title:"Listopad 2026 (→ 200 zł do 31.12) · bezpiecznie do ~25.11", items:[
+          {text:"Wpływ ≥1000 zł JEDNYM przelewem z innego banku (mBank/Pekao)",deadline:"2026-11-25"},
+          {text:"3 płatności karta/BLIK za zakupy",count:3,deadline:"2026-11-25"},
+          {text:"Logowanie w aplikacji Alior Mobile",deadline:"2026-11-25"}]},
+        {title:"Grudzień 2026 (→ 100 zł do 31.01) · święta → do ~15.12", items:[
+          {text:"Wpływ ≥1000 zł JEDNYM przelewem z innego banku (mBank/Pekao)",deadline:"2026-12-15"},
+          {text:"3 płatności karta/BLIK za zakupy",count:3,deadline:"2026-12-15"},
+          {text:"Logowanie w aplikacji Alior Mobile",deadline:"2026-12-15"}]},
+        {title:"Styczeń 2027 (→ 100 zł do 28.02) · bezpiecznie do ~25.01", items:[
+          {text:"Wpływ ≥1000 zł JEDNYM przelewem z innego banku (mBank/Pekao)",deadline:"2027-01-25"},
+          {text:"3 płatności karta/BLIK za zakupy",count:3,deadline:"2027-01-25"},
+          {text:"Logowanie w aplikacji Alior Mobile",deadline:"2027-01-25"}]},
+        {title:"Luty 2027 (→ 100 zł do 31.03) · bezpiecznie do ~25.02", items:[
+          {text:"Wpływ ≥1000 zł JEDNYM przelewem z innego banku (mBank/Pekao)",deadline:"2027-02-25"},
+          {text:"3 płatności karta/BLIK za zakupy",count:3,deadline:"2027-02-25"},
+          {text:"Logowanie w aplikacji Alior Mobile",deadline:"2027-02-25"}]},
+        {title:"Marzec 2027 (→ 100 zł do 30.04) · bezpiecznie do ~25.03", items:[
+          {text:"Wpływ ≥1000 zł JEDNYM przelewem z innego banku (mBank/Pekao)",deadline:"2027-03-25"},
+          {text:"3 płatności karta/BLIK za zakupy",count:3,deadline:"2027-03-25"},
+          {text:"Logowanie w aplikacji Alior Mobile",deadline:"2027-03-25"},
+          {text:"Dobij do 5 płatności (karta 7 zł/mc po 26. urodzinach)",optional:true,deadline:"2027-03-25"}]}
       ],
-      payout:"200 zł do końca kolejnego mc · moneyback co mies. (do ~lutego 2027)",
-      oplaty:"konto 0 zł · karta 7 zł/mc (0 zł przy ≥5 płatności/mc)",
-      pitfalls:["Moneyback TYLKO płatności stacjonarne (online i ZEN się nie liczą)","Brak kary — w słabszym mc dostajesz 10% od tego, co wydasz"] },
+      payout:"każda nagroda do końca mc po miesiącu spełnienia warunków · ostatnia do 30.04.2027",
+      oplaty:"konto 0 zł · karta 0 zł do mc 26. urodzin, potem 7 zł/mc (0 zł przy ≥5 płatnościach)",
+      pitfalls:["Miesiąc otwarcia (październik) się NIE liczy — warunki od LISTOPADA do MARCA, w KAŻDYM miesiącu komplet",
+        "Wpływ = JEDEN przelew ≥1000 zł (2×500 się nie liczy) z innego banku; NIE z Kantoru Alior ani innego konta osobistego Alior. Można od razu odesłać",
+        "Liczą się tylko ZAKUPY kartą/BLIK — NIE przelewy BLIK na telefon, bankomaty; wykluczone MCC 4111 (transport/bilety), 4829 (Revolut), 6012, 6051, 6211, 4900 (media), 7995",
+        "Regulamin nie mówi, czy liczy się data transakcji czy księgowania → nie rób warunków w ostatnie 2–3 dni miesiąca; przelew w dzień roboczy (11.11 i święta grudniowe bez sesji Elixir)",
+        "Nie zamykaj konta/karty i NIE cofaj zgód marketingowych (e-mail/SMS + telefon) do 30.04.2027"] },
 
     { id:"erste", bank:"Erste", name:"Konto Smart", cash:700, mile:0, open:"2026-07-31",
       tag:"premia za otwarcie", note:"+100 zł z polecenia (osobny deadline 12.06!)",
@@ -382,7 +388,7 @@ const PLAN = {
     ["⚠️","Pekao: ZAWSZE konto Przekorzystne PRZED kartą kredytową (inaczej tracisz premię za konto)"],
     ["⚠️","Zgody marketingowe trzymaj ON aż do ostatniej wypłaty każdej promocji"],
     ["⚠️","Nie zamykaj kont ~60–90 dni po wypłacie premii"],
-    ["💡","Alior moneyback i Millennium-lojalność karmisz przepinając zakupy z ZEN (ZEN daje ~1–2%, moneyback ~10%)"],
+    ["💡","Millennium-lojalność karmisz przepinając zakupy z ZEN; Alior wymaga tylko 3 drobnych zakupów/mc"],
     ["💡","Karta Pekao Standard: po jednorazowym pushu 1000 zł leży darmowa — gotowa na wynajem auta"]
   ]
 };
